@@ -8,4 +8,8 @@
     <Folder Include="Server\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0-ci53" />
+  </ItemGroup>
+
 </Project>

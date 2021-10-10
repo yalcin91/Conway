@@ -3,33 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Conway.WPF"
              DispatcherUnhandledException="Application_DispatcherUnhandledException"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <LinearGradientBrush x:Key="GrayBlueGardientBrush"  
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <LinearGradientBrush x:Key="GrayBlueGardientBrush"  
                             StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="Silver" Offset="0"/>
-            <GradientStop Color="#CCCCFF" Offset="0.5"/>
-            <GradientStop Color="Silver" Offset="1"/>
-
-        </LinearGradientBrush>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="{StaticResource GrayBlueGardientBrush}"/>
-            <Setter Property="Width" Value="80"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="2">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
-                            </ContentPresenter>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style TargetType="{x:Type Border}">
-            <Setter Property="CornerRadius" Value="3"/>
-        </Style>
-
+                <GradientStop Color="Silver" Offset="0"/>
+                <GradientStop Color="#CCCCFF" Offset="0.5"/>
+                <GradientStop Color="Silver" Offset="1"/>
+            </LinearGradientBrush>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="{StaticResource GrayBlueGardientBrush}"/>
+                <Setter Property="Width" Value="80"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="2">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                </ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="3"/>
+            </Style>
+            <Style TargetType="PasswordBox">
+                <Setter Property="Background" Value="{StaticResource GrayBlueGardientBrush}"></Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

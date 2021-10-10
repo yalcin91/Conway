@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Assortiment\" />
-    <Folder Include="Products\" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0-ci53" />
   </ItemGroup>
 
   <ItemGroup>
