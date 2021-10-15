@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Window 1 - Standard Chrome"
         Topmost="True"
-        Width="1990" Height="1000"
+        Width="1890" Height="1000"
         WindowStyle="SingleBorderWindow"  WindowState="Maximized">
 
     <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="True" BorderThickness="0"
@@ -22,18 +22,18 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.RowDefinitions>
-                <RowDefinition MinHeight="400"></RowDefinition>
-                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition MinHeight="400" Height="151*"></RowDefinition>
+                <RowDefinition Height="15*"></RowDefinition>
                 <RowDefinition Height="300"></RowDefinition>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Margin="5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="400"></ColumnDefinition>
+                    <ColumnDefinition Width="350"></ColumnDefinition>
                     <ColumnDefinition Width="10"></ColumnDefinition>
                     <ColumnDefinition Width="800"></ColumnDefinition>
                     <ColumnDefinition Width="10"></ColumnDefinition>
-                    <ColumnDefinition Width="400"></ColumnDefinition>
+                    <ColumnDefinition Width="350"></ColumnDefinition>
                     <ColumnDefinition Width="40"></ColumnDefinition>
                     <ColumnDefinition Width="250"></ColumnDefinition>
                     <ColumnDefinition Width="50"></ColumnDefinition>
@@ -55,24 +55,24 @@
                     <PasswordBox x:Name="txtb_Pass" KeyUp="txtb_Pass_KeyDown" KeyDown="txtb_Pass_KeyDown" Grid.Row="1" ToolTip="enter password" Height="28" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" FontStyle="Italic" FontWeight="Bold"></PasswordBox>
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Grid.Column="0" Grid.Row="0" Content="BAT = " FontWeight="Bold" FontSize="20"></Label>
                         <Label Grid.Column="0" Grid.Row="1" Content="ITB = " FontWeight="Bold" FontSize="20"></Label>
                         <Label Grid.Column="0" Grid.Row="2" Content="JTI = " FontWeight="Bold" FontSize="20"></Label>
                         <Label Grid.Column="0" Grid.Row="3" Content="PMI = " FontWeight="Bold" FontSize="20"></Label>
 
-                        <Label Grid.Column="1" Grid.Row="0" x:Name="BAT" FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="1" Grid.Row="1" x:Name="ITB" FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="1" Grid.Row="2" x:Name="JTI" FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="1" Grid.Row="3" x:Name="PMI" FontWeight="Bold" FontSize="20"></Label>
+                        <Label Grid.Column="1" Grid.Row="0" x:Name="lbl_BAT" FontWeight="Bold" FontSize="20"></Label>
+                        <Label Grid.Column="1" Grid.Row="1" x:Name="lbl_ITB" FontWeight="Bold" FontSize="20"></Label>
+                        <Label Grid.Column="1" Grid.Row="2" x:Name="lbl_JTI" FontWeight="Bold" FontSize="20"></Label>
+                        <Label Grid.Column="1" Grid.Row="3" x:Name="lbl_PMI" FontWeight="Bold" FontSize="20"></Label>
                     </Grid>
                 </Grid>
 
@@ -87,17 +87,17 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_82"></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_83"></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_84"></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_85"></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_86"></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_87"></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_88"></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_89"></ColumnDefinition>
+                        <ColumnDefinition x:Name="clm_90"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                    <Border x:Name="clm_81" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
                     <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
                     <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
                     <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
@@ -308,10 +308,10 @@
                         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
                         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
                         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                        <Border x:Name="clm_6" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                        <Border x:Name="clm_7" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                        <Border x:Name="clm_8" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                        <Border x:Name="clm_9" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
                         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
                         <Label Grid.Row="1" Grid.Column="0" Content="1" BorderBrush="Black" BorderThickness="1"  FontSize="11"></Label>
                         <Label Grid.Row="1" Grid.Column="1" Content="2" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
@@ -980,29 +980,27 @@
                     <ColumnDefinition Width="20"></ColumnDefinition>
                     <ColumnDefinition Width="110"></ColumnDefinition>
                     <ColumnDefinition Width="20"></ColumnDefinition>
-                    <ColumnDefinition Width="450"></ColumnDefinition>
-                    <ColumnDefinition Width="20"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="320"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="Import" Click="btn_Import_Click" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                 <Button Grid.Column="2" Content="Export" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                 <Button Grid.Column="4" Content="Delete" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <ComboBox Grid.Column="6" Height="28" Width="400" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></ComboBox>
-                <Button Grid.Column="8" Content="Add" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <StackPanel Grid.Column="6" Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+                    <Button  Content="BAT_C" Click="btn_BAT_C" Height="28" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                    <Button  Content="BAT_Tdd" Height="28" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                    <Button  Content="ITB_C" Height="28" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                    <Button  Content="ITB_T" Height="28" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                    <Button  Content="JTI_C" Click="btn_JTI_C" Height="28" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                    <Button  Content="JTI_T" Height="28" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                    <Button  Content="PMI_C" Height="28" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                </StackPanel>
             </Grid>
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition MinWidth="200"></ColumnDefinition>
-                    <ColumnDefinition MinWidth="200"></ColumnDefinition>
-                    <ColumnDefinition MinWidth="600"></ColumnDefinition>
+                    <ColumnDefinition Width="600"></ColumnDefinition>
+                    <ColumnDefinition Width="600"></ColumnDefinition>
+                    <ColumnDefinition Width="600"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <DataGrid x:Name="data_Ini" FontWeight="Bold" CanUserAddRows="True" CanUserDeleteRows="True" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
@@ -1017,18 +1015,24 @@
                     </DataGrid>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <DataGrid x:Name="data_Assortiment" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
+                    <DataGrid x:Name="data_Product" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                            <DataGridTextColumn Header="NAAM" Binding="{Binding Path=Naam}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                            <DataGridTextColumn Header="FABRIKANT" Binding="{Binding Path=Fabrikant}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                            <DataGridTextColumn Header="HOOGTE" Binding="{Binding Path=Hoogte}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                            <DataGridTextColumn Header="BREEDTE" Binding="{Binding Path=Breedte}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                            <DataGridTextColumn Header="DIEPTE" Binding="{Binding Path=Diepte}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                            <DataGridTextColumn Header="INHOUD" Binding="{Binding Path=Inhoud}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                            <DataGridTextColumn Header="EAN" Binding="{Binding Path=Ean}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                            <DataGridTextColumn Header="PRIJS" Binding="{Binding Path=Prijs}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Left">
-                        <Button Grid.Column="10" Content="BAT_C" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                        <Button Grid.Column="11" Content="BAT_Tdd" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                        <Button Grid.Column="12" Content="ITB_C" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                        <Button Grid.Column="13" Content="ITB_T" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                        <Button Grid.Column="14" Content="JTI_C" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                        <Button Grid.Column="15" Content="JTI_T" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                        <Button Grid.Column="16" Content="PMI_C" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    </StackPanel>
+                    <DataGrid x:Name="data_Assortiment" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        
+                    </DataGrid>
                 </Grid>
             </Grid>
         </Grid>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Producten - Standard Chrome"
         Topmost="True"
-        Width="2000" Height="1000"
+        Width="1890" Height="1000"
         WindowStyle="SingleBorderWindow"  WindowState="Maximized">
 
     <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="True" BorderThickness="0"

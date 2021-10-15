@@ -17,5 +17,6 @@ namespace Conway.WPF.Verbinding
         public static JTI_Cigarette_Manager JTI_Cigarette_Manager { get; } = new JTI_Cigarette_Manager();
         public static JTI_Tabac_Manager JTI_Tabac_Manager { get; } = new JTI_Tabac_Manager();
         public static PMI_Cigarette_Manager PMI_Cigarette_Manager { get; } = new PMI_Cigarette_Manager();
+        public static Product_Manager Product_Manager { get; } = new Product_Manager();
     }
 }

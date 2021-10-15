@@ -1,10 +1,13 @@
-﻿using Conway.WPF.Assortiment;
+﻿using Conway.Core.Model;
+using Conway.WPF.Assortiment;
 using Conway.WPF.Products;
+using Conway.WPF.Verbinding;
 
 using Microsoft.Win32;
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -12,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -30,15 +34,27 @@ namespace Conway.WPF
     {
         private ProductenWpf ProductenWpf;
         private AssortimentWpf AssortimentWpf;
+        private List<Product> _Products;
+        DataGrid newData_Ini;
 
         public MainWindow()
         {
             InitializeComponent();
             ProductenWpf = new ProductenWpf();
             AssortimentWpf = new AssortimentWpf();
+            _Products = new List<Product>();
+            newData_Ini = new DataGrid();
+            GetProduct();
             ProductenWpf.Closing += ProductenWpf_Closing;
             AssortimentWpf.Closing += AssortimentWpf_Closing;
             Closing += MainWindow_Closing;
+        }
+
+        private async void GetProduct()
+        {
+            var producten = await Context.Product_Manager.GetProducten();
+            data_Product.ItemsSource = producten;
+            _Products = producten;
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -134,6 +150,7 @@ namespace Conway.WPF
             string description = "";
             string qt = "";
             string prix = "";
+            string fabrikant = "";
             List<string> _Naam = new List<string>();
             using (StreamReader reader = new StreamReader(path))
             {
@@ -170,8 +187,14 @@ namespace Conway.WPF
                                     else { prix = "\u20AC" + _VolledigString[(j + 8)]; }
                                 }
                                 //test.Text = _VolledigString[900];
-                                var data = new ModelIni { Id = id, Ean = ean, Description = description, Qt = qt, Prix = prix };
-                                ToMachine(id, description, prix);
+                                for (int i = 0; i < _Products.Count; i++)
+                                {
+                                    if(_Products[i].Eancode == long.Parse(ean)) { fabrikant = _Products[i].Fabrikant; }
+                                }
+                                string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
+                                var data = new ModelIni { Id = id, Ean = ean, Description = description, Qt = qt, Prix = prix, Fabricant = fabrikant };
+                                CheckFabrikantAantal(fabrikant);
+                                ToMachine(id, description, prix, fabrikant);
                                 id++;
                                 data_Ini.Items.Add(data);
                             }
@@ -179,7 +202,27 @@ namespace Conway.WPF
                         min++;
                     }
                 }
+                lbl_BAT.Content = _BAT.Count();
+                lbl_ITB.Content = _ITB.Count();
+                lbl_JTI.Content = _JTI.Count();
+                lbl_PMI.Content = _PMI.Count();
+                _BAT.Clear();
+                _ITB.Clear();
+                _JTI.Clear();
+                _PMI.Clear();
             }
+        }
+
+        List<int> _BAT = new List<int>();
+        List<int> _ITB = new List<int>();
+        List<int> _JTI = new List<int>();
+        List<int> _PMI = new List<int>();
+        public void CheckFabrikantAantal(string fabrikant)
+        {
+            if(fabrikant == "BAT") { _BAT.Add(1); }
+            if(fabrikant == "ITB") { _ITB.Add(1); }
+            if(fabrikant == "JTI") { _JTI.Add(1); }
+            if(fabrikant == "PMI") { _PMI.Add(1); }
         }
 
         private void Clear()
@@ -225,7 +268,7 @@ namespace Conway.WPF
             }
         }
 
-        private void ToMachine(int i, string description, string prix)
+        private void ToMachine(int i, string description, string prix, string fabrikant)
         {
             if (i == 1) { lbl_1.Content = description; lbl_1_Prix.Content = prix; }
             if (i == 2) { lbl_2.Content = description; lbl_2_Prix.Content = prix; }
@@ -316,15 +359,15 @@ namespace Conway.WPF
             if (i == 80) { lbl_80.Content = description; lbl_80_Prix.Content = prix; }
 
             if (i == 81) { lbl_81.Content = description; lbl_81_Prix.Content = prix; }
-            if(i == 82) { lbl_82.Content = description; lbl_82_Prix.Content = prix; }
-            if(i == 83) { lbl_83.Content = description; lbl_83_Prix.Content = prix; }
-            if(i == 84) { lbl_84.Content = description; lbl_84_Prix.Content = prix; }
-            if(i == 85) { lbl_85.Content = description; lbl_85_Prix.Content = prix; }
-            if(i == 86) { lbl_86.Content = description; lbl_86_Prix.Content = prix; }
-            if(i == 87) { lbl_87.Content = description; lbl_87_Prix.Content = prix; }
-            if(i == 88) { lbl_88.Content = description; lbl_88_Prix.Content = prix; }
-            if(i == 89) { lbl_89.Content = description; lbl_89_Prix.Content = prix; }
-            if(i == 90) { lbl_90.Content = description; lbl_90_Prix.Content = prix; }
+            if (i == 82) { lbl_82.Content = description; lbl_82_Prix.Content = prix; }
+            if (i == 83) { lbl_83.Content = description; lbl_83_Prix.Content = prix; }
+            if (i == 84) { lbl_84.Content = description; lbl_84_Prix.Content = prix; }
+            if (i == 85) { lbl_85.Content = description; lbl_85_Prix.Content = prix; }
+            if (i == 86) { lbl_86.Content = description; lbl_86_Prix.Content = prix; }
+            if (i == 87) { lbl_87.Content = description; lbl_87_Prix.Content = prix; }
+            if (i == 88) { lbl_88.Content = description; lbl_88_Prix.Content = prix; }
+            if (i == 89) { lbl_89.Content = description; lbl_89_Prix.Content = prix; }
+            if (i == 90) { lbl_90.Content = description; lbl_90_Prix.Content = prix; }
         }
 
         public class ModelIni
@@ -335,6 +378,113 @@ namespace Conway.WPF
             public string Qt { get; set; }
             public string Prix { get; set; }
             public string Fabricant { get; set; }
+        }
+
+        private void btn_BAT_C(object sender, RoutedEventArgs e)
+        {
+            clearColor();
+            ChangeColor("BAT");
+        }
+
+        private void btn_JTI_C(object sender, RoutedEventArgs e)
+        {
+            clearColor();
+            ChangeColor("JTI");
+        }
+        private void clearColor()
+        {
+            clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+        }
+
+        private void ChangeColor(string fabrikant)
+        {
+            string message = "";
+            int m = 1;
+            for (int i = 0; i < data_Ini.Items.Count; i++)
+            {
+                message = "";
+                for (int j = 0; j < data_Ini.Columns.Count; j++)
+                {
+                    DataGridCell cell = GetCell(i, j);
+                    if (cell != null)
+                    {
+                        TextBlock tb = cell.Content as TextBlock;
+                        message += tb.Text;
+                    }
+                    //TextBlock tb = cell.Content as TextBlock;
+                    //message += tb.Text + " ";
+                }
+                if (message.Length > 3)
+                {
+                    var result = message.Substring(message.Length - 3);
+                    string exampleTrimmed = String.Concat(result.Where(c => !Char.IsWhiteSpace(c)));
+                    if (exampleTrimmed == fabrikant)
+                    {
+                        if (m == 6) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                        if (m == 7) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                        if (m == 8) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                        if (m == 81) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    };
+                }
+                //MessageBox.Show(message);
+                m++;
+            }    
+        }
+
+        public DataGridCell GetCell(int row, int column)
+        {
+            DataGridRow rowData = GetRow(row);
+            if (rowData != null)
+            {
+                DataGridCellsPresenter cellPresenter = GetVisualChild<DataGridCellsPresenter>(rowData);
+                if (cellPresenter == null)
+                {
+                    return null;
+                }
+                    DataGridCell cell = (DataGridCell)cellPresenter.ItemContainerGenerator.ContainerFromIndex(column);
+                if (cell == null)
+                {
+                    data_Ini.ScrollIntoView(rowData, data_Ini.Columns[column]);
+                    cell = (DataGridCell)cellPresenter.ItemContainerGenerator.ContainerFromIndex(column);
+                }
+                return cell;
+            }
+            return null;
+        }
+
+        public DataGridRow GetRow(int index)
+        {
+            DataGridRow row = (DataGridRow)data_Ini.ItemContainerGenerator.ContainerFromIndex(index);
+            if (row == null)
+            {
+                data_Ini.UpdateLayout();
+                data_Ini.ScrollIntoView(data_Ini.Items[index]);
+                row = (DataGridRow)data_Ini.ItemContainerGenerator.ContainerFromIndex(index);
+            }
+            return row;
+        }
+
+        public static T GetVisualChild<T>(Visual parent) where T : Visual
+        {
+            T child = default(T);
+            int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < numVisuals; i++)
+            {
+                Visual v = (Visual)VisualTreeHelper.GetChild(parent, i);
+                child = v as T;
+                if (child == null)
+                {
+                    child = GetVisualChild<T>(v);
+                }
+                if (child != null)
+                {
+                    break;
+                }
+            }
+            return child;
         }
     }
 }
