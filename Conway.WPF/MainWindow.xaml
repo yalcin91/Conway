@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Window 1 - Standard Chrome"
         Topmost="True"
-        Width="1890" Height="1000"
+        Width="2100" Height="1000"
         WindowStyle="SingleBorderWindow"  WindowState="Maximized">
 
     <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="True" BorderThickness="0"
@@ -23,7 +23,7 @@
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition MinHeight="400" Height="151*"></RowDefinition>
-                <RowDefinition Height="15*"></RowDefinition>
+                <RowDefinition></RowDefinition>
                 <RowDefinition Height="300"></RowDefinition>
             </Grid.RowDefinitions>
 
@@ -87,26 +87,26 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_82"></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_83"></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_84"></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_85"></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_86"></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_87"></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_88"></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_89"></ColumnDefinition>
-                        <ColumnDefinition x:Name="clm_90"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Border x:Name="clm_81" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                    <Border x:Name="clm_82" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                    <Border x:Name="clm_83" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                    <Border x:Name="clm_84" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                    <Border x:Name="clm_85" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                    <Border x:Name="clm_86" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                    <Border x:Name="clm_87" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                    <Border x:Name="clm_88" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                    <Border x:Name="clm_89" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                    <Border x:Name="clm_90" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="81" BorderBrush="Black" BorderThickness="1"  FontSize="11"></Label>
                     <Label Grid.Row="1" Grid.Column="1" Content="82" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
                     <Label Grid.Row="1" Grid.Column="2" Content="83" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
@@ -203,16 +203,16 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                        <Border x:Name="clm_11" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                        <Border x:Name="clm_12" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                        <Border x:Name="clm_13" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                        <Border x:Name="clm_14" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                        <Border x:Name="clm_15" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                        <Border x:Name="clm_16" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                        <Border x:Name="clm_17" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                        <Border x:Name="clm_18" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                        <Border x:Name="clm_19" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                        <Border x:Name="clm_20" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
                         <Label Grid.Row="1" Grid.Column="0" Content="11" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
                         <Label Grid.Row="1" Grid.Column="1" Content="12" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
                         <Label Grid.Row="1" Grid.Column="2" Content="13" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
@@ -303,16 +303,16 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                        <Border x:Name="clm_1" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                        <Border x:Name="clm_2" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                        <Border x:Name="clm_3" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                        <Border x:Name="clm_4" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                        <Border x:Name="clm_5" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
                         <Border x:Name="clm_6" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
                         <Border x:Name="clm_7" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
                         <Border x:Name="clm_8" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
                         <Border x:Name="clm_9" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                        <Border x:Name="clm_10" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
                         <Label Grid.Row="1" Grid.Column="0" Content="1" BorderBrush="Black" BorderThickness="1"  FontSize="11"></Label>
                         <Label Grid.Row="1" Grid.Column="1" Content="2" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
                         <Label Grid.Row="1" Grid.Column="2" Content="3" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
@@ -421,26 +421,26 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
+                        <Border x:Name="clm_61" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                        <Border x:Name="clm_62" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                        <Border x:Name="clm_63" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                        <Border x:Name="clm_64" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                        <Border x:Name="clm_65" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                        <Border x:Name="clm_66" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                        <Border x:Name="clm_67" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                        <Border x:Name="clm_68" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                        <Border x:Name="clm_69" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                        <Border x:Name="clm_70" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                        <Border x:Name="clm_71" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
+                        <Border x:Name="clm_72" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
+                        <Border x:Name="clm_73" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
+                        <Border x:Name="clm_74" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
+                        <Border x:Name="clm_75" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
+                        <Border x:Name="clm_76" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
+                        <Border x:Name="clm_77" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
+                        <Border x:Name="clm_78" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
+                        <Border x:Name="clm_79" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
+                        <Border x:Name="clm_80" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
                         <Label Grid.Row="1" Grid.Column="0" Content="61" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                         <Label Grid.Row="1" Grid.Column="1" Content="62" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                         <Label Grid.Row="1" Grid.Column="2" Content="63" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
@@ -611,26 +611,26 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
+                        <Border x:Name="clm_41" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                        <Border x:Name="clm_42" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                        <Border x:Name="clm_43" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                        <Border x:Name="clm_44" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                        <Border x:Name="clm_45" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                        <Border x:Name="clm_46" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                        <Border x:Name="clm_47" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                        <Border x:Name="clm_48" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                        <Border x:Name="clm_49" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                        <Border x:Name="clm_50" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                        <Border x:Name="clm_51" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
+                        <Border x:Name="clm_52" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
+                        <Border x:Name="clm_53" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
+                        <Border x:Name="clm_54" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
+                        <Border x:Name="clm_55" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
+                        <Border x:Name="clm_56" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
+                        <Border x:Name="clm_57" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
+                        <Border x:Name="clm_58" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
+                        <Border x:Name="clm_59" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
+                        <Border x:Name="clm_60" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
                         <Label Grid.Row="1" Grid.Column="0" Content="41" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                         <Label Grid.Row="1" Grid.Column="1" Content="42" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                         <Label Grid.Row="1" Grid.Column="2" Content="43" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
@@ -801,26 +801,26 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
+                        <Border x:Name="clm_21" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                        <Border x:Name="clm_22" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                        <Border x:Name="clm_23" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                        <Border x:Name="clm_24" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                        <Border x:Name="clm_25" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                        <Border x:Name="clm_26" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                        <Border x:Name="clm_27" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                        <Border x:Name="clm_28" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                        <Border x:Name="clm_29" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                        <Border x:Name="clm_30" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                        <Border x:Name="clm_31" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
+                        <Border x:Name="clm_32" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
+                        <Border x:Name="clm_33" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
+                        <Border x:Name="clm_34" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
+                        <Border x:Name="clm_35" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
+                        <Border x:Name="clm_36" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
+                        <Border x:Name="clm_37" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
+                        <Border x:Name="clm_38" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
+                        <Border x:Name="clm_39" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
+                        <Border x:Name="clm_40" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
                         <Label Grid.Row="1" Grid.Column="0" Content="21" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                         <Label Grid.Row="1" Grid.Column="1" Content="22" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                         <Label Grid.Row="1" Grid.Column="2" Content="23" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
@@ -998,12 +998,12 @@
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="600"></ColumnDefinition>
-                    <ColumnDefinition Width="600"></ColumnDefinition>
-                    <ColumnDefinition Width="600"></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <DataGrid x:Name="data_Ini" FontWeight="Bold" CanUserAddRows="True" CanUserDeleteRows="True" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <DataGrid x:Name="data_Ini" FontWeight="Bold" AlternatingRowBackground="AliceBlue" CanUserAddRows="True" CanUserDeleteRows="True" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
                             <DataGridTextColumn Header="EAN" Binding="{Binding Path=Ean}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
@@ -1015,24 +1015,10 @@
                     </DataGrid>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <DataGrid x:Name="data_Product" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                            <DataGridTextColumn Header="NAAM" Binding="{Binding Path=Naam}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                            <DataGridTextColumn Header="FABRIKANT" Binding="{Binding Path=Fabrikant}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                            <DataGridTextColumn Header="HOOGTE" Binding="{Binding Path=Hoogte}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                            <DataGridTextColumn Header="BREEDTE" Binding="{Binding Path=Breedte}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                            <DataGridTextColumn Header="DIEPTE" Binding="{Binding Path=Diepte}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                            <DataGridTextColumn Header="INHOUD" Binding="{Binding Path=Inhoud}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                            <DataGridTextColumn Header="EAN" Binding="{Binding Path=Ean}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                            <DataGridTextColumn Header="PRIJS" Binding="{Binding Path=Prijs}" FontWeight="Bold" FontStyle="Italic" FontSize="14"></DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <DataGrid x:Name="data_Product" AlternatingRowBackground="AliceBlue" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" FontSize="14" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <DataGrid x:Name="data_Assortiment" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-                        
-                    </DataGrid>
+                    <DataGrid x:Name="data_Assortiment" AlternatingRowBackground="AliceBlue" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" FontSize="14" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
                 </Grid>
             </Grid>
         </Grid>

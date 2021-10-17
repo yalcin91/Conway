@@ -11,14 +11,14 @@ namespace Conway.Core.Model
     public abstract class IAssortiment
     {
         #region CTR
-        public IAssortiment(long id, int @ref, string product, int ean, string fabrikant, string dif, double nielsen1, double nielsen2, double nielsen3, double nielsen4, string groupe, string color)
+        public IAssortiment(long id, int @ref, string product, long eanCode, string fabrikant, string size, double nielsen1, double nielsen2, double nielsen3, double nielsen4, string groupe, string color)
         {
             SetId(id);
             SetRef(@ref);
             SetProduct(product);
-            SetEan(ean);
+            SetEan(eanCode);
             SetFabrikant(fabrikant);
-            SetDIF(dif);
+            SetDIF(size);
             SetNielsen1(nielsen1);
             SetNielsen2(nielsen2);
             SetNielsen3(nielsen3);
@@ -28,18 +28,92 @@ namespace Conway.Core.Model
         }
         #endregion
         #region Model
-        private long Id;
-        private int Ref { get; set; }
-        private string Product { get; set; }
-        private int Ean { get; set; }
-        private string Fabrikant { get; set; }
-        private string DIF { get; set; }
-        private double Nielsen1 { get; set; }
-        private double Nielsen2 { get; set; }
-        private double Nielsen3 { get; set; }
-        private double Nielsen4 { get; set; }
-        private string Groupe { get; set; }
-        private string Color { get; set; }
+        private long _Id;
+        private int _Ref;
+        private string _Product;
+        private long _EanCode;
+        private string _Fabrikant;
+        private string _Size;
+        private double _Nielsen1;
+        private double _Nielsen2;
+        private double _Nielsen3;
+        private double _Nielsen4;
+        private string _Groupe;
+        private string _Color;
+        #endregion
+
+        #region Return Private's
+        public long Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+
+        public int Ref
+        {
+            get { return _Ref; }
+            set { _Ref = value; }
+        }
+
+        public string Product
+        {
+            get { return _Product; }
+            set { _Product = value; }
+        }
+
+        public long EanCode
+        {
+            get { return _EanCode; }
+            set { _EanCode = value; }
+        }
+
+        public string Fabrikant
+        {
+            get { return _Fabrikant; }
+            set { _Fabrikant = value; }
+        }
+
+        public string Size
+        {
+            get { return _Size; }
+            set { _Size = value; }
+        }
+
+        public double Nielsen1
+        {
+            get { return _Nielsen1; }
+            set { _Nielsen1 = value; }
+        }
+
+        public double Nielsen2
+        {
+            get { return _Nielsen2; }
+            set { _Nielsen2 = value; }
+        }
+
+        public double Nielsen3
+        {
+            get { return _Nielsen3; }
+            set { _Nielsen3 = value; }
+        }
+
+        public double Nielsen4
+        {
+            get { return _Nielsen4; }
+            set { _Nielsen4 = value; }
+        }
+
+        public string Groupe
+        {
+            get { return _Groupe; }
+            set { _Groupe = value; }
+        }
+
+        public string Color
+        {
+            get { return _Color; }
+            set { _Color = value; }
+        }
         #endregion
 
         #region Get Methods
@@ -58,9 +132,9 @@ namespace Conway.Core.Model
             return Product;
         }
 
-        public int GetEan()
+        public long GetEan()
         {
-            return Ean;
+            return EanCode;
         }
 
         public string GetFabrikant()
@@ -70,7 +144,7 @@ namespace Conway.Core.Model
 
         public string GetDIF()
         {
-            return DIF;
+            return Size;
         }
 
         public double GetNielsen1()
@@ -123,10 +197,10 @@ namespace Conway.Core.Model
             Product = product;
         }
 
-        public void SetEan(int ean)
+        public void SetEan(long eanCode)
         {
-            if (ean <= 0) { throw new AssortimentException("Invalid ean."); }
-            Ean = ean;
+            if (eanCode <= 0) { throw new AssortimentException("Invalid ean."); }
+            EanCode = eanCode;
         }
 
         public void SetFabrikant(string fabrikant)
@@ -135,10 +209,10 @@ namespace Conway.Core.Model
             Fabrikant = fabrikant;
         }
 
-        public void SetDIF(string dif)
+        public void SetDIF(string size)
         {
-            if (dif.Trim().Length >= 10) { throw new AssortimentException("Invalid dif."); }
-            DIF = dif;
+            if (size.Trim().Length >= 10) { throw new AssortimentException("Invalid dif."); }
+            Size = size;
         }
 
         public void SetNielsen1(double nielsen1)
@@ -167,7 +241,7 @@ namespace Conway.Core.Model
 
         public virtual void SetGroupe(string groupe)
         {
-            if (groupe.Trim() != "Cigarette") { throw new AssortimentException("Invalid groupe."); }
+            //if (groupe.Trim() != "Cigarette") { throw new AssortimentException("Invalid groupe."); }
             Groupe = groupe;
         }
 
