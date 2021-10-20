@@ -36,6 +36,14 @@ namespace Conway.WPF
         private AssortimentWpf AssortimentWpf;
         private List<Product> _Products;
         private ObservableCollection<Product> _Producten;
+        private ObservableCollection<BAT_Cigarette> _BAT_Cigaretten;
+        private ObservableCollection<BAT_Tabac> _BAT_Tabac;
+        private ObservableCollection<ITB_Cigarette> _ITB_Cigaretten;
+        private ObservableCollection<ITB_Tabac> _ITB_Tabac;
+        private ObservableCollection<JTI_Cigarette> _JTI_Cigaretten;
+        private ObservableCollection<JTI_Tabac> _JTI_Tabac;
+        private ObservableCollection<PMI_Cigarette> _PMI_Cigaretten;
+        private ObservableCollection<ModelIni> _Ini;
 
         public MainWindow()
         {
@@ -44,12 +52,22 @@ namespace Conway.WPF
             AssortimentWpf = new AssortimentWpf();
             _Products = new List<Product>();
             _Producten = new ObservableCollection<Product>();
+            _BAT_Cigaretten = new ObservableCollection<BAT_Cigarette>();
+            _BAT_Tabac = new ObservableCollection<BAT_Tabac>();
+            _ITB_Cigaretten = new ObservableCollection<ITB_Cigarette>();
+            _ITB_Tabac = new ObservableCollection<ITB_Tabac>();
+            _JTI_Cigaretten = new ObservableCollection<JTI_Cigarette>();
+            _JTI_Tabac = new ObservableCollection<JTI_Tabac>();
+            _PMI_Cigaretten = new ObservableCollection<PMI_Cigarette>();
+            _Ini = new ObservableCollection<ModelIni>();
             GetProduct();
+            GetBAT_Cigarette();
             ProductenWpf.Closing += ProductenWpf_Closing;
             AssortimentWpf.Closing += AssortimentWpf_Closing;
             Closing += MainWindow_Closing;
         }
 
+        #region Get all Products
         private async void GetProduct()
         {
             var producten = await Context.Product_Manager.GetProducten();
@@ -60,12 +78,83 @@ namespace Conway.WPF
             data_Product.ItemsSource = _Producten;
             _Products = producten;
         }
+        #endregion
 
+        #region Get All Assortiment
         private async void GetBAT_Cigarette()
         {
+            _BAT_Cigaretten = new ObservableCollection<BAT_Cigarette>();
             var bAT_Cigarette = await Context.BAT_Cigarette_Manager.GetBAT_Cigarette();
-            data_Assortiment.ItemsSource = bAT_Cigarette;
+            foreach (var item in bAT_Cigarette)
+            {
+                _BAT_Cigaretten.Add(item);
+            }
+            data_Assortiment.ItemsSource = _BAT_Cigaretten;
         }
+        private async void GetBAT_Tabac()
+        {
+            _BAT_Tabac = new ObservableCollection<BAT_Tabac>();
+            var bAT_Tabac = await Context.BAT_Tabac_Manager.GetBAT_Tabac();
+            foreach (var item in bAT_Tabac)
+            {
+                _BAT_Tabac.Add(item);
+            }
+            data_Assortiment.ItemsSource = _BAT_Tabac;
+        }
+
+        private async void GetITB_Cigarette()
+        {
+            _ITB_Cigaretten = new ObservableCollection<ITB_Cigarette>();
+            var itb_Cigarette = await Context.ITB_Cigarette_Manager.GetITB_Cigarette();
+            foreach (var item in itb_Cigarette)
+            {
+                _ITB_Cigaretten.Add(item);
+            }
+            data_Assortiment.ItemsSource = _ITB_Cigaretten;
+        }
+        private async void GetITB_Tabac()
+        {
+            _ITB_Tabac = new ObservableCollection<ITB_Tabac>();
+            var itb_Tabac = await Context.ITB_Tabac_Manager.GetITB_Tabac();
+            foreach (var item in itb_Tabac)
+            {
+                _ITB_Tabac.Add(item);
+            }
+            data_Assortiment.ItemsSource = _ITB_Tabac;
+        }
+
+        private async void GetJTI_Cigarette()
+        {
+            _JTI_Cigaretten = new ObservableCollection<JTI_Cigarette>();
+            var jti_Cigarette = await Context.JTI_Cigarette_Manager.GetJTI_Cigarette();
+            foreach (var item in jti_Cigarette)
+            {
+                _JTI_Cigaretten.Add(item);
+            }
+            data_Assortiment.ItemsSource = _JTI_Cigaretten;
+        }
+        private async void GetJTI_Tabac()
+        {
+            _JTI_Tabac = new ObservableCollection<JTI_Tabac>();
+            var jti_Tabac = await Context.JTI_Tabac_Manager.GetJTI_Tabac();
+            foreach (var item in jti_Tabac)
+            {
+                _JTI_Tabac.Add(item);
+            }
+            data_Assortiment.ItemsSource = _JTI_Tabac;
+        }
+
+        private async void GetPMI_Cigarette()
+        {
+            _PMI_Cigaretten = new ObservableCollection<PMI_Cigarette>();
+            var pmi_Cigarette = await Context.PMI_Cigarette_Manager.GetPMI_Cigarette();
+            foreach (var item in pmi_Cigarette)
+            {
+                _PMI_Cigaretten.Add(item);
+            }
+            data_Assortiment.ItemsSource = _PMI_Cigaretten;
+        }
+        #endregion
 
         #region Closing
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -141,9 +230,20 @@ namespace Conway.WPF
             }
         }
 
+
+        private List<string> _Fabrikant = new List<string>();
+        private List<int> _BAT = new List<int>();
+        private List<int> _ITB = new List<int>();
+        private List<int> _JTI = new List<int>();
+        private List<int> _PMI = new List<int>();
         private void btn_Import_Click(object sender, RoutedEventArgs e)
         {
             Clear();
+            _Fabrikant = new List<string>();
+            _BAT = new List<int>();
+            _ITB = new List<int>();
+            _JTI = new List<int>();
+            _PMI = new List<int>();
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.DefaultExt = ".ini";
@@ -207,13 +307,21 @@ namespace Conway.WPF
                                 var data = new ModelIni { Id = id, Ean = ean, Description = description, Qt = qt, Prix = prix, Fabricant = fabrikant };
                                 CheckFabrikantAantal(fabrikant);
                                 ToMachine(id, description, prix, fabrikant);
+                                _Fabrikant.Add(fabrikant);
                                 id++;
-                                data_Ini.Items.Add(data);
+                                _Ini.Add(data);
+                                 ean = "";
+                                 description = "";
+                                 qt = "";
+                                 prix = "";
+                                 fabrikant = "";
+                                //data_Ini.Items.Add(data);
                             }
                         }
                         min++;
                     }
                 }
+                data_Ini.ItemsSource = _Ini;
                 lbl_BAT.Content = _BAT.Count();
                 lbl_ITB.Content = _ITB.Count();
                 lbl_JTI.Content = _JTI.Count();
@@ -225,10 +333,6 @@ namespace Conway.WPF
             }
         }
 
-        List<int> _BAT = new List<int>();
-        List<int> _ITB = new List<int>();
-        List<int> _JTI = new List<int>();
-        List<int> _PMI = new List<int>();
         public void CheckFabrikantAantal(string fabrikant)
         {
             if(fabrikant == "BAT") { _BAT.Add(1); }
@@ -247,14 +351,49 @@ namespace Conway.WPF
             public string Fabricant { get; set; }
         }
 
+        #region Fabrikant code
         private int ClearCodeCheck = 0;
         private void btn_BAT_C(object sender, RoutedEventArgs e)
         {
+            GetBAT_Cigarette();
             if (ClearCodeCheck == 0)
             {
                 clearColor();
                 ChangeColor("BAT");
-                GetBAT_Cigarette();
+                ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
+        private void btn_BAT_T(object sender, RoutedEventArgs e)
+        {
+            GetBAT_Tabac();
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                ChangeColor("BAT");
+                ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
+
+        private void btn_ITB_C(object sender, RoutedEventArgs e)
+        {
+            GetITB_Cigarette();
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                ChangeColor("ITB");
+                ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
+        private void btn_ITB_T(object sender, RoutedEventArgs e)
+        {
+            GetITB_Tabac();
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                ChangeColor("ITB");
                 ClearCodeCheck = 1;
             }
             else { clearColor(); ClearCodeCheck = 0; }
@@ -262,10 +401,34 @@ namespace Conway.WPF
 
         private void btn_JTI_C(object sender, RoutedEventArgs e)
         {
+            GetJTI_Cigarette();
             if (ClearCodeCheck == 0)
             {
                 clearColor();
                 ChangeColor("JTI");
+                ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
+        private void btn_JTI_T(object sender, RoutedEventArgs e)
+        {
+            GetJTI_Tabac();
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                ChangeColor("JTI");
+                ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
+
+        private void btn_PMI_C(object sender, RoutedEventArgs e)
+        {
+            GetPMI_Cigarette();
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                ChangeColor("PMI");
                 ClearCodeCheck = 1;
             }
             else { clearColor(); ClearCodeCheck = 0; }
@@ -371,10 +534,116 @@ namespace Conway.WPF
             clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
             clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
         }
+        #endregion
 
         private void ChangeColor(string fabrikant)
         {
-            string message = "";
+            for (int m = 0; m < _Ini.Count; m++)
+            {
+                if (_Ini[m].Fabricant == fabrikant)
+                {
+                    if (m == 0) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 1) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 2) clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 3) clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 4) clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 5) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 6) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 7) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 8) clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 9) clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+
+                    if (m == 10) clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 11) clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 12) clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 13) clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 14) clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 15) clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 16) clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 17) clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 18) clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 19) clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+
+                    if (m == 20) clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 21) clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 22) clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 23) clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 24) clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 25) clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 26) clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 27) clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 28) clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 29) clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+
+                    if (m == 30) clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 31) clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 32) clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 33) clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 34) clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 35) clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 36) clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 37) clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 38) clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 39) clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+
+                    if (m == 40) clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 41) clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 42) clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 43) clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 44) clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 45) clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 46) clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 47) clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 48) clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 49) clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+
+                    if (m == 50) clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 51) clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 52) clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 53) clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 54) clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 55) clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 56) clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 57) clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 58) clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 59) clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+
+                    if (m == 60) clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 61) clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 62) clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 63) clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 64) clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 65) clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 66) clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 67) clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 68) clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 69) clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+
+                    if (m == 70) clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 71) clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 72) clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 73) clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 74) clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 75) clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 76) clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 77) clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 78) clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 79) clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+
+                    if (m == 80) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 81) clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 82) clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 83) clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 84) clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 85) clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 86) clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 87) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 88) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                    if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
+                }
+            }
+                   
+            /*string message = "";
             int m = 1;
             for (int i = 0; i < data_Ini.Items.Count; i++)
             {
@@ -494,11 +763,11 @@ namespace Conway.WPF
                         if (m == 88) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
                         if (m == 89) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
                         if (m == 90) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                    };
+                   /* };
                 }
                 //MessageBox.Show(message);
                 m++;
-            }    
+            }  */  
         }
 
         #region Voor Get DataGrid
@@ -560,7 +829,7 @@ namespace Conway.WPF
         {
             if (data_Ini != null)
             {
-                data_Ini.Items.Clear();
+                _Ini = new ObservableCollection<ModelIni>();
                 lbl_1.Content = ""; lbl_1_Prix.Content = ""; lbl_2.Content = ""; lbl_2_Prix.Content = ""; lbl_3.Content = ""; lbl_3_Prix.Content = "";
                 lbl_4.Content = ""; lbl_4_Prix.Content = ""; lbl_5.Content = ""; lbl_5_Prix.Content = ""; lbl_6.Content = ""; lbl_6_Prix.Content = ""; lbl_7.Content = "";
                 lbl_7_Prix.Content = ""; lbl_8.Content = ""; lbl_8_Prix.Content = ""; lbl_9.Content = ""; lbl_9_Prix.Content = ""; lbl_10.Content = ""; lbl_10_Prix.Content = "";

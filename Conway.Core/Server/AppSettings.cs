@@ -8,6 +8,6 @@ namespace Conway.Core.Server
 {
     public class AppSettings
     {
-        public static string ApiUrl = "https://localhost:5001/";
+        public static string ApiUrl = "http://yalcin91-001-site1.ftempurl.com/";
     }
 }
