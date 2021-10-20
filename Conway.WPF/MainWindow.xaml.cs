@@ -236,14 +236,15 @@ namespace Conway.WPF
         private List<int> _ITB = new List<int>();
         private List<int> _JTI = new List<int>();
         private List<int> _PMI = new List<int>();
+        private double Breedte_Links = 645;
+        private double Breedte_Rechts_Boven = 645;
+        private double Breedte_Rechts_Beneden = 645;
+        private double Breedte_Midden_Boven = 1306;
+        private double Breedte_Midden_Midden = 1306;
+        private double Breedte_Midden_Beneden = 1306;
         private void btn_Import_Click(object sender, RoutedEventArgs e)
         {
             Clear();
-            _Fabrikant = new List<string>();
-            _BAT = new List<int>();
-            _ITB = new List<int>();
-            _JTI = new List<int>();
-            _PMI = new List<int>();
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.DefaultExt = ".ini";
@@ -263,6 +264,8 @@ namespace Conway.WPF
             string qt = "";
             string prix = "";
             string fabrikant = "";
+            double hoogte = 0;
+            double breedte = 0;
             List<string> _Naam = new List<string>();
             using (StreamReader reader = new StreamReader(path))
             {
@@ -298,24 +301,25 @@ namespace Conway.WPF
                                     if (_VolledigString[j + 8].First() == '0') { prix = "\u20AC" + _VolledigString[(j + 8)].Remove(0, 1); }
                                     else { prix = "\u20AC" + _VolledigString[(j + 8)]; }
                                 }
-                                //test.Text = _VolledigString[900];
                                 for (int i = 0; i < _Products.Count; i++)
                                 {
-                                    if(_Products[i].Eancode == long.Parse(ean)) { fabrikant = _Products[i].Fabrikant; }
+                                    if(_Products[i].Eancode == long.Parse(ean)) { fabrikant = _Products[i].Fabrikant; hoogte = _Products[i].Hoogte; breedte = _Products[i].Breedte; }
                                 }
                                 string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
-                                var data = new ModelIni { Id = id, Ean = ean, Description = description, Qt = qt, Prix = prix, Fabricant = fabrikant };
+                                var data = new ModelIni { Id = id, Ean = ean, Description = description, Qt = qt, Prix = prix, Fabricant = fabrikant, Hoogte = hoogte, Breedte = breedte };
                                 CheckFabrikantAantal(fabrikant);
                                 ToMachine(id, description, prix, fabrikant);
                                 _Fabrikant.Add(fabrikant);
-                                id++;
                                 _Ini.Add(data);
-                                 ean = "";
+                                Breedte_Berekenen(id);
+                                id++;
+                                ean = "";
                                  description = "";
                                  qt = "";
                                  prix = "";
                                  fabrikant = "";
-                                //data_Ini.Items.Add(data);
+                                breedte = 0;
+                                hoogte = 0;
                             }
                         }
                         min++;
@@ -326,14 +330,77 @@ namespace Conway.WPF
                 lbl_ITB.Content = _ITB.Count();
                 lbl_JTI.Content = _JTI.Count();
                 lbl_PMI.Content = _PMI.Count();
-                _BAT.Clear();
-                _ITB.Clear();
-                _JTI.Clear();
-                _PMI.Clear();
             }
         }
 
-        public void CheckFabrikantAantal(string fabrikant)
+        private void Breedte_Berekenen(long id)
+        {
+            var product = _Ini.Where(x => x.Id == id).FirstOrDefault();
+            if (product != null)
+            {
+                if (id >= 81 && id <= 90)
+                {
+                    Breedte_Links = Breedte_Links - product.Breedte;
+                    lbl_Breedte_Links.Content = Breedte_Links.ToString();
+                    if (Breedte_Links < 0)
+                    {
+                        lbl_Breedte_Links.Background = new System.Windows.Media.SolidColorBrush(Colors.Red);
+                    }
+                }
+
+                if (id >= 11 && id <= 20)
+                {
+                    Breedte_Rechts_Boven = Breedte_Rechts_Boven - product.Breedte;
+                    lbl_Breedte_Rechts_Boven.Content = Breedte_Rechts_Boven.ToString();
+                    if (Breedte_Rechts_Boven < 0)
+                    {
+                        lbl_Breedte_Rechts_Boven.Background = new System.Windows.Media.SolidColorBrush(Colors.Red);
+                    }
+                }
+
+                if (id >= 1 && id <= 10)
+                {
+                    Breedte_Rechts_Beneden = Breedte_Rechts_Beneden - product.Breedte;
+                    lbl_Breedte_Rechts_Beneden.Content = Breedte_Rechts_Beneden.ToString();
+                    if (Breedte_Rechts_Beneden < 0)
+                    {
+                        lbl_Breedte_Rechts_Beneden.Background = new System.Windows.Media.SolidColorBrush(Colors.Red);
+                    }
+                }
+
+                if (id >= 61 && id <= 80)
+                {
+                    Breedte_Midden_Boven = Breedte_Midden_Boven - product.Breedte;
+                    lbl_Breedte_Midden_Boven.Content = Breedte_Midden_Boven.ToString();
+                    if (Breedte_Midden_Boven < 0)
+                    {
+                        lbl_Breedte_Midden_Boven.Background = new System.Windows.Media.SolidColorBrush(Colors.Red);
+                    }
+                }
+
+                if (id >= 41 && id <= 60)
+                {
+                    Breedte_Midden_Midden = Breedte_Midden_Midden - product.Breedte;
+                    lbl_Breedte_Midden_Midden.Content = Breedte_Midden_Midden.ToString();
+                    if (Breedte_Midden_Midden < 0)
+                    {
+                        lbl_Breedte_Midden_Midden.Background = new System.Windows.Media.SolidColorBrush(Colors.Red);
+                    }
+                }
+
+                if (id >= 21 && id <= 40)
+                {
+                    Breedte_Midden_Beneden = Breedte_Midden_Beneden - product.Breedte;
+                    lbl_Breedte_Midden_Beneden.Content = Breedte_Midden_Beneden.ToString();
+                    if (Breedte_Midden_Beneden < 0)
+                    {
+                        lbl_Breedte_Midden_Beneden.Background = new System.Windows.Media.SolidColorBrush(Colors.Red);
+                    }
+                }
+            }
+        }
+
+        private void CheckFabrikantAantal(string fabrikant)
         {
             if(fabrikant == "BAT") { _BAT.Add(1); }
             if(fabrikant == "ITB") { _ITB.Add(1); }
@@ -341,7 +408,7 @@ namespace Conway.WPF
             if(fabrikant == "PMI") { _PMI.Add(1); }
         }
 
-        public class ModelIni
+        private class ModelIni
         {
             public int Id { get; set; }
             public string Ean { get; set; }
@@ -349,6 +416,8 @@ namespace Conway.WPF
             public string Qt { get; set; }
             public string Prix { get; set; }
             public string Fabricant { get; set; }
+            public double Hoogte { get; set; }
+            public double Breedte { get; set; }
         }
 
         #region Fabrikant code
@@ -830,6 +899,38 @@ namespace Conway.WPF
             if (data_Ini != null)
             {
                 _Ini = new ObservableCollection<ModelIni>();
+                _Fabrikant = new List<string>();
+                _BAT = new List<int>();
+                _ITB = new List<int>();
+                _JTI = new List<int>();
+                _PMI = new List<int>();
+
+                _BAT.Clear();
+                _ITB.Clear();
+                _JTI.Clear();
+                _PMI.Clear();
+
+                Breedte_Links = 645;
+                Breedte_Rechts_Boven = 645;
+                Breedte_Rechts_Beneden = 645;
+                Breedte_Midden_Boven = 1306;
+                Breedte_Midden_Midden = 1306;
+                Breedte_Midden_Beneden = 1306;
+
+                lbl_Breedte_Links.Content = 645;
+                lbl_Breedte_Rechts_Boven.Content = 645;
+                lbl_Breedte_Rechts_Beneden.Content = 645;
+                lbl_Breedte_Midden_Boven.Content = 1306;
+                lbl_Breedte_Midden_Midden.Content = 1306;
+                lbl_Breedte_Midden_Beneden.Content = 1306;
+
+                lbl_Breedte_Links.Background = new System.Windows.Media.SolidColorBrush(Colors.Green);
+                lbl_Breedte_Rechts_Boven.Background = new System.Windows.Media.SolidColorBrush(Colors.Green);
+                lbl_Breedte_Rechts_Beneden.Background = new System.Windows.Media.SolidColorBrush(Colors.Green);
+                lbl_Breedte_Midden_Boven.Background = new System.Windows.Media.SolidColorBrush(Colors.Green);
+                lbl_Breedte_Midden_Midden.Background = new System.Windows.Media.SolidColorBrush(Colors.Green);
+                lbl_Breedte_Midden_Beneden.Background = new System.Windows.Media.SolidColorBrush(Colors.Green);
+
                 lbl_1.Content = ""; lbl_1_Prix.Content = ""; lbl_2.Content = ""; lbl_2_Prix.Content = ""; lbl_3.Content = ""; lbl_3_Prix.Content = "";
                 lbl_4.Content = ""; lbl_4_Prix.Content = ""; lbl_5.Content = ""; lbl_5_Prix.Content = ""; lbl_6.Content = ""; lbl_6_Prix.Content = ""; lbl_7.Content = "";
                 lbl_7_Prix.Content = ""; lbl_8.Content = ""; lbl_8_Prix.Content = ""; lbl_9.Content = ""; lbl_9_Prix.Content = ""; lbl_10.Content = ""; lbl_10_Prix.Content = "";

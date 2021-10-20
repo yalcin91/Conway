@@ -13,12 +13,7 @@
 
         <Grid>
             <Grid.Background>
-                <LinearGradientBrush   
-                            StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#FF5FA7F0" Offset="0"/>
-                    <GradientStop Color="#FFC7ECD1" Offset="0.5"/>
-                    <GradientStop Color="#FFC4DFFF" Offset="1"/>
-                </LinearGradientBrush>
+            <ImageBrush ImageSource="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\17.jpg"></ImageBrush>
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition MinHeight="400" Height="151*"></RowDefinition>
@@ -30,7 +25,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition ></ColumnDefinition>
                     <ColumnDefinition Width="10" ></ColumnDefinition>
-                    <ColumnDefinition MinWidth="600"></ColumnDefinition>
+                    <ColumnDefinition MinWidth="690"></ColumnDefinition>
                     <ColumnDefinition Width="10" ></ColumnDefinition>
                     <ColumnDefinition ></ColumnDefinition>
                     <ColumnDefinition Width="10" ></ColumnDefinition>
@@ -177,7 +172,7 @@
                     </Label>
                     <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_90_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
                 </Grid>
-            <Label Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
+            <Label x:Name="lbl_Breedte_Links" Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
 
             <Grid Grid.Column="4">
                     <Grid.RowDefinitions>
@@ -284,7 +279,7 @@
                         </Label>
                         <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_20_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
                     </Grid>
-                <Label Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
+                <Label x:Name="lbl_Breedte_Rechts_Boven" Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
 
 
                 <Grid Grid.Column="4" Grid.Row="1" Background="White">
@@ -386,7 +381,7 @@
                         </Label>
                         <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_10_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
                     </Grid>
-                <Label Grid.Row="2" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
+                <Label x:Name="lbl_Breedte_Rechts_Beneden" Grid.Row="2" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
             </Grid>
 
                 <Grid Grid.Column="2">
@@ -585,7 +580,7 @@
                         </Label>
                         <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_80_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
                     </Grid>
-                <Label Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
+                <Label x:Name="lbl_Breedte_Midden_Boven" Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
                     
                     <Grid Grid.Column="4" Grid.Row="1" Background="White">
                         <Grid.RowDefinitions>
@@ -776,7 +771,7 @@
                         </Label>
                         <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_60_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
                     </Grid>
-                <Label Grid.Row="1" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
+                <Label  x:Name="lbl_Breedte_Midden_Midden" Grid.Row="1" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
                     
                 <Grid Grid.Column="4" Grid.Row="2" Background="White">
                         <Grid.RowDefinitions>
@@ -967,7 +962,7 @@
                         </Label>
                         <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_40_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
                     </Grid>
-                <Label Grid.Row="2" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
+                <Label x:Name="lbl_Breedte_Midden_Beneden" Grid.Row="2" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
             </Grid>
                 <!--<Slider Margin="5,0,0,0" Grid.Row="0" Grid.Column="7" Width="45" Minimum="1" Maximum="1.8" x:Name="sldZoom" Orientation="Vertical" />--> 
                 <Grid.LayoutTransform>
@@ -987,18 +982,18 @@
                     <ColumnDefinition Width="20"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Cursor="Hand" Content="Import" Click="btn_Import_Click" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+            <Button Grid.Column="0" Cursor="Hand" Content="Import" Click="btn_Import_Click" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                 <Button Grid.Column="2" Cursor="Hand" Content="Export" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                 <Button Grid.Column="4" Cursor="Hand" Content="Delete" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <StackPanel Grid.Column="6" Orientation="Horizontal"  HorizontalAlignment="Right">
-                    <Button Cursor="Hand"  Content="BAT_C" Click="btn_BAT_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <Button Cursor="Hand"  Content="BAT_T" Click="btn_BAT_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+            <StackPanel Grid.Column="6" Orientation="Horizontal"  HorizontalAlignment="Right">
+                <Button Cursor="Hand"  Content="BAT_C" Click="btn_BAT_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <Button Cursor="Hand" Content="BAT_T" Click="btn_BAT_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                     <Button Cursor="Hand"  Content="ITB_C" Click="btn_ITB_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                     <Button Cursor="Hand"  Content="ITB_T" Click="btn_ITB_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                     <Button Cursor="Hand" Content="JTI_C" Click="btn_JTI_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                     <Button Cursor="Hand" Content="JTI_T" Click="btn_JTI_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <Button Cursor="Hand" Content="PMI_C" Click="btn_PMI_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                </StackPanel>
+                <Button Cursor="Hand" Content="PMI_C" Click="btn_PMI_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+            </StackPanel>
             </Grid>
 
             <Grid Grid.Row="2">

@@ -14,10 +14,11 @@
 
             <LinearGradientBrush x:Key="GrayBlueGardientBrush"  
                             StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="Silver" Offset="0"/>
-                <GradientStop Color="#CCCCFF" Offset="0.5"/>
-                <GradientStop Color="Silver" Offset="1"/>
+                <GradientStop Color="Gray" Offset="0"/>
+                <GradientStop Color="Silver" Offset="0.5"/>
+                <GradientStop Color="Gray" Offset="1"/>
             </LinearGradientBrush>
+
             <Style TargetType="{x:Type Button}">
                 <Setter Property="Background" Value="{StaticResource GrayBlueGardientBrush}"/>
                 <Setter Property="Width" Value="80"/>
