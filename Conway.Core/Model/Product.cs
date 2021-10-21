@@ -11,9 +11,10 @@ namespace Conway.Core.Model
     public class Product
     {
         #region CTR
+        public Product(){}
         public Product(long id, string naam, string fabrikant, double hoogte, double breedte, double diepte, int inhoud, long eancode, double prijs)
         {
-            SetId(id);
+            Id = id;
             SetNaam(naam);
             SetFabrikant(fabrikant);
             SetHoogte(hoogte);
@@ -133,11 +134,6 @@ namespace Conway.Core.Model
         #endregion
 
         #region SetMethods
-        public void SetId(long id)
-        {
-            if (id <= 0) { throw new ProductException("Invalid id."); }
-            Id = id;
-        }
         public void SetNaam(string naam)
         {
             if (naam.Trim().Length <= 1) { throw new ProductException("Invalid naam."); }
@@ -145,7 +141,7 @@ namespace Conway.Core.Model
         }
         public void SetFabrikant(string fabrikant)
         {
-            if (fabrikant.Trim().Length <= 1) { throw new ProductException("Invalid fabrikant."); }
+            if (fabrikant.Trim().Length < 0) { throw new ProductException("Invalid fabrikant."); }
             Fabrikant = fabrikant;
         }
         public void SetHoogte(double hoogte)

@@ -841,19 +841,19 @@
                         <Label Grid.Row="1" Grid.Column="18" Content="39" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                         <Label Grid.Row="1" Grid.Column="19" Content="40" BorderBrush="Black" BorderThickness="1" FontSize="11" />
 
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_21" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" Drop="lbl_21_Drop" x:Name="lbl_21" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
                             <Label.LayoutTransform>
                                 <RotateTransform Angle="270"/>
                             </Label.LayoutTransform>
                         </Label>
                         <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_21_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_22" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" Drop="lbl_22_Drop" x:Name="lbl_22" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
                             <Label.LayoutTransform>
                                 <RotateTransform Angle="270"/>
                             </Label.LayoutTransform>
                         </Label>
                         <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_22_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_23" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" Drop="lbl_23_Drop" x:Name="lbl_23" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
                             <Label.LayoutTransform>
                                 <RotateTransform Angle="270"/>
                             </Label.LayoutTransform>
@@ -1003,10 +1003,10 @@
                     <ColumnDefinition ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                <DataGrid x:Name="data_Ini" FontWeight="Bold" AlternatingRowBackground="LightGoldenrodYellow" AllowDrop="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
+                <DataGrid x:Name="data_Ini" FontWeight="Bold" AlternatingRowBackground="LightGoldenrodYellow" AllowDrop="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"  Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
                 </Grid>
                 <Grid Grid.Column="1">
-                <DataGrid x:Name="data_Product" AlternatingRowBackground="LightGray" AllowDrop="True" FontWeight="Bold" CanUserAddRows="True" CanUserDeleteRows="True" Margin="10" FontStyle="Italic"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
+                <DataGrid x:Name="data_Product" AlternatingRowBackground="LightGray" AllowDrop="False" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"  Margin="10" FontStyle="Italic"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
                 </Grid>
                 <Grid Grid.Column="2">
                     <DataGrid x:Name="data_Assortiment" AlternatingRowBackground="LightGreen" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>

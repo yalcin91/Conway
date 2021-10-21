@@ -34,7 +34,6 @@ namespace Conway.WPF
     {
         private ProductenWpf ProductenWpf;
         private AssortimentWpf AssortimentWpf;
-        private List<Product> _Products;
         private ObservableCollection<Product> _Producten;
         private ObservableCollection<BAT_Cigarette> _BAT_Cigaretten;
         private ObservableCollection<BAT_Tabac> _BAT_Tabac;
@@ -43,19 +42,14 @@ namespace Conway.WPF
         private ObservableCollection<JTI_Cigarette> _JTI_Cigaretten;
         private ObservableCollection<JTI_Tabac> _JTI_Tabac;
         private ObservableCollection<PMI_Cigarette> _PMI_Cigaretten;
-        private ObservableCollection<ModelIni> _Ini;
-        private ObservableCollection<ModelIni> _Pro;
-
-        public delegate Point GetPosition(IInputElement element);
-        int rowIndex = -1;
-        string dgName;
+        private ObservableCollection<Product> _Ini;
+        private ObservableCollection<Product> _Pro;
 
         public MainWindow()
         {
             InitializeComponent();
             ProductenWpf = new ProductenWpf();
             AssortimentWpf = new AssortimentWpf();
-            _Products = new List<Product>();
             _Producten = new ObservableCollection<Product>();
             _BAT_Cigaretten = new ObservableCollection<BAT_Cigarette>();
             _BAT_Tabac = new ObservableCollection<BAT_Tabac>();
@@ -64,8 +58,8 @@ namespace Conway.WPF
             _JTI_Cigaretten = new ObservableCollection<JTI_Cigarette>();
             _JTI_Tabac = new ObservableCollection<JTI_Tabac>();
             _PMI_Cigaretten = new ObservableCollection<PMI_Cigarette>();
-            _Ini = new ObservableCollection<ModelIni>();
-            _Pro = new ObservableCollection<ModelIni>();
+            _Ini = new ObservableCollection<Product>();
+            _Pro = new ObservableCollection<Product>();
             GetProduct();
             GetBAT_Cigarette();
             ProductenWpf.Closing += ProductenWpf_Closing;
@@ -87,7 +81,6 @@ namespace Conway.WPF
                 _Producten.Add(item);
             }
             data_Product.ItemsSource = _Producten;
-            _Products = producten;
         }
         #endregion
 
@@ -269,15 +262,16 @@ namespace Conway.WPF
             string line;
             string volledigString = "";
             List<string> _VolledigString = new List<string>();
-            int id = 1;
-            string ean = "";
+            long id = 1;
+            long ean = 0;
             string description = "";
             string qt = "";
-            string prix = "";
+            double prix = 0;
             string fabrikant = "";
             double hoogte = 0;
             double breedte = 0;
             List<string> _Naam = new List<string>();
+            if (path == null) return;
             using (StreamReader reader = new StreamReader(path))
             {
                 while ((line = reader.ReadLine()) != null)
@@ -301,34 +295,35 @@ namespace Conway.WPF
                             if (j <= 1056)
                             {
                                 description = _VolledigString[j].Remove(0, (min + 1));
-                                ean = _VolledigString[(j + 1)];
-
+                                var strin = ean.ToString();
+                                strin = _VolledigString[(j + 1)];
+                                var money = "";
                                 if (j <= 1055)
                                 {
                                     qt = _VolledigString[(j + 6)];
                                 }
                                 if (j <= 1053)
                                 {
-                                    if (_VolledigString[j + 8].First() == '0') { prix = "\u20AC" + _VolledigString[(j + 8)].Remove(0, 1); }
-                                    else { prix = "\u20AC" + _VolledigString[(j + 8)]; }
+                                    money = prix.ToString();
+                                    if (_VolledigString[j + 8].First() == '0') { money = "\u20AC" + _VolledigString[(j + 8)].Remove(0, 1); }
+                                    else { money = "\u20AC" + _VolledigString[(j + 8)]; }
                                 }
-                                for (int i = 0; i < _Products.Count; i++)
+                                for (int i = 0; i < _Producten.Count; i++)
                                 {
-                                    if (_Products[i].Eancode == long.Parse(ean)) { fabrikant = _Products[i].Fabrikant; hoogte = _Products[i].Hoogte; breedte = _Products[i].Breedte; }
+                                    if (_Producten[i].Eancode == long.Parse(strin)) { fabrikant = _Producten[i].Fabrikant; hoogte = _Producten[i].Hoogte; breedte = _Producten[i].Breedte; }
                                 }
                                 string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
-                                var data = new ModelIni { Id = id, Ean = ean, Description = description, Qt = qt, Prix = prix, Fabricant = fabrikant, Hoogte = hoogte, Breedte = breedte };
+                                var data = new Product ( id, description, fabrikant, hoogte,breedte, 0, 0, ean, prix );
                                 CheckFabrikantAantal(fabrikant);
                                 ToMachine(id, description, prix, fabrikant);
                                 _Fabrikant.Add(fabrikant);
                                 _Ini.Add(data);
-                                _Pro.Add(data);
                                 Breedte_Berekenen(id);
                                 id++;
-                                ean = "";
+                                ean = 0;
                                 description = "";
                                 qt = "";
-                                prix = "";
+                                prix = 0;
                                 fabrikant = "";
                                 breedte = 0;
                                 hoogte = 0;
@@ -621,7 +616,7 @@ namespace Conway.WPF
         {
             for (int m = 0; m < _Ini.Count; m++)
             {
-                if (_Ini[m].Fabricant == fabrikant)
+                if (_Ini[m].Fabrikant == fabrikant)
                 {
                     if (m == 0) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
                     if (m == 1) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
@@ -784,7 +779,7 @@ namespace Conway.WPF
         {
             if (data_Ini != null)
             {
-                _Ini = new ObservableCollection<ModelIni>();
+                _Ini = new ObservableCollection<Product>();
                 _Fabrikant = new List<string>();
                 _BAT = new List<int>();
                 _ITB = new List<int>();
@@ -855,7 +850,7 @@ namespace Conway.WPF
             }
         }
 
-        private void ToMachine(int i, string description, string prix, string fabrikant)
+        private void ToMachine(long i, string description, double prix, string fabrikant)
         {
             if (i == 1) { lbl_1.Content = description; lbl_1_Prix.Content = prix; }
             if (i == 2) { lbl_2.Content = description; lbl_2_Prix.Content = prix; }
@@ -957,9 +952,37 @@ namespace Conway.WPF
             if (i == 90) { lbl_90.Content = description; lbl_90_Prix.Content = prix; }
         }
 
+        private void lbl_21_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_21.Content = changedProduct.Naam; HerstelIni(changedProduct, 21); }
+        private void lbl_22_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_22.Content = changedProduct.Naam; HerstelIni(changedProduct, 22); }
+        private void lbl_23_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_23.Content = changedProduct.Naam; HerstelIni(changedProduct, 23); }
+
+        private void HerstelIni(Product product, long id)
+        {
+
+            Product p = new Product(id, product.Naam, product.Fabrikant, product.Hoogte, product.Breedte, product.Diepte, product.Inhoud, product.Eancode, product.Prijs);
+            var v = _Ini.Where(x => x.Id == id).FirstOrDefault();
+            if (v == null)
+            {
+                _Ini.Add(p);
+                data_Ini.ItemsSource = _Ini;
+                return;
+            }
+            if (v !=null)
+            {
+                _Ini.Remove(v);
+                _Ini.Add(p);
+                data_Ini.ItemsSource = _Ini;
+                return;
+            }
+        }
 
 
 
+
+        #region Code die ik niet weet hoe het werkt
+        int rowIndex = -1;
+        string dgName;
+        public delegate Point GetPosition(IInputElement element);
         void Dg_Drop(object sender, DragEventArgs e)
         {
             int index = -1;
@@ -976,51 +999,44 @@ namespace Conway.WPF
             }
             if (dg.Name == "data_Product")
             {
-                index = this.GetCurrentRowIndexAdd(e.GetPosition);
+                //index = this.GetCurrentRowIndexAdd(e.GetPosition);
+                Product changedProduct = _Producten[rowIndex];
+                lbl_21.Content = changedProduct.Naam;
             }
             if (index < 0)
                 return;
             if (index == rowIndex)
                 return;
-            if (index == dg.Items.Count - 1)
+            if (index == 0)
             {
-                MessageBox.Show("Last line can't moove");
+                //Product changedProduct = _Producten[rowIndex];
+                //_Ini.Insert((index+1), changedProduct);
+
+                //MessageBox.Show("Last line can't moove");
                 return;
+            }
+            if (dg.Name == string.Empty)
+            {
+                Product changedProduct = _Producten[rowIndex];
+                _Ini.Insert(index, changedProduct);
             }
             if (dg.Name == "data_Ini")
             {
                 if (dgName == "data_Product")
                 {
-                    ModelIni changedProduct = _Pro[rowIndex];
-                    _Pro.RemoveAt(rowIndex);
+                    Product changedProduct = _Producten[rowIndex];
+                   //_Producten.RemoveAt(rowIndex);
                     _Ini.Insert(index, changedProduct);
                 }
                 else
                 {
-                    ModelIni changedProduct = _Ini[rowIndex];
+                    Product changedProduct = _Ini[rowIndex];
                     _Ini.RemoveAt(rowIndex);
                     _Ini.Insert(index, changedProduct);
                 }
-            }
-            if (dg.Name == "data_Product")
-            {
-                if (dgName == "data_Ini")
-                {
-                    ModelIni changedProduct = _Ini[rowIndex];
-                    _Ini.RemoveAt(rowIndex);
-                    _Pro.Insert(index, changedProduct);
-                }
-                else
-                {
-                    ModelIni changedProduct = _Pro[rowIndex];
-                    _Pro.RemoveAt(rowIndex);
-                    _Pro.Insert(index, changedProduct);
-                }
-            }
+            }        
             data_Ini.ItemsSource = _Ini;
             data_Ini.Items.Refresh();
-            data_Product.ItemsSource = _Pro;
-            data_Product.Items.Refresh();
         }
 
         void DgSupp_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -1043,7 +1059,7 @@ namespace Conway.WPF
             if (rowIndex < 0)
                 return;
             dg.SelectedIndex = rowIndex;
-            ModelIni selectedEmp = dg.Items[rowIndex] as ModelIni;
+            Product selectedEmp = dg.Items[rowIndex] as Product;
             if (selectedEmp == null)
                 return;
             DragDropEffects dragdropeffects = DragDropEffects.Move;
@@ -1110,5 +1126,6 @@ namespace Conway.WPF
             }
             return curIndex;
         }
+        #endregion
     }
 }
