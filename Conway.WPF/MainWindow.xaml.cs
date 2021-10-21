@@ -44,6 +44,11 @@ namespace Conway.WPF
         private ObservableCollection<JTI_Tabac> _JTI_Tabac;
         private ObservableCollection<PMI_Cigarette> _PMI_Cigaretten;
         private ObservableCollection<ModelIni> _Ini;
+        private ObservableCollection<ModelIni> _Pro;
+
+        public delegate Point GetPosition(IInputElement element);
+        int rowIndex = -1;
+        string dgName;
 
         public MainWindow()
         {
@@ -60,11 +65,17 @@ namespace Conway.WPF
             _JTI_Tabac = new ObservableCollection<JTI_Tabac>();
             _PMI_Cigaretten = new ObservableCollection<PMI_Cigarette>();
             _Ini = new ObservableCollection<ModelIni>();
+            _Pro = new ObservableCollection<ModelIni>();
             GetProduct();
             GetBAT_Cigarette();
             ProductenWpf.Closing += ProductenWpf_Closing;
             AssortimentWpf.Closing += AssortimentWpf_Closing;
             Closing += MainWindow_Closing;
+
+            data_Ini.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(DgSupp_PreviewMouseLeftButtonDown);
+            data_Ini.Drop += new DragEventHandler(Dg_Drop);
+            data_Product.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(DgSupp_PreviewMouseLeftButtonDown);
+            data_Product.Drop += new DragEventHandler(Dg_Drop);
         }
 
         #region Get all Products
@@ -303,7 +314,7 @@ namespace Conway.WPF
                                 }
                                 for (int i = 0; i < _Products.Count; i++)
                                 {
-                                    if(_Products[i].Eancode == long.Parse(ean)) { fabrikant = _Products[i].Fabrikant; hoogte = _Products[i].Hoogte; breedte = _Products[i].Breedte; }
+                                    if (_Products[i].Eancode == long.Parse(ean)) { fabrikant = _Products[i].Fabrikant; hoogte = _Products[i].Hoogte; breedte = _Products[i].Breedte; }
                                 }
                                 string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
                                 var data = new ModelIni { Id = id, Ean = ean, Description = description, Qt = qt, Prix = prix, Fabricant = fabrikant, Hoogte = hoogte, Breedte = breedte };
@@ -311,13 +322,14 @@ namespace Conway.WPF
                                 ToMachine(id, description, prix, fabrikant);
                                 _Fabrikant.Add(fabrikant);
                                 _Ini.Add(data);
+                                _Pro.Add(data);
                                 Breedte_Berekenen(id);
                                 id++;
                                 ean = "";
-                                 description = "";
-                                 qt = "";
-                                 prix = "";
-                                 fabrikant = "";
+                                description = "";
+                                qt = "";
+                                prix = "";
+                                fabrikant = "";
                                 breedte = 0;
                                 hoogte = 0;
                             }
@@ -402,10 +414,10 @@ namespace Conway.WPF
 
         private void CheckFabrikantAantal(string fabrikant)
         {
-            if(fabrikant == "BAT") { _BAT.Add(1); }
-            if(fabrikant == "ITB") { _ITB.Add(1); }
-            if(fabrikant == "JTI") { _JTI.Add(1); }
-            if(fabrikant == "PMI") { _PMI.Add(1); }
+            if (fabrikant == "BAT") { _BAT.Add(1); }
+            if (fabrikant == "ITB") { _ITB.Add(1); }
+            if (fabrikant == "JTI") { _JTI.Add(1); }
+            if (fabrikant == "PMI") { _PMI.Add(1); }
         }
 
         private class ModelIni
@@ -711,132 +723,6 @@ namespace Conway.WPF
                     if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
                 }
             }
-                   
-            /*string message = "";
-            int m = 1;
-            for (int i = 0; i < data_Ini.Items.Count; i++)
-            {
-                message = "";
-                for (int j = 0; j < data_Ini.Columns.Count; j++)
-                {
-                    DataGridCell cell = GetCell(i, j);
-                    if (cell != null)
-                    {
-                        TextBlock tb = cell.Content as TextBlock;
-                        message += tb.Text;
-                    }
-                    //TextBlock tb = cell.Content as TextBlock;
-                    //message += tb.Text + " ";
-                }
-                if (message.Length > 3)
-                {
-                    var result = message.Substring(message.Length - 3);
-                    string exampleTrimmed = String.Concat(result.Where(c => !Char.IsWhiteSpace(c)));
-                    if (exampleTrimmed == fabrikant)
-                    {
-                        if (m == 1) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 2) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 3) clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 4) clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 5) clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 6) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 7) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 8) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 9) clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 10) clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-
-                        if (m == 11) clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 12) clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 13) clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 14) clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 15) clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 16) clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 17) clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 18) clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 19) clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 20) clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-
-                        if (m == 21) clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 22) clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 23) clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 24) clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 25) clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 26) clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 27) clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 28) clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 29) clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 30) clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-
-                        if (m == 31) clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 32) clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 33) clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 34) clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 35) clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 36) clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 37) clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 38) clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 39) clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 40) clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-
-                        if (m == 41) clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 42) clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 43) clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 44) clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 45) clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 46) clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 47) clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 48) clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 49) clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 50) clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-
-                        if (m == 51) clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 52) clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 53) clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 54) clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 55) clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 56) clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 57) clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 58) clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 59) clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 60) clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-
-                        if (m == 61) clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 62) clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 63) clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 64) clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 65) clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 66) clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 67) clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 68) clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 69) clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 70) clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-
-                        if (m == 71) clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 72) clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 73) clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 74) clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 75) clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 76) clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 77) clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 78) clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 79) clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 80) clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-
-                        if (m == 81) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 82) clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 83) clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 84) clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 85) clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 86) clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 87) clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 88) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 89) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                        if (m == 90) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.LightYellow);
-                   /* };
-                }
-                //MessageBox.Show(message);
-                m++;
-            }  */  
         }
 
         #region Voor Get DataGrid
@@ -850,7 +736,7 @@ namespace Conway.WPF
                 {
                     return null;
                 }
-                    DataGridCell cell = (DataGridCell)cellPresenter.ItemContainerGenerator.ContainerFromIndex(column);
+                DataGridCell cell = (DataGridCell)cellPresenter.ItemContainerGenerator.ContainerFromIndex(column);
                 if (cell == null)
                 {
                     data_Ini.ScrollIntoView(rowData, data_Ini.Columns[column]);
@@ -1069,6 +955,160 @@ namespace Conway.WPF
             if (i == 88) { lbl_88.Content = description; lbl_88_Prix.Content = prix; }
             if (i == 89) { lbl_89.Content = description; lbl_89_Prix.Content = prix; }
             if (i == 90) { lbl_90.Content = description; lbl_90_Prix.Content = prix; }
+        }
+
+
+
+
+        void Dg_Drop(object sender, DragEventArgs e)
+        {
+            int index = -1;
+            DataGrid dg = new DataGrid();
+            if (sender is DataGrid)
+            {
+                dg = (DataGrid)sender;
+            }
+            if (rowIndex < 0)
+                return;
+            if (dg.Name == "data_Ini")
+            {
+                index = this.GetCurrentRowIndexSupp(e.GetPosition);
+            }
+            if (dg.Name == "data_Product")
+            {
+                index = this.GetCurrentRowIndexAdd(e.GetPosition);
+            }
+            if (index < 0)
+                return;
+            if (index == rowIndex)
+                return;
+            if (index == dg.Items.Count - 1)
+            {
+                MessageBox.Show("Last line can't moove");
+                return;
+            }
+            if (dg.Name == "data_Ini")
+            {
+                if (dgName == "data_Product")
+                {
+                    ModelIni changedProduct = _Pro[rowIndex];
+                    _Pro.RemoveAt(rowIndex);
+                    _Ini.Insert(index, changedProduct);
+                }
+                else
+                {
+                    ModelIni changedProduct = _Ini[rowIndex];
+                    _Ini.RemoveAt(rowIndex);
+                    _Ini.Insert(index, changedProduct);
+                }
+            }
+            if (dg.Name == "data_Product")
+            {
+                if (dgName == "data_Ini")
+                {
+                    ModelIni changedProduct = _Ini[rowIndex];
+                    _Ini.RemoveAt(rowIndex);
+                    _Pro.Insert(index, changedProduct);
+                }
+                else
+                {
+                    ModelIni changedProduct = _Pro[rowIndex];
+                    _Pro.RemoveAt(rowIndex);
+                    _Pro.Insert(index, changedProduct);
+                }
+            }
+            data_Ini.ItemsSource = _Ini;
+            data_Ini.Items.Refresh();
+            data_Product.ItemsSource = _Pro;
+            data_Product.Items.Refresh();
+        }
+
+        void DgSupp_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DataGrid dg = new DataGrid();
+            if (sender is DataGrid)
+            {
+                dg = (DataGrid)sender;
+            }
+            if (dg.Name == "data_Ini")
+            {
+                rowIndex = GetCurrentRowIndexSupp(e.GetPosition);
+                dgName = dg.Name;
+            }
+            if (dg.Name == "data_Product")
+            {
+                rowIndex = GetCurrentRowIndexAdd(e.GetPosition);
+                dgName = dg.Name;
+            }
+            if (rowIndex < 0)
+                return;
+            dg.SelectedIndex = rowIndex;
+            ModelIni selectedEmp = dg.Items[rowIndex] as ModelIni;
+            if (selectedEmp == null)
+                return;
+            DragDropEffects dragdropeffects = DragDropEffects.Move;
+            if (DragDrop.DoDragDrop(dg, selectedEmp, dragdropeffects)
+                                != DragDropEffects.None)
+            {
+                dg.SelectedItem = selectedEmp;
+            }
+        }
+
+        private bool GetMouseTargetRow(Visual theTarget, GetPosition position)
+        {
+            if (theTarget != null)
+            {
+                Rect rect = VisualTreeHelper.GetDescendantBounds(theTarget);
+                Point point = position((IInputElement)theTarget);
+                return rect.Contains(point);
+            }
+            return false;
+        }
+
+        private DataGridRow GetRowItemList1(int index)
+        {
+            if (data_Ini.ItemContainerGenerator.Status
+                    != GeneratorStatus.ContainersGenerated)
+                return null;
+            return data_Ini.ItemContainerGenerator.ContainerFromIndex(index) as DataGridRow;
+        }
+
+        private DataGridRow GetRowItemList2(int index)
+        {
+            if (data_Product.ItemContainerGenerator.Status
+                    != GeneratorStatus.ContainersGenerated)
+                return null;
+            return data_Product.ItemContainerGenerator.ContainerFromIndex(index) as DataGridRow;
+        }
+
+        private int GetCurrentRowIndexSupp(GetPosition pos)
+        {
+            int curIndex = -1;
+            for (int i = 0; i < data_Ini.Items.Count; i++)
+            {
+                DataGridRow itm = GetRowItemList1(i);
+                if (GetMouseTargetRow(itm, pos))
+                {
+                    curIndex = i;
+                    break;
+                }
+            }
+            return curIndex;
+        }
+
+        private int GetCurrentRowIndexAdd(GetPosition pos)
+        {
+            int curIndex = -1;
+            for (int i = 0; i < data_Product.Items.Count; i++)
+            {
+                DataGridRow itm = GetRowItemList2(i);
+                if (GetMouseTargetRow(itm, pos))
+                {
+                    curIndex = i;
+                    break;
+                }
+            }
+            return curIndex;
         }
     }
 }
