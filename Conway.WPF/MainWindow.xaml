@@ -11,69 +11,176 @@
         WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize">
 
 
-        <Grid>
-            <Grid.Background>
+    <Grid>
+        <Grid.Background>
             <ImageBrush ImageSource="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\17.jpg"></ImageBrush>
-            </Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition MinHeight="400" Height="151*"></RowDefinition>
-                <RowDefinition MinHeight="30"></RowDefinition>
-                <RowDefinition Height="300"></RowDefinition>
-            </Grid.RowDefinitions>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="400" Height="151*"></RowDefinition>
+            <RowDefinition MinHeight="30"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+        </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Margin="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition Width="10" ></ColumnDefinition>
-                    <ColumnDefinition MinWidth="690"></ColumnDefinition>
-                    <ColumnDefinition Width="10" ></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition Width="10" ></ColumnDefinition>
+        <Grid Grid.Row="0" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="10" ></ColumnDefinition>
+                <ColumnDefinition MinWidth="690"></ColumnDefinition>
+                <ColumnDefinition Width="10" ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="10" ></ColumnDefinition>
                 <ColumnDefinition Width="215" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
-                <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0"/>
-                <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0"/>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
 
-                <Grid Grid.Row="0" Grid.Column="6" Background="White">
+            <Grid Grid.Row="0" Grid.Column="6" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button x:Name="btn_Producten" Click="btn_Producten_Click" IsEnabled="False" Content="Producten" Grid.Row="0" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <Button x:Name="btn_Assortiment" Click="btn_Assortiment_Click" IsEnabled="False" Content="Assortiment" Grid.Row="0" Height="28" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <Button Click="btn_Check_Click" Grid.Row="1" Cursor="Hand" Content="Check" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <PasswordBox x:Name="txtb_Pass"  KeyUp="txtb_Pass_KeyDown" KeyDown="txtb_Pass_KeyDown" Grid.Row="1" ToolTip="enter password" Height="28" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" FontStyle="Italic" FontWeight="Bold"></PasswordBox>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Button x:Name="btn_Producten" Click="btn_Producten_Click" IsEnabled="False" Content="Producten" Grid.Row="0" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <Button x:Name="btn_Assortiment" Click="btn_Assortiment_Click" IsEnabled="False" Content="Assortiment" Grid.Row="0" Height="28" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <Button Click="btn_Check_Click" Grid.Row="1" Cursor="Hand" Content="Check" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <PasswordBox x:Name="txtb_Pass"  KeyUp="txtb_Pass_KeyDown" KeyDown="txtb_Pass_KeyDown" Grid.Row="1" ToolTip="enter password" Height="28" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" FontStyle="Italic" FontWeight="Bold"></PasswordBox>
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="70"></ColumnDefinition>
-                            <ColumnDefinition Width="70"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"></RowDefinition>
-                            <RowDefinition Height="50"></RowDefinition>
-                            <RowDefinition Height="50"></RowDefinition>
-                            <RowDefinition Height="50"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="BAT = " FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="0" Grid.Row="1" Content="ITB = " FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="0" Grid.Row="2" Content="JTI = " FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="0" Grid.Row="3" Content="PMI = " FontWeight="Bold" FontSize="20"></Label>
+                    <Label Grid.Column="0" Grid.Row="0" Content="BAT = " FontWeight="Bold" FontSize="20"></Label>
+                    <Label Grid.Column="0" Grid.Row="1" Content="ITB = " FontWeight="Bold" FontSize="20"></Label>
+                    <Label Grid.Column="0" Grid.Row="2" Content="JTI = " FontWeight="Bold" FontSize="20"></Label>
+                    <Label Grid.Column="0" Grid.Row="3" Content="PMI = " FontWeight="Bold" FontSize="20"></Label>
 
-                        <Label Grid.Column="1" Grid.Row="0" x:Name="lbl_BAT" FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="1" Grid.Row="1" x:Name="lbl_ITB" FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="1" Grid.Row="2" x:Name="lbl_JTI" FontWeight="Bold" FontSize="20"></Label>
-                        <Label Grid.Column="1" Grid.Row="3" x:Name="lbl_PMI" FontWeight="Bold" FontSize="20"></Label>
-                    </Grid>
+                    <Label Grid.Column="1" Grid.Row="0" x:Name="lbl_BAT" FontWeight="Bold" FontSize="20"></Label>
+                    <Label Grid.Column="1" Grid.Row="1" x:Name="lbl_ITB" FontWeight="Bold" FontSize="20"></Label>
+                    <Label Grid.Column="1" Grid.Row="2" x:Name="lbl_JTI" FontWeight="Bold" FontSize="20"></Label>
+                    <Label Grid.Column="1" Grid.Row="3" x:Name="lbl_PMI" FontWeight="Bold" FontSize="20"></Label>
                 </Grid>
+            </Grid>
 
-                <Grid Grid.Column="7">
+            <Grid Grid.Column="7">
 
-                </Grid>
+            </Grid>
 
-                <Grid Grid.Column="0" Background="White">
+            <Grid Grid.Column="0" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border x:Name="clm_81" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                <Border x:Name="clm_82" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                <Border x:Name="clm_83" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                <Border x:Name="clm_84" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                <Border x:Name="clm_85" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                <Border x:Name="clm_86" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                <Border x:Name="clm_87" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                <Border x:Name="clm_88" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                <Border x:Name="clm_89" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                <Border x:Name="clm_90" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="81" BorderBrush="Black" BorderThickness="1"  FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Content="82" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="2" Content="83" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="3" Content="84" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="4" Content="85" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="5" Content="86" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="6" Content="87" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="7" Content="88" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="8" Content="89" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                <Label Grid.Row="1" Grid.Column="9" Content="90" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+
+                <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_81_Drop" x:Name="lbl_81" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_81_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_82_Drop"  x:Name="lbl_82" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_82_Prix"  Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_83_Drop"  x:Name="lbl_83" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_83_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_84_Drop"  x:Name="lbl_84" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_84_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_85_Drop"  x:Name="lbl_85" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_85_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_86_Drop"  x:Name="lbl_86" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_86_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_87_Drop"  x:Name="lbl_87" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_87_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_88_Drop"  x:Name="lbl_88" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_88_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_89_Drop"  x:Name="lbl_89" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_89_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_90_Drop"  x:Name="lbl_90" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Label.LayoutTransform>
+                </Label>
+                <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_90_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+            </Grid>
+            <Label x:Name="lbl_Breedte_Links" Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
+
+            <Grid Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Column="4" Grid.Row="0" Background="White">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition Height="25"></RowDefinition>
@@ -90,301 +197,194 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Border x:Name="clm_81" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                    <Border x:Name="clm_82" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                    <Border x:Name="clm_83" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                    <Border x:Name="clm_84" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                    <Border x:Name="clm_85" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                    <Border x:Name="clm_86" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                    <Border x:Name="clm_87" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                    <Border x:Name="clm_88" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                    <Border x:Name="clm_89" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                    <Border x:Name="clm_90" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="81" BorderBrush="Black" BorderThickness="1"  FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="1" Content="82" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="2" Content="83" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="3" Content="84" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="4" Content="85" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="5" Content="86" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="6" Content="87" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="7" Content="88" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="8" Content="89" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                    <Label Grid.Row="1" Grid.Column="9" Content="90" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Border x:Name="clm_11" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                    <Border x:Name="clm_12" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                    <Border x:Name="clm_13" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                    <Border x:Name="clm_14" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                    <Border x:Name="clm_15" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                    <Border x:Name="clm_16" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                    <Border x:Name="clm_17" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                    <Border x:Name="clm_18" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                    <Border x:Name="clm_19" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                    <Border x:Name="clm_20" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="11" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Content="12" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="2" Content="13" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="3" Content="14" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="4" Content="15" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="5" Content="16" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="6" Content="17" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="7" Content="18" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="8" Content="19" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="9" Content="20" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
 
-                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_81" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_11" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_81_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_82" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_11_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_12" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_82_Prix"  Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_83" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_12_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_13" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_83_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_84" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_13_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_14" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_84_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_85" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_14_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_15" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_85_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_86" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_15_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_16" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_86_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_87" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_16_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_17" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_87_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_88" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_17_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_18" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_88_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_89" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_18_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_19" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_89_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_90" Width="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_19_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_20" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_90_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_20_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
                 </Grid>
-            <Label x:Name="lbl_Breedte_Links" Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
-
-            <Grid Grid.Column="4">
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Column="4" Grid.Row="0" Background="White">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition Height="25"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border x:Name="clm_11" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border x:Name="clm_12" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border x:Name="clm_13" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border x:Name="clm_14" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border x:Name="clm_15" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border x:Name="clm_16" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border x:Name="clm_17" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border x:Name="clm_18" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border x:Name="clm_19" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border x:Name="clm_20" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="11" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="1" Content="12" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="2" Content="13" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="3" Content="14" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="4" Content="15" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="5" Content="16" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="6" Content="17" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="7" Content="18" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="8" Content="19" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="9" Content="20" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_11" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_11_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_12" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_12_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_13" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_13_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_14" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_14_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_15" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_15_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_16" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_16_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_17" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_17_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_18" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_18_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_19" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_19_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_20" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_20_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    </Grid>
                 <Label x:Name="lbl_Breedte_Rechts_Boven" Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
 
 
                 <Grid Grid.Column="4" Grid.Row="1" Background="White">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition Height="25"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border x:Name="clm_1" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border x:Name="clm_2" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border x:Name="clm_3" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border x:Name="clm_4" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border x:Name="clm_5" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border x:Name="clm_6" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border x:Name="clm_7" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border x:Name="clm_8" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border x:Name="clm_9" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border x:Name="clm_10" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="1" BorderBrush="Black" BorderThickness="1"  FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="1" Content="2" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="2" Content="3" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="3" Content="4" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="4" Content="5" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="5" Content="6" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="6" Content="7" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="7" Content="8" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="8" Content="9" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
-                        <Label Grid.Row="1" Grid.Column="9" Content="10" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="clm_1" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                    <Border x:Name="clm_2" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                    <Border x:Name="clm_3" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                    <Border x:Name="clm_4" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                    <Border x:Name="clm_5" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                    <Border x:Name="clm_6" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                    <Border x:Name="clm_7" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                    <Border x:Name="clm_8" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                    <Border x:Name="clm_9" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                    <Border x:Name="clm_10" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="1" BorderBrush="Black" BorderThickness="1"  FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Content="2" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="2" Content="3" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="3" Content="4" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="4" Content="5" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="5" Content="6" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="6" Content="7" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="7" Content="8" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="8" Content="9" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
+                    <Label Grid.Row="1" Grid.Column="9" Content="10" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
 
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_1" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_1_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_2" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_2_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_3" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_3_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_4" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_4_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_5" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_5_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_6" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_6_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_7" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_7_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_8" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_8_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_9" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_9_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_10" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_10_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    </Grid>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_1" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_1_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_2" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_2_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_3" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_3_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_4" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_4_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_5" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_5_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_6" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_6_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_7" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_7_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_8" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_8_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_9" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_9_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_10" Width="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_10_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
+                </Grid>
                 <Label x:Name="lbl_Breedte_Rechts_Beneden" Grid.Row="2" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
             </Grid>
 
-                <Grid Grid.Column="2">
+            <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition ></RowDefinition>
@@ -392,626 +392,620 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Column="4" Grid.Row="0" Background="White">
-                        <Grid.RowDefinitions>
-                            <RowDefinition ></RowDefinition>
-                            <RowDefinition Height="25"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border x:Name="clm_61" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border x:Name="clm_62" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border x:Name="clm_63" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border x:Name="clm_64" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border x:Name="clm_65" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border x:Name="clm_66" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border x:Name="clm_67" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border x:Name="clm_68" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border x:Name="clm_69" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border x:Name="clm_70" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                        <Border x:Name="clm_71" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
-                        <Border x:Name="clm_72" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
-                        <Border x:Name="clm_73" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
-                        <Border x:Name="clm_74" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
-                        <Border x:Name="clm_75" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
-                        <Border x:Name="clm_76" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
-                        <Border x:Name="clm_77" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
-                        <Border x:Name="clm_78" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
-                        <Border x:Name="clm_79" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
-                        <Border x:Name="clm_80" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="61" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="1" Content="62" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="2" Content="63" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="3" Content="64" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="4" Content="65" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="5" Content="66" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="6" Content="67" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="7" Content="68" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="8" Content="69" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="9" Content="70" BorderBrush="Black" BorderThickness="1" FontSize="11" />
-                        <Label Grid.Row="1" Grid.Column="10" Content="71" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="11" Content="72" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="12" Content="73" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="13" Content="74" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="14" Content="75" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="15" Content="76" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="16" Content="77" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="17" Content="78" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="18" Content="79" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="19" Content="80" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="clm_61" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                    <Border x:Name="clm_62" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                    <Border x:Name="clm_63" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                    <Border x:Name="clm_64" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                    <Border x:Name="clm_65" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                    <Border x:Name="clm_66" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                    <Border x:Name="clm_67" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                    <Border x:Name="clm_68" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                    <Border x:Name="clm_69" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                    <Border x:Name="clm_70" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                    <Border x:Name="clm_71" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
+                    <Border x:Name="clm_72" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
+                    <Border x:Name="clm_73" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
+                    <Border x:Name="clm_74" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
+                    <Border x:Name="clm_75" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
+                    <Border x:Name="clm_76" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
+                    <Border x:Name="clm_77" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
+                    <Border x:Name="clm_78" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
+                    <Border x:Name="clm_79" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
+                    <Border x:Name="clm_80" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="61" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="62" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="2" Content="63" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="64" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="4" Content="65" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="5" Content="66" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="6" Content="67" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="7" Content="68" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="8" Content="69" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="9" Content="70" BorderBrush="Black" BorderThickness="1" FontSize="11" />
+                    <Label Grid.Row="1" Grid.Column="10" Content="71" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="11" Content="72" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="12" Content="73" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="13" Content="74" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="14" Content="75" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="15" Content="76" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="16" Content="77" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="17" Content="78" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="18" Content="79" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="19" Content="80" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
 
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_61" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_61_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_62" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_62_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_63" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_63_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_64" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_64_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_65" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_65_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_66" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_66_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_67" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_67_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_68" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_68_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_69" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_69_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_70" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_70_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_71" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_71_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_72" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_72_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_73" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_73_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_74" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_74_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_75" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_75_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_76" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_76_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_77" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_77_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_78" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_78_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_79" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_79_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_80" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_80_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    </Grid>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_61" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_61_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_62" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_62_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_63" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_63_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_64" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_64_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_65" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_65_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_66" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_66_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_67" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_67_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_68" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_68_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_69" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_69_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_70" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_70_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_71" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_71_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_72" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_72_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_73" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_73_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_74" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_74_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_75" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_75_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_76" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_76_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_77" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_77_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_78" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_78_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_79" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_79_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_80" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_80_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                </Grid>
                 <Label x:Name="lbl_Breedte_Midden_Boven" Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
-                    
-                    <Grid Grid.Column="4" Grid.Row="1" Background="White">
-                        <Grid.RowDefinitions>
-                            <RowDefinition ></RowDefinition>
-                            <RowDefinition Height="25"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border x:Name="clm_41" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border x:Name="clm_42" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border x:Name="clm_43" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border x:Name="clm_44" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border x:Name="clm_45" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border x:Name="clm_46" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border x:Name="clm_47" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border x:Name="clm_48" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border x:Name="clm_49" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border x:Name="clm_50" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                        <Border x:Name="clm_51" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
-                        <Border x:Name="clm_52" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
-                        <Border x:Name="clm_53" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
-                        <Border x:Name="clm_54" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
-                        <Border x:Name="clm_55" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
-                        <Border x:Name="clm_56" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
-                        <Border x:Name="clm_57" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
-                        <Border x:Name="clm_58" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
-                        <Border x:Name="clm_59" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
-                        <Border x:Name="clm_60" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="41" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="1" Content="42" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="2" Content="43" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="3" Content="44" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="4" Content="45" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="5" Content="46" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="6" Content="47" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="7" Content="48" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="8" Content="49" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="9" Content="50" BorderBrush="Black" BorderThickness="1" FontSize="11" />
-                        <Label Grid.Row="1" Grid.Column="10" Content="51" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="11" Content="52" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="12" Content="53" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="13" Content="54" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="14" Content="55" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="15" Content="56" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="16" Content="57" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="17" Content="58" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="18" Content="59" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="19" Content="60" BorderBrush="Black" BorderThickness="1" FontSize="11" />
 
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_41" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_41_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_42" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_42_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_43" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_43_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_44" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_44_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_45" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_45_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_46" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_46_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_47" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_47_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_48" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_48_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_49" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_49_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_50" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_50_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_51" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_51_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_52" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_52_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_53" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_53_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_54" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_54_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_55" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_55_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_56" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_56_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_57" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_57_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_58" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_58_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_59" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_59_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_60" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_60_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    </Grid>
+                <Grid Grid.Column="4" Grid.Row="1" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="clm_41" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                    <Border x:Name="clm_42" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                    <Border x:Name="clm_43" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                    <Border x:Name="clm_44" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                    <Border x:Name="clm_45" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                    <Border x:Name="clm_46" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                    <Border x:Name="clm_47" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                    <Border x:Name="clm_48" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                    <Border x:Name="clm_49" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                    <Border x:Name="clm_50" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                    <Border x:Name="clm_51" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
+                    <Border x:Name="clm_52" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
+                    <Border x:Name="clm_53" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
+                    <Border x:Name="clm_54" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
+                    <Border x:Name="clm_55" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
+                    <Border x:Name="clm_56" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
+                    <Border x:Name="clm_57" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
+                    <Border x:Name="clm_58" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
+                    <Border x:Name="clm_59" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
+                    <Border x:Name="clm_60" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="41" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="42" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="2" Content="43" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="44" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="4" Content="45" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="5" Content="46" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="6" Content="47" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="7" Content="48" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="8" Content="49" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="9" Content="50" BorderBrush="Black" BorderThickness="1" FontSize="11" />
+                    <Label Grid.Row="1" Grid.Column="10" Content="51" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="11" Content="52" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="12" Content="53" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="13" Content="54" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="14" Content="55" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="15" Content="56" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="16" Content="57" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="17" Content="58" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="18" Content="59" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="19" Content="60" BorderBrush="Black" BorderThickness="1" FontSize="11" />
+
+                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_41_Drop" x:Name="lbl_41" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_41_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_42_Drop"  x:Name="lbl_42" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_42_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_43_Drop"  x:Name="lbl_43" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_43_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_44" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_44_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_45" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_45_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_46" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_46_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_47" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_47_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_48" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_48_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_49" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_49_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_50" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_50_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_51" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_51_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_52" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_52_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_53" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_53_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_54" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_54_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_55" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_55_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_56" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_56_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_57" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_57_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_58" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_58_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_59" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_59_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_60" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_60_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                </Grid>
                 <Label  x:Name="lbl_Breedte_Midden_Midden" Grid.Row="1" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
-                    
-                <Grid Grid.Column="4" Grid.Row="2" Background="White">
-                        <Grid.RowDefinitions>
-                            <RowDefinition ></RowDefinition>
-                            <RowDefinition Height="25"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border x:Name="clm_21" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
-                        <Border x:Name="clm_22" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                        <Border x:Name="clm_23" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
-                        <Border x:Name="clm_24" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
-                        <Border x:Name="clm_25" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
-                        <Border x:Name="clm_26" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
-                        <Border x:Name="clm_27" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
-                        <Border x:Name="clm_28" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
-                        <Border x:Name="clm_29" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
-                        <Border x:Name="clm_30" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
-                        <Border x:Name="clm_31" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
-                        <Border x:Name="clm_32" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
-                        <Border x:Name="clm_33" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
-                        <Border x:Name="clm_34" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
-                        <Border x:Name="clm_35" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
-                        <Border x:Name="clm_36" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
-                        <Border x:Name="clm_37" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
-                        <Border x:Name="clm_38" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
-                        <Border x:Name="clm_39" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
-                        <Border x:Name="clm_40" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="21" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="1" Content="22" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="2" Content="23" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="3" Content="24" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="4" Content="25" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="5" Content="26" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="6" Content="27" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="7" Content="28" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="8" Content="29" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="9" Content="30" BorderBrush="Black" BorderThickness="1" FontSize="11" />
-                        <Label Grid.Row="1" Grid.Column="10" Content="31" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="11" Content="32" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="12" Content="33" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="13" Content="34" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="14" Content="35" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="15" Content="36" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="16" Content="37" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="17" Content="38" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="18" Content="39" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
-                        <Label Grid.Row="1" Grid.Column="19" Content="40" BorderBrush="Black" BorderThickness="1" FontSize="11" />
 
-                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" Drop="lbl_21_Drop" x:Name="lbl_21" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_21_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" Drop="lbl_22_Drop" x:Name="lbl_22" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_22_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" Drop="lbl_23_Drop" x:Name="lbl_23" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_23_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_24" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_24_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_25" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_25_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_26" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_26_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_27" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_27_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_28" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_28_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_29" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_29_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_30" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_30_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_31" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_31_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_32" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_32_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_33" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_33_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_34" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_34_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_35" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_35_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_36" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_36_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_37" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_37_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_38" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_38_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_39" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_39_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                        <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_40" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <RotateTransform Angle="270"/>
-                            </Label.LayoutTransform>
-                        </Label>
-                        <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_40_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    </Grid>
+                <Grid Grid.Column="4" Grid.Row="2" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="clm_21" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
+                    <Border x:Name="clm_22" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                    <Border x:Name="clm_23" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                    <Border x:Name="clm_24" BorderBrush="Black" BorderThickness="1" Grid.Column="3"/>
+                    <Border x:Name="clm_25" BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
+                    <Border x:Name="clm_26" BorderBrush="Black" BorderThickness="1" Grid.Column="5"/>
+                    <Border x:Name="clm_27" BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
+                    <Border x:Name="clm_28" BorderBrush="Black" BorderThickness="1" Grid.Column="7"/>
+                    <Border x:Name="clm_29" BorderBrush="Black" BorderThickness="1" Grid.Column="8"/>
+                    <Border x:Name="clm_30" BorderBrush="Black" BorderThickness="1" Grid.Column="9"/>
+                    <Border x:Name="clm_31" BorderBrush="Black" BorderThickness="1" Grid.Column="10"/>
+                    <Border x:Name="clm_32" BorderBrush="Black" BorderThickness="1" Grid.Column="11"/>
+                    <Border x:Name="clm_33" BorderBrush="Black" BorderThickness="1" Grid.Column="12"/>
+                    <Border x:Name="clm_34" BorderBrush="Black" BorderThickness="1" Grid.Column="13"/>
+                    <Border x:Name="clm_35" BorderBrush="Black" BorderThickness="1" Grid.Column="14"/>
+                    <Border x:Name="clm_36" BorderBrush="Black" BorderThickness="1" Grid.Column="15"/>
+                    <Border x:Name="clm_37" BorderBrush="Black" BorderThickness="1" Grid.Column="16"/>
+                    <Border x:Name="clm_38" BorderBrush="Black" BorderThickness="1" Grid.Column="17"/>
+                    <Border x:Name="clm_39" BorderBrush="Black" BorderThickness="1" Grid.Column="18"/>
+                    <Border x:Name="clm_40" BorderBrush="Black" BorderThickness="1" Grid.Column="19"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="21" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="22" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="2" Content="23" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="24" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="4" Content="25" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="5" Content="26" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="6" Content="27" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="7" Content="28" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="8" Content="29" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="9" Content="30" BorderBrush="Black" BorderThickness="1" FontSize="11" />
+                    <Label Grid.Row="1" Grid.Column="10" Content="31" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="11" Content="32" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="12" Content="33" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="13" Content="34" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="14" Content="35" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="15" Content="36" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="16" Content="37" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="17" Content="38" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="18" Content="39" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
+                    <Label Grid.Row="1" Grid.Column="19" Content="40" BorderBrush="Black" BorderThickness="1" FontSize="11" />
+
+                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_21_Drop" x:Name="lbl_21" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_21_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_22_Drop" x:Name="lbl_22" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_22_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_23_Drop" x:Name="lbl_23" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_23_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_24_Drop" x:Name="lbl_24" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_24_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_25_Drop" x:Name="lbl_25" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_25_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_26_Drop" x:Name="lbl_26" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_26_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_27_Drop" x:Name="lbl_27" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_27_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_28_Drop" x:Name="lbl_28" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_28_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_29_Drop" x:Name="lbl_29" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_29_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_30_Drop" x:Name="lbl_30" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_30_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="10" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_31_Drop" x:Name="lbl_31" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_31_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="11" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_32_Drop" x:Name="lbl_32" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_32_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="12" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_33_Drop"  x:Name="lbl_33" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_33_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="13" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_34_Drop"  x:Name="lbl_34" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_34_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="14" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_35_Drop"  x:Name="lbl_35" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_35_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="15" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_36_Drop"  x:Name="lbl_36" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_36_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="16" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_37_Drop"  x:Name="lbl_37" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_37_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="17" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_38_Drop"  x:Name="lbl_38" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_38_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="18" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_39_Drop"  x:Name="lbl_39" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_39_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                    <Label Grid.Row="0" Grid.Column="19" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_40_Drop"  x:Name="lbl_40" Width="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="19" x:Name="lbl_40_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
+                </Grid>
                 <Label x:Name="lbl_Breedte_Midden_Beneden" Grid.Row="2" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="1306" FontSize="11" Foreground="White"></Label>
             </Grid>
-                <!--<Slider Margin="5,0,0,0" Grid.Row="0" Grid.Column="7" Width="45" Minimum="1" Maximum="1.8" x:Name="sldZoom" Orientation="Vertical" />--> 
-                <Grid.LayoutTransform>
-                    <ScaleTransform ScaleX="{Binding ElementName=sldZoom, Path=Value}" ScaleY="{Binding ElementName=sldZoom, Path=Value}" />
-                </Grid.LayoutTransform>
-            </Grid>
+            <!--<Slider Margin="5,0,0,0" Grid.Row="0" Grid.Column="7" Width="45" Minimum="1" Maximum="1.8" x:Name="sldZoom" Orientation="Vertical" />-->
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding ElementName=sldZoom, Path=Value}" ScaleY="{Binding ElementName=sldZoom, Path=Value}" />
+            </Grid.LayoutTransform>
+        </Grid>
 
 
-
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="20"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="20"></ColumnDefinition>
-                    <ColumnDefinition Width="110"></ColumnDefinition>
-                    <ColumnDefinition Width="20"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Cursor="Hand" Content="Import" Click="btn_Import_Click" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Grid.Column="2" Cursor="Hand" Content="Export" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Grid.Column="4" Cursor="Hand" Content="Delete" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-            <StackPanel Grid.Column="6" Orientation="Horizontal"  HorizontalAlignment="Right">
+            <Button Grid.Column="2" Cursor="Hand" Content="Export" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+            <StackPanel Grid.Column="2" Orientation="Horizontal"  HorizontalAlignment="Right">
                 <Button Cursor="Hand"  Content="BAT_C" Click="btn_BAT_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                 <Button Cursor="Hand" Content="BAT_T" Click="btn_BAT_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <Button Cursor="Hand"  Content="ITB_C" Click="btn_ITB_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <Button Cursor="Hand"  Content="ITB_T" Click="btn_ITB_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <Button Cursor="Hand" Content="JTI_C" Click="btn_JTI_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                    <Button Cursor="Hand" Content="JTI_T" Click="btn_JTI_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <Button Cursor="Hand"  Content="ITB_C" Click="btn_ITB_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <Button Cursor="Hand"  Content="ITB_T" Click="btn_ITB_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <Button Cursor="Hand" Content="JTI_C" Click="btn_JTI_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+                <Button Cursor="Hand" Content="JTI_T" Click="btn_JTI_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                 <Button Cursor="Hand" Content="PMI_C" Click="btn_PMI_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
             </StackPanel>
-            </Grid>
+        </Grid>
 
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                <DataGrid x:Name="data_Ini" FontWeight="Bold" AlternatingRowBackground="LightGoldenrodYellow" AllowDrop="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"  Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
-                </Grid>
-                <Grid Grid.Column="1">
-                <DataGrid x:Name="data_Product" AlternatingRowBackground="LightGray" AllowDrop="False" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"  Margin="10" FontStyle="Italic"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
-                </Grid>
-                <Grid Grid.Column="2">
-                    <DataGrid x:Name="data_Assortiment" AlternatingRowBackground="LightGreen" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
-                </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <DataGrid x:Name="data_Ini" FontWeight="Bold" AlternatingRowBackground="LightGoldenrodYellow" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False"  Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <DataGrid x:Name="data_Product" AlternatingRowBackground="LightGray" IsReadOnly="False" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False"  Margin="10" FontStyle="Italic"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
+            </Grid>
+            <Grid Grid.Column="2">
+                <DataGrid x:Name="data_Assortiment" AlternatingRowBackground="LightGreen" FontWeight="Bold" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
             </Grid>
         </Grid>
+    </Grid>
 
 </Window>
