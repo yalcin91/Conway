@@ -80,6 +80,7 @@ namespace Conway.WPF
                 _Producten.Add(item);
             }
             data_Product.ItemsSource = _Producten;
+            cb_Producten.ItemsSource = _Producten;
         }
         #endregion
 
@@ -233,6 +234,73 @@ namespace Conway.WPF
             }
         }
 
+        private void btn_Export_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Ini Document (.ini)|*.ini";
+            string path = null;
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                path = saveFileDialog.FileName;
+            }
+            // sort1=LUCKY_STRIKE_RED/50G 54039377 00000 1 1 0 14 0 011 0 0
+            // [Global]
+            // Date=20210323173036179
+            // Propriétaire=DOCKX_YANNICK
+            string sorts = "[sorts]";
+            string sort = "sort";
+            int sortnumber = 1;
+            string gelijkaan = "=";
+            string zero = "0000";
+            int eerstenummer = 1;
+            int tweedenummer = 1;
+            int eertseConstZero = 0;
+            int tweedeConstandZero = 0;
+            int nulVoorPrijs = 0;
+            int laatsteNulEen = 0;
+            int laatsteNulTwee = 0;
+            string space = " ";
+            string gobal = "[Global]";
+            string date = "Date=20210323173036179";
+            string proprie = "Propriétaire=DOCKX_TOM";
+            string dertienNullen = "0000000000000";
+
+            if (path == null) { return; }
+            using (TextWriter tw = new StreamWriter(path))
+            {
+                tw.WriteLine(sorts);
+                for (int i = 0; i < _Ini.Count; i++)
+                {
+                    if (_Ini[i].Naam == "dismounted")
+                    {
+                        string prijs = _Ini[i].Prijs.ToString();
+                        string newPrijs = prijs.Replace(",", ".");
+                        string naam = _Ini[i].Naam;
+                        string newNaam = naam.Replace(" ", "_");
+                        tw.WriteLine(sort + sortnumber + gelijkaan + newNaam + space + dertienNullen + space + zero + space + eerstenummer + space + tweedenummer + space + eertseConstZero + space + 0 + space + tweedeConstandZero + space + nulVoorPrijs + newPrijs + space + laatsteNulEen + space + laatsteNulTwee);
+                        sortnumber++;
+                        eerstenummer++;
+                        tweedenummer++;
+                    }
+                    else
+                    {
+                        string prijs = _Ini[i].Prijs.ToString();
+                        string newPrijs = prijs.Replace(",", ".");
+                        string naam = _Ini[i].Naam;
+                        string newNaam = naam.Replace(" ", "_");
+                        tw.WriteLine(sort + sortnumber + gelijkaan + newNaam + space + _Ini[i].Eancode + space + zero + space + eerstenummer + space + tweedenummer + space + eertseConstZero + space + 0 + space + tweedeConstandZero + space + nulVoorPrijs + newPrijs + space + laatsteNulEen + space + laatsteNulTwee);
+                        sortnumber++;
+                        eerstenummer++;
+                        tweedenummer++;
+                    }
+                }
+                tw.WriteLine(gobal);
+                tw.WriteLine(date);
+                tw.WriteLine(proprie);
+                tw.Close();
+            }
+        }
+
 
         private List<string> _Fabrikant = new List<string>();
         private List<int> _BAT = new List<int>();
@@ -252,7 +320,7 @@ namespace Conway.WPF
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.DefaultExt = ".ini";
             ofd.Filter = "Ini Document (.ini)|*.ini";
-            string path = "";
+            string path = null;
             if (ofd.ShowDialog() == true)
             {
                 path = ofd.FileName;
@@ -270,6 +338,7 @@ namespace Conway.WPF
             double hoogte = 0;
             double breedte = 0;
             string index = "";
+            int inhoud = 0;
             List<string> _Naam = new List<string>();
             if (path == null) return;
             using (StreamReader reader = new StreamReader(path))
@@ -309,11 +378,11 @@ namespace Conway.WPF
                                 }
                                 for (int i = 0; i < _Producten.Count; i++)
                                 {
-                                    if (_Producten[i].Eancode == ean) { fabrikant = _Producten[i].Fabrikant; hoogte = _Producten[i].Hoogte; breedte = _Producten[i].Breedte; }
+                                    if (_Producten[i].Eancode == ean) { fabrikant = _Producten[i].Fabrikant; hoogte = _Producten[i].Hoogte; breedte = _Producten[i].Breedte; inhoud = _Producten[i].Inhoud; }
                                 }
                                 string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
                                 double prix2 = double.Parse(prix, System.Globalization.CultureInfo.InvariantCulture);
-                                var data = new Product(id, description, fabrikant, hoogte, breedte, 0, 0, ean, prix2);
+                                var data = new Product(id, description, fabrikant, hoogte, breedte, 0, inhoud, ean, prix2);
                                 CheckFabrikantAantal(fabrikant);
                                 var money = "\u20AC" + prix;
                                 ToMachine(id, description, money, fabrikant);
@@ -330,12 +399,14 @@ namespace Conway.WPF
                                 fabrikant = "";
                                 breedte = 0;
                                 hoogte = 0;
+                                inhoud = 0;
                             }
                         }
                         min++;
                     }
                 }
                 data_Ini.ItemsSource = _Ini;
+                reader.Close();
             }
         }
 
@@ -501,18 +572,6 @@ namespace Conway.WPF
             if (fabrikant == "PMI") { _PMI.Remove(1); lbl_PMI.Content = _PMI.Count(); }
         }
 
-        private class ModelIni
-        {
-            public int Id { get; set; }
-            public string Ean { get; set; }
-            public string Description { get; set; }
-            public string Qt { get; set; }
-            public string Prix { get; set; }
-            public string Fabricant { get; set; }
-            public double Hoogte { get; set; }
-            public double Breedte { get; set; }
-        }
-
         #region Fabrikant code kleur
         private int ClearCodeCheck = 0;
         private void btn_BAT_C(object sender, RoutedEventArgs e)
@@ -595,108 +654,6 @@ namespace Conway.WPF
             }
             else { clearColor(); ClearCodeCheck = 0; }
         }
-        private void clearColor()
-        {
-            clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-
-            clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-
-            clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-
-            clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-
-            clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-
-            clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-
-            clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-
-            clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-
-            clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-            clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
-        }
-        #endregion
 
         private void ChangeColor(string fabrikant)
         {
@@ -805,6 +762,108 @@ namespace Conway.WPF
                 }
             }
         }
+        private void clearColor()
+        {
+            clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+
+            clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+
+            clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+
+            clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+
+            clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+
+            clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+
+            clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+
+            clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+
+            clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+            clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.White);
+        }
+        #endregion
 
         private void Clear()
         {
@@ -1098,26 +1157,42 @@ namespace Conway.WPF
 
             Product p = new Product(id, product.Naam, product.Fabrikant, product.Hoogte, product.Breedte, product.Diepte, product.Inhoud, product.Eancode, product.Prijs);
             var v = _Ini.Where(x => x.Id == id).FirstOrDefault();
-            if (v == null)
+            if (p != null)
             {
-                _Ini.Insert((id - 1), p);
-                data_Ini.ItemsSource = _Ini;
-                Breedte_Berekenen_Verminderen(id);
-                CheckFabrikantAantal(product.Fabrikant);
-                if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
-                return;
-            }
-            if (v != null)
-            {
-                Breedte_Berekenen_Optellen(v.Id);
-                CheckFabrikantAantal_Verminderen(v.Fabrikant);
-                _Ini.Remove(v);
-                _Ini.Insert((id - 1), p);
-                data_Ini.ItemsSource = _Ini;
-                Breedte_Berekenen_Verminderen(p.Id);
-                CheckFabrikantAantal(product.Fabrikant);
-                if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
-                return;
+                if (p.Naam != "dismounted")
+                {
+                    Breedte_Berekenen_Optellen(p.Id);
+                    CheckFabrikantAantal_Verminderen(v.Fabrikant);
+                    _Ini.Remove(v);
+                    p.Breedte = p.Breedte + 8.5;
+                    _Ini.Insert((id - 1), p);
+                    data_Ini.ItemsSource = _Ini;
+                    Breedte_Berekenen_Verminderen(p.Id);
+                    CheckFabrikantAantal(product.Fabrikant);
+                    if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
+                    return;
+                }
+
+                if (v.Naam == "dismounted")
+                {
+                    _Ini.Remove(v);
+                    _Ini.Insert((id - 1), p);
+                    data_Ini.ItemsSource = _Ini;
+                    CheckFabrikantAantal(product.Fabrikant);
+                    if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
+                    return;
+                }
+
+                if (p.Naam == "dismounted")
+                {
+                    Breedte_Berekenen_Optellen(v.Id);
+                    _Ini.Remove(v);
+                    _Ini.Insert((id - 1), p);
+                    data_Ini.ItemsSource = _Ini;
+                    CheckFabrikantAantal(product.Fabrikant);
+                    if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
+                    return;
+                }
             }
         }
 
@@ -1137,8 +1212,16 @@ namespace Conway.WPF
         private int rowIndex = 0;
         private void DgSupp_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var currentRow = data_Product.Items.IndexOf(data_Product.CurrentItem);
-            rowIndex = currentRow;
+            var b = 0;
+            Product product = new Product();
+            foreach (var item in data_Product.SelectedItems)
+            {
+                product = item as Product;
+                b = (int)product.Id;
+            }
+            var currentRow = data_Product.SelectedItem;
+            //var p = _Producten.Contains(currentRow);
+            rowIndex = (b-1);
             data_Product.IsReadOnly = false;
         }
         #endregion
@@ -1264,5 +1347,356 @@ namespace Conway.WPF
             if (name.ToString() == "lbl_90") { product.Id = 90; HerstelIni(product, 90); lbl_90.Content = "dismounted"; lbl_90_Prix.Content = "0"; }
         }
         #endregion
+
+        #region Kleuren voor aantal pakken
+        private void btn_20_Inhoud_Click(object sender, RoutedEventArgs e)
+        {
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                for (int m = 0; m < _Ini.Count; m++)
+                {
+                    if (_Ini[m].Inhoud == 20)
+                    {
+                        if (m == 0) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 1) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 2) clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 3) clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 4) clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 5) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 6) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 7) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 8) clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 9) clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+
+                        if (m == 10) clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 11) clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 12) clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 13) clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 14) clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 15) clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 16) clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 17) clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 18) clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 19) clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+
+                        if (m == 20) clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 21) clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 22) clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 23) clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 24) clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 25) clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 26) clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 27) clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 28) clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 29) clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+
+                        if (m == 30) clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 31) clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 32) clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 33) clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 34) clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 35) clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 36) clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 37) clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 38) clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 39) clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+
+                        if (m == 40) clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 41) clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 42) clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 43) clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 44) clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 45) clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 46) clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 47) clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 48) clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 49) clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+
+                        if (m == 50) clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 51) clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 52) clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 53) clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 54) clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 55) clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 56) clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 57) clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 58) clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 59) clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+
+                        if (m == 60) clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 61) clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 62) clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 63) clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 64) clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 65) clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 66) clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 67) clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 68) clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 69) clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+
+                        if (m == 70) clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 71) clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 72) clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 73) clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 74) clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 75) clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 76) clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 77) clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 78) clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 79) clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+
+                        if (m == 80) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 81) clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 82) clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 83) clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 84) clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 85) clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 86) clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 87) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 88) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                    }
+                }
+                    ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
+
+        private void btn_21_46_Click(object sender, RoutedEventArgs e)
+        {
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                for (int m = 0; m < _Ini.Count; m++)
+                {
+                    if (_Ini[m].Inhoud >= 21 && _Ini[m].Inhoud <= 46)
+                    {
+                        if (m == 0) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 1) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 2) clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 3) clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 4) clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 5) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 6) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 7) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 8) clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 9) clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+
+                        if (m == 10) clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 11) clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 12) clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 13) clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 14) clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 15) clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 16) clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 17) clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 18) clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 19) clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+
+                        if (m == 20) clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 21) clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 22) clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 23) clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 24) clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 25) clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 26) clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 27) clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 28) clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 29) clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+
+                        if (m == 30) clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 31) clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 32) clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 33) clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 34) clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 35) clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 36) clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 37) clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 38) clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 39) clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+
+                        if (m == 40) clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 41) clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 42) clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 43) clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 44) clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 45) clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 46) clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 47) clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 48) clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 49) clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+
+                        if (m == 50) clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 51) clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 52) clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 53) clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 54) clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 55) clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 56) clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 57) clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 58) clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 59) clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+
+                        if (m == 60) clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 61) clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 62) clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 63) clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 64) clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 65) clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 66) clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 67) clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 68) clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 69) clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+
+                        if (m == 70) clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 71) clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 72) clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 73) clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 74) clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 75) clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 76) clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 77) clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 78) clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 79) clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+
+                        if (m == 80) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 81) clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 82) clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 83) clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 84) clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 85) clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 86) clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 87) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 88) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                    }
+                }
+                    ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
+
+        private void btn_47_60_Click(object sender, RoutedEventArgs e)
+        {
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                for (int m = 0; m < _Ini.Count; m++)
+                {
+                    if (_Ini[m].Inhoud >= 47 && _Ini[m].Inhoud <= 60)
+                    {
+                        if (m == 0) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 1) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 2) clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 3) clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 4) clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 5) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 6) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 7) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 8) clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 9) clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+
+                        if (m == 10) clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 11) clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 12) clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 13) clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 14) clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 15) clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 16) clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 17) clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 18) clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 19) clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+
+                        if (m == 20) clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 21) clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 22) clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 23) clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 24) clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 25) clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 26) clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 27) clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 28) clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 29) clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+
+                        if (m == 30) clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 31) clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 32) clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 33) clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 34) clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 35) clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 36) clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 37) clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 38) clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 39) clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+
+                        if (m == 40) clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 41) clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 42) clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 43) clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 44) clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 45) clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 46) clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 47) clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 48) clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 49) clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+
+                        if (m == 50) clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 51) clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 52) clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 53) clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 54) clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 55) clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 56) clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 57) clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 58) clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 59) clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+
+                        if (m == 60) clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 61) clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 62) clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 63) clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 64) clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 65) clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 66) clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 67) clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 68) clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 69) clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+
+                        if (m == 70) clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 71) clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 72) clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 73) clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 74) clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 75) clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 76) clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 77) clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 78) clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 79) clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+
+                        if (m == 80) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 81) clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 82) clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 83) clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 84) clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 85) clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 86) clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 87) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 88) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                    }
+                }
+                ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
+        #endregion
+
+        private void cb_Producten_KeyUp(object sender, KeyEventArgs e)
+        {
+            var v = cb_Producten.SelectedItem;
+            if (v == null) { return; }
+            data_Product.ScrollIntoView(v);
+        }
     }
 }

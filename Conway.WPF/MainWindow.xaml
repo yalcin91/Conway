@@ -56,6 +56,9 @@
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="BAT = " FontWeight="Bold" FontSize="20"></Label>
                     <Label Grid.Column="0" Grid.Row="1" Content="ITB = " FontWeight="Bold" FontSize="20"></Label>
@@ -66,6 +69,9 @@
                     <Label Grid.Column="1" Grid.Row="1" x:Name="lbl_ITB" FontWeight="Bold" FontSize="20"></Label>
                     <Label Grid.Column="1" Grid.Row="2" x:Name="lbl_JTI" FontWeight="Bold" FontSize="20"></Label>
                     <Label Grid.Column="1" Grid.Row="3" x:Name="lbl_PMI" FontWeight="Bold" FontSize="20"></Label>
+                    <Button Grid.Column="0" Grid.Row="4" Cursor="Hand" Margin="0" Click="btn_20_Inhoud_Click" Content="20" Width="50" Height="35" FontWeight="ExtraBold" FontSize="15" HorizontalAlignment="Left" Background="Aqua"></Button>
+                    <Button Grid.Column="0" Grid.Row="5" Cursor="Hand" Margin="0" Click="btn_21_46_Click" Content="21-46" Width="50" Height="35" FontWeight="ExtraBold" FontSize="15" HorizontalAlignment="Left" Background="Orange"></Button>
+                    <Button Grid.Column="0" Grid.Row="6" Cursor="Hand" Margin="0" Click="btn_47_60_Click" Content="47-60" Width="50" Height="35" FontWeight="ExtraBold" FontSize="15" HorizontalAlignment="Left" Background="SaddleBrown"></Button>
                 </Grid>
             </Grid>
 
@@ -973,13 +979,15 @@
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="110"></ColumnDefinition>
-                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Cursor="Hand" Content="Import" Click="btn_Import_Click" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-            <Button Grid.Column="2" Cursor="Hand" Content="Export" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-            <StackPanel Grid.Column="2" Orientation="Horizontal"  HorizontalAlignment="Right">
+            <Button Grid.Column="0" Cursor="Hand" Content="Import" Click="btn_Import_Click" Height="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+            <Button Grid.Column="1" Cursor="Hand" Content="Export" Click="btn_Export_Click" Height="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+            <ComboBox Grid.Column="2" x:Name="cb_Producten" Background="White" MinWidth="300" HorizontalAlignment="Right" KeyUp="cb_Producten_KeyUp" IsTextSearchEnabled="True" IsEditable="True" VerticalAlignment="Center" DisplayMemberPath="Naam" SelectedValuePath="Naam" FontWeight="Bold" FontStyle="Italic"></ComboBox>
+            <StackPanel Grid.Column="3" Orientation="Horizontal"  HorizontalAlignment="Right">
                 <Button Cursor="Hand"  Content="BAT_C" Click="btn_BAT_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                 <Button Cursor="Hand" Content="BAT_T" Click="btn_BAT_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
                 <Button Cursor="Hand"  Content="ITB_C" Click="btn_ITB_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
@@ -1000,7 +1008,7 @@
                 <DataGrid x:Name="data_Ini" FontWeight="Bold" AlternatingRowBackground="LightGoldenrodYellow" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False"  Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
             </Grid>
             <Grid Grid.Column="1">
-                <DataGrid x:Name="data_Product" AlternatingRowBackground="LightGray" IsReadOnly="False" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False"  Margin="10" FontStyle="Italic"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
+                <DataGrid x:Name="data_Product" AlternatingRowBackground="LightCyan" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" IsReadOnly="False" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False"  Margin="10" FontStyle="Italic"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
             </Grid>
             <Grid Grid.Column="2">
                 <DataGrid x:Name="data_Assortiment" AlternatingRowBackground="LightGreen" FontWeight="Bold" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
