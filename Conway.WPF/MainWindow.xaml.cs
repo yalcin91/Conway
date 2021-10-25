@@ -316,6 +316,7 @@ namespace Conway.WPF
         private void btn_Import_Click(object sender, RoutedEventArgs e)
         {
             Clear();
+            StartIni();
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.DefaultExt = ".ini";
@@ -340,74 +341,78 @@ namespace Conway.WPF
             string index = "";
             int inhoud = 0;
             List<string> _Naam = new List<string>();
-            if (path == null) return;
-            using (StreamReader reader = new StreamReader(path))
+            if (path != null)
             {
-                while ((line = reader.ReadLine()) != null)
+                using (StreamReader reader = new StreamReader(path))
                 {
-                    volledigString += " " + line;
-                }
-                reader.Close();
-                string[] array = volledigString.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                for (int k = 0; k < array.Length; k++)
-                {
-                    _VolledigString.Add(array[k]);
-                }
-
-                for (int j = 0; j < _VolledigString.Count; j++)
-                {
-                    int min = 0;
-                    foreach (char m in _VolledigString[j])
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        if (m.ToString() == "=")
-                        {
-                            if (j <= 1056)
-                            {
-                                description = _VolledigString[j].Remove(0, (min + 1));
-                                ean = long.Parse(_VolledigString[(j + 1)]);
-                                //var money = "";
-                                if (j <= 1055)
-                                {
-                                    qt = _VolledigString[(j + 6)];
-                                }
-                                if (j <= 1053)
-                                {
-                                    //money = prix.ToString();
-                                    if (_VolledigString[j + 8].First() == '0') { prix = _VolledigString[(j + 8)].Remove(0, 1); }
-                                    else { prix = _VolledigString[(j + 8)]; }
-                                }
-                                for (int i = 0; i < _Producten.Count; i++)
-                                {
-                                    if (_Producten[i].Eancode == ean) { fabrikant = _Producten[i].Fabrikant; hoogte = _Producten[i].Hoogte; breedte = _Producten[i].Breedte; inhoud = _Producten[i].Inhoud; }
-                                }
-                                string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
-                                double prix2 = double.Parse(prix, System.Globalization.CultureInfo.InvariantCulture);
-                                var data = new Product(id, description, fabrikant, hoogte, breedte, 0, inhoud, ean, prix2);
-                                CheckFabrikantAantal(fabrikant);
-                                var money = "\u20AC" + prix;
-                                ToMachine(id, description, money, fabrikant);
-                                _Fabrikant.Add(fabrikant);
-                                index = data.Id.ToString();
-                                int indexx = int.Parse(index);
-                                _Ini.Insert((indexx - 1), data);
-                                Breedte_Berekenen_Verminderen(id);
-                                id++;
-                                ean = 0;
-                                description = "";
-                                qt = "";
-                                prix = "";
-                                fabrikant = "";
-                                breedte = 0;
-                                hoogte = 0;
-                                inhoud = 0;
-                            }
-                        }
-                        min++;
+                        volledigString += " " + line;
                     }
+                    reader.Close();
+                    string[] array = volledigString.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                    for (int k = 0; k < array.Length; k++)
+                    {
+                        _VolledigString.Add(array[k]);
+                    }
+
+                    for (int j = 0; j < _VolledigString.Count; j++)
+                    {
+                        int min = 0;
+                        foreach (char m in _VolledigString[j])
+                        {
+                            if (m.ToString() == "=")
+                            {
+                                if (j <= 1056)
+                                {
+                                    description = _VolledigString[j].Remove(0, (min + 1));
+                                    ean = long.Parse(_VolledigString[(j + 1)]);
+                                    //var money = "";
+                                    if (j <= 1055)
+                                    {
+                                        qt = _VolledigString[(j + 6)];
+                                    }
+                                    if (j <= 1053)
+                                    {
+                                        //money = prix.ToString();
+                                        if (_VolledigString[j + 8].First() == '0') { prix = _VolledigString[(j + 8)].Remove(0, 1); }
+                                        else { prix = _VolledigString[(j + 8)]; }
+                                    }
+                                    for (int i = 0; i < _Producten.Count; i++)
+                                    {
+                                        if (_Producten[i].Eancode == ean) { fabrikant = _Producten[i].Fabrikant; hoogte = _Producten[i].Hoogte; breedte = _Producten[i].Breedte; inhoud = _Producten[i].Inhoud; }
+                                    }
+                                    string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
+                                    double prix2 = double.Parse(prix, System.Globalization.CultureInfo.InvariantCulture);
+                                    var data = new Product(id, description, fabrikant, hoogte, breedte, 0, inhoud, ean, prix2);
+                                    CheckFabrikantAantal(fabrikant);
+                                    var money = "\u20AC" + prix;
+                                    ToMachine(id, description, money, fabrikant);
+                                    _Fabrikant.Add(fabrikant);
+                                    index = data.Id.ToString();
+                                    int indexx = int.Parse(index);
+                                    _Ini.Insert((indexx - 1), data);
+                                    Breedte_Berekenen_Verminderen(id);
+                                    id++;
+                                    ean = 0;
+                                    description = "";
+                                    qt = "";
+                                    prix = "";
+                                    fabrikant = "";
+                                    breedte = 0;
+                                    hoogte = 0;
+                                    inhoud = 0;
+                                }
+                            }
+                            min++;
+                        }
+                    }
+                    data_Ini.ItemsSource = _Ini;
+                    reader.Close();
                 }
-                data_Ini.ItemsSource = _Ini;
-                reader.Close();
             }
+            else { Clear(); StartIni(); }
+            
         }
 
         private void Breedte_Berekenen_Optellen(long id)
@@ -881,6 +886,11 @@ namespace Conway.WPF
                 _JTI.Clear();
                 _PMI.Clear();
 
+                lbl_BAT.Content = _BAT.Count();
+                lbl_ITB.Content = _ITB.Count();
+                lbl_JTI.Content = _JTI.Count();
+                lbl_PMI.Content = _PMI.Count();
+
                 Breedte_Links = 645;
                 Breedte_Rechts_Boven = 645;
                 Breedte_Rechts_Beneden = 645;
@@ -1175,6 +1185,7 @@ namespace Conway.WPF
 
                 if (v.Naam == "dismounted")
                 {
+                    CheckFabrikantAantal_Verminderen(v.Fabrikant);
                     _Ini.Remove(v);
                     _Ini.Insert((id - 1), p);
                     data_Ini.ItemsSource = _Ini;
@@ -1186,6 +1197,7 @@ namespace Conway.WPF
                 if (p.Naam == "dismounted")
                 {
                     Breedte_Berekenen_Optellen(v.Id);
+                    CheckFabrikantAantal_Verminderen(v.Fabrikant);
                     _Ini.Remove(v);
                     _Ini.Insert((id - 1), p);
                     data_Ini.ItemsSource = _Ini;
@@ -1345,6 +1357,11 @@ namespace Conway.WPF
             if (name.ToString() == "lbl_88") { product.Id = 88; HerstelIni(product, 88); lbl_88.Content = "dismounted"; lbl_88_Prix.Content = "0"; }
             if (name.ToString() == "lbl_89") { product.Id = 89; HerstelIni(product, 89); lbl_89.Content = "dismounted"; lbl_89_Prix.Content = "0"; }
             if (name.ToString() == "lbl_90") { product.Id = 90; HerstelIni(product, 90); lbl_90.Content = "dismounted"; lbl_90_Prix.Content = "0"; }
+
+            lbl_BAT.Content = _BAT.Count();
+            lbl_ITB.Content = _ITB.Count();
+            lbl_JTI.Content = _JTI.Count();
+            lbl_PMI.Content = _PMI.Count();
         }
         #endregion
 
