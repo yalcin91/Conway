@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Conway.WPF"
         mc:Ignorable="d"
-        Title="Window 1 - Standard Chrome"
+        Title="Conway"
         Topmost="True"
         Width="1500" Height="800"
         WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize"
-        Background="Transparent">
-
+        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\10.jpg" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
 
     <Grid>
         <Grid.Background>
