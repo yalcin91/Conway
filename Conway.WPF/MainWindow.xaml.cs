@@ -316,7 +316,7 @@ namespace Conway.WPF
         private void btn_Import_Click(object sender, RoutedEventArgs e)
         {
             Clear();
-            StartIni();
+            //StartIni();
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.DefaultExt = ".ini";
@@ -412,7 +412,6 @@ namespace Conway.WPF
                 }
             }
             else { Clear(); StartIni(); }
-            
         }
 
         private void Breedte_Berekenen_Optellen(long id)
@@ -1246,6 +1245,10 @@ namespace Conway.WPF
         #region Maak grids leeg
         private void lbl_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            /*List<Label> obje = new List<Label>();   =>    Dit Zal later mijn update worden om codes te verkleinen zoals hieronder (alles zal in een loop zitten) !!!
+            obje.Add(lbl_37);
+            var v = obje[0];
+            MessageBox.Show(v.Content.ToString()); return;*/
             if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
             FrameworkElement s = sender as FrameworkElement;
             string name = s.Name;

@@ -8,7 +8,8 @@
         Title="Window 1 - Standard Chrome"
         Topmost="True"
         Width="1500" Height="800"
-        WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize">
+        WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize"
+        Background="Transparent">
 
 
     <Grid>
