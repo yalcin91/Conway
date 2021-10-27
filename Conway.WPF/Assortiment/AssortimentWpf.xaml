@@ -5,22 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Conway.WPF.Assortiment"
         mc:Ignorable="d"
-        Title="Assortiment - Standard Chrome"
+        Title="Conway"
         Topmost="True"
-        Width="2000" Height="1000"
-        WindowStyle="SingleBorderWindow"  WindowState="Maximized">
+        MinWidth="1500" MinHeight="800"
+        WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize"
+        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.ico" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
 
-    <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="True" BorderThickness="0"
-                  IsTabStop="False" Margin="2" HorizontalScrollBarVisibility="Visible" VerticalAlignment="Stretch" Background="{x:Null}">
         <Grid>
             <Grid.Background>
-                <LinearGradientBrush   
-                            StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#FF5FA7F0" Offset="0"/>
-                    <GradientStop Color="#FFC7ECD1" Offset="0.5"/>
-                    <GradientStop Color="#FFC4DFFF" Offset="1"/>
-                </LinearGradientBrush>
+                <ImageBrush ImageSource="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\4.jpg"></ImageBrush>
             </Grid.Background>
         </Grid>
-    </ScrollViewer>
 </Window>

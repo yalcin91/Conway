@@ -5,22 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Conway.WPF.Products"
         mc:Ignorable="d"
-        Title="Producten - Standard Chrome"
+        Title="Conway"
         Topmost="True"
-        Width="1890" Height="1000"
-        WindowStyle="SingleBorderWindow"  WindowState="Maximized">
+        MinWidth="1500" MinHeight="800"
+        WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize"
+        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.ico" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
 
-    <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="True" BorderThickness="0"
-                  IsTabStop="False" Margin="2" HorizontalScrollBarVisibility="Visible" VerticalAlignment="Stretch" Background="{x:Null}">
-        <Grid>
-            <Grid.Background>
-                <LinearGradientBrush   
-                            StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#FF5FA7F0" Offset="0"/>
-                    <GradientStop Color="#FFC7ECD1" Offset="0.5"/>
-                    <GradientStop Color="#FFC4DFFF" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\13.jpg"></ImageBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <DataGrid x:Name="data_Portal" Grid.Row="1" Grid.Column="0" Margin="5" AlternatingRowBackground="LightCyan" 
+                      CanUserAddRows="False" CanUserDeleteRows="False"/>
+
+            <DataGrid x:Name="data_Product" Grid.Row="1" Grid.Column="1" Margin="5" AlternatingRowBackground="LightCyan" 
+                      CanUserAddRows="False" CanUserDeleteRows="False"/>
         </Grid>
-    </ScrollViewer>
+    </Grid>
 </Window>

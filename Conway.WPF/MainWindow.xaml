@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="Conway"
         Topmost="True"
-        Width="1500" Height="800"
+        MinWidth="1500" MinHeight="800"
         WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize"
-        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\10.jpg" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
+        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.jpg" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
 
     <Grid>
         <Grid.Background>
@@ -117,61 +117,61 @@
                 <Label Grid.Row="1" Grid.Column="8" Content="89" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
                 <Label Grid.Row="1" Grid.Column="9" Content="90" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
 
-                <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_81_Drop" x:Name="lbl_81" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_81_Drop" x:Name="lbl_81" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_81_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_82_Drop"  x:Name="lbl_82" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_82_Drop"  x:Name="lbl_82" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_82_Prix"  Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_83_Drop"  x:Name="lbl_83" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_83_Drop"  x:Name="lbl_83" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_83_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_84_Drop"  x:Name="lbl_84" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_84_Drop"  x:Name="lbl_84" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_84_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_85_Drop"  x:Name="lbl_85" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_85_Drop"  x:Name="lbl_85" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_85_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_86_Drop"  x:Name="lbl_86" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_86_Drop"  x:Name="lbl_86" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_86_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_87_Drop"  x:Name="lbl_87" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_87_Drop"  x:Name="lbl_87" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_87_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_88_Drop"  x:Name="lbl_88" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_88_Drop"  x:Name="lbl_88" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_88_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_89_Drop"  x:Name="lbl_89" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_89_Drop"  x:Name="lbl_89" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_89_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_90_Drop"  x:Name="lbl_90" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_90_Drop"  x:Name="lbl_90" MinWidth="200" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                     <Label.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Label.LayoutTransform>
@@ -224,61 +224,61 @@
                     <Label Grid.Row="1" Grid.Column="8" Content="19" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
                     <Label Grid.Row="1" Grid.Column="9" Content="20" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
 
-                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_11_Drop"  x:Name="lbl_11" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_11_Drop"  x:Name="lbl_11" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_11_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_12_Drop"  x:Name="lbl_12" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_12_Drop"  x:Name="lbl_12" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_12_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_13_Drop"  x:Name="lbl_13" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_13_Drop"  x:Name="lbl_13" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_13_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_14_Drop"  x:Name="lbl_14" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_14_Drop"  x:Name="lbl_14" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_14_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_15_Drop"  x:Name="lbl_15" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_15_Drop"  x:Name="lbl_15" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_15_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_16_Drop"  x:Name="lbl_16" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_16_Drop"  x:Name="lbl_16" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_16_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_17_Drop"  x:Name="lbl_17" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_17_Drop"  x:Name="lbl_17" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_17_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_18_Drop"  x:Name="lbl_18" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_18_Drop"  x:Name="lbl_18" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_18_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_19_Drop"  x:Name="lbl_19" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_19_Drop"  x:Name="lbl_19" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_19_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_20_Drop"  x:Name="lbl_20" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_20_Drop"  x:Name="lbl_20" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
@@ -326,61 +326,61 @@
                     <Label Grid.Row="1" Grid.Column="8" Content="9" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
                     <Label Grid.Row="1" Grid.Column="9" Content="10" BorderBrush="Black" BorderThickness="1" FontSize="11"></Label>
 
-                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_1_Drop"  x:Name="lbl_1" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_1_Drop"  x:Name="lbl_1" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_1_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_2_Drop"  x:Name="lbl_2" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_2_Drop"  x:Name="lbl_2" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_2_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_3_Drop"  x:Name="lbl_3" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_3_Drop"  x:Name="lbl_3" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_3_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_4_Drop"  x:Name="lbl_4" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_4_Drop"  x:Name="lbl_4" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_4_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_5_Drop"  x:Name="lbl_5" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_5_Drop"  x:Name="lbl_5" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_5_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_6_Drop"  x:Name="lbl_6" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_6_Drop"  x:Name="lbl_6" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_6_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_7_Drop"  x:Name="lbl_7" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_7_Drop"  x:Name="lbl_7" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_7_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_8_Drop"  x:Name="lbl_8" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_8_Drop"  x:Name="lbl_8" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_8_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_9_Drop"  x:Name="lbl_9" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_9_Drop"  x:Name="lbl_9" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_9_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_10_Drop"  x:Name="lbl_10" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_10_Drop"  x:Name="lbl_10" MinWidth="160" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
@@ -465,121 +465,121 @@
                     <Label Grid.Row="1" Grid.Column="18" Content="79" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                     <Label Grid.Row="1" Grid.Column="19" Content="80" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
 
-                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_61_Drop"  x:Name="lbl_61" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_61_Drop"  x:Name="lbl_61" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_61_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_62_Drop"  x:Name="lbl_62" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_62_Drop"  x:Name="lbl_62" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_62_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_63_Drop"  x:Name="lbl_63" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_63_Drop"  x:Name="lbl_63" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_63_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_64_Drop"  x:Name="lbl_64" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_64_Drop"  x:Name="lbl_64" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_64_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_65_Drop" x:Name="lbl_65" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_65_Drop" x:Name="lbl_65" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_65_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_66_Drop"  x:Name="lbl_66" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_66_Drop"  x:Name="lbl_66" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_66_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_67_Drop"  x:Name="lbl_67" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_67_Drop"  x:Name="lbl_67" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_67_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_68_Drop"  x:Name="lbl_68" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_68_Drop"  x:Name="lbl_68" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_68_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_69_Drop"  x:Name="lbl_69" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_69_Drop"  x:Name="lbl_69" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_69_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_70_Drop"  x:Name="lbl_70" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_70_Drop"  x:Name="lbl_70" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_70_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="10" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_71_Drop"  x:Name="lbl_71" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="10" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_71_Drop"  x:Name="lbl_71" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_71_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="11" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_72_Drop"  x:Name="lbl_72" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="11" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_72_Drop"  x:Name="lbl_72" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_72_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="12" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_73_Drop"  x:Name="lbl_73" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="12" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_73_Drop"  x:Name="lbl_73" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_73_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="13" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_74_Drop"  x:Name="lbl_74" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="13" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_74_Drop"  x:Name="lbl_74" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_74_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="14" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_75_Drop"  x:Name="lbl_75" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="14" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_75_Drop"  x:Name="lbl_75" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_75_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="15" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_76_Drop"  x:Name="lbl_76" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="15" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_76_Drop"  x:Name="lbl_76" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_76_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="16" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_77_Drop"  x:Name="lbl_77" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="16" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_77_Drop"  x:Name="lbl_77" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_77_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="17" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_78_Drop"  x:Name="lbl_78" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="17" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_78_Drop"  x:Name="lbl_78" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_78_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="18" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_79_Drop"  x:Name="lbl_79" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="18" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_79_Drop"  x:Name="lbl_79" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_79_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="19" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_80_Drop"  x:Name="lbl_80" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="19" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_80_Drop"  x:Name="lbl_80" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
@@ -656,121 +656,121 @@
                     <Label Grid.Row="1" Grid.Column="18" Content="59" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                     <Label Grid.Row="1" Grid.Column="19" Content="60" BorderBrush="Black" BorderThickness="1" FontSize="11" />
 
-                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_41_Drop" x:Name="lbl_41" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_41_Drop" x:Name="lbl_41" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_41_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_42_Drop"  x:Name="lbl_42" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_42_Drop"  x:Name="lbl_42" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_42_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_43_Drop"  x:Name="lbl_43" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_43_Drop"  x:Name="lbl_43" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_43_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_44_Drop"  x:Name="lbl_44" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_44_Drop"  x:Name="lbl_44" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_44_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_45_Drop"  x:Name="lbl_45" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_45_Drop"  x:Name="lbl_45" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_45_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_46_Drop"  x:Name="lbl_46" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_46_Drop"  x:Name="lbl_46" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_46_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_47_Drop"  x:Name="lbl_47" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_47_Drop"  x:Name="lbl_47" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_47_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_48_Drop"  x:Name="lbl_48" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_48_Drop"  x:Name="lbl_48" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_48_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_49_Drop"  x:Name="lbl_49" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_49_Drop"  x:Name="lbl_49" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_49_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_50_Drop"  x:Name="lbl_50" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_50_Drop"  x:Name="lbl_50" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_50_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="10" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_51_Drop"  x:Name="lbl_51" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="10" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_51_Drop"  x:Name="lbl_51" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_51_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="11" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_52_Drop"  x:Name="lbl_52" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="11" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_52_Drop"  x:Name="lbl_52" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_52_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="12" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_53_Drop"  x:Name="lbl_53" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="12" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_53_Drop"  x:Name="lbl_53" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_53_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="13" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_54_Drop"  x:Name="lbl_54" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="13" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_54_Drop"  x:Name="lbl_54" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_54_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="14" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_55_Drop"  x:Name="lbl_55" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="14" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_55_Drop"  x:Name="lbl_55" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_55_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="15" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_56_Drop"  x:Name="lbl_56" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="15" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_56_Drop"  x:Name="lbl_56" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_56_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="16" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_57_Drop"  x:Name="lbl_57" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="16" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_57_Drop"  x:Name="lbl_57" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_57_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="17" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_58_Drop"  x:Name="lbl_58" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="17" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_58_Drop"  x:Name="lbl_58" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_58_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="18" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_59_Drop"  x:Name="lbl_59" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="18" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_59_Drop"  x:Name="lbl_59" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_59_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="19" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_60_Drop"  x:Name="lbl_60" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="19" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_60_Drop"  x:Name="lbl_60" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
@@ -847,121 +847,121 @@
                     <Label Grid.Row="1" Grid.Column="18" Content="39" BorderBrush="Black" BorderThickness="1" FontSize="11"/>
                     <Label Grid.Row="1" Grid.Column="19" Content="40" BorderBrush="Black" BorderThickness="1" FontSize="11" />
 
-                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_21_Drop" x:Name="lbl_21" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="0" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_21_Drop" x:Name="lbl_21" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_21_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_22_Drop" x:Name="lbl_22" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="1" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_22_Drop" x:Name="lbl_22" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_22_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_23_Drop" x:Name="lbl_23" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="2" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_23_Drop" x:Name="lbl_23" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="2" x:Name="lbl_23_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_24_Drop" x:Name="lbl_24" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="3" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_24_Drop" x:Name="lbl_24" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="3" x:Name="lbl_24_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_25_Drop" x:Name="lbl_25" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="4" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_25_Drop" x:Name="lbl_25" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="4" x:Name="lbl_25_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_26_Drop" x:Name="lbl_26" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="5" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_26_Drop" x:Name="lbl_26" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="5" x:Name="lbl_26_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_27_Drop" x:Name="lbl_27" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="6" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_27_Drop" x:Name="lbl_27" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="6" x:Name="lbl_27_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_28_Drop" x:Name="lbl_28" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="7" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_28_Drop" x:Name="lbl_28" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="7" x:Name="lbl_28_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_29_Drop" x:Name="lbl_29" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="8" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_29_Drop" x:Name="lbl_29" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="8" x:Name="lbl_29_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_30_Drop" x:Name="lbl_30" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="9" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_30_Drop" x:Name="lbl_30" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="9" x:Name="lbl_30_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="10" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_31_Drop" x:Name="lbl_31" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="10" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_31_Drop" x:Name="lbl_31" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="10" x:Name="lbl_31_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="11" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_32_Drop" x:Name="lbl_32" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="11" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_32_Drop" x:Name="lbl_32" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="11" x:Name="lbl_32_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="12" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_33_Drop"  x:Name="lbl_33" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="12" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_33_Drop"  x:Name="lbl_33" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="12" x:Name="lbl_33_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="13" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_34_Drop"  x:Name="lbl_34" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="13" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_34_Drop"  x:Name="lbl_34" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="13" x:Name="lbl_34_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="14" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_35_Drop"  x:Name="lbl_35" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="14" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_35_Drop"  x:Name="lbl_35" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="14" x:Name="lbl_35_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="15" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_36_Drop"  x:Name="lbl_36" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="15" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_36_Drop"  x:Name="lbl_36" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="15" x:Name="lbl_36_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="16" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_37_Drop"  x:Name="lbl_37" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="16" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_37_Drop"  x:Name="lbl_37" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="16" x:Name="lbl_37_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="17" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_38_Drop"  x:Name="lbl_38" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="17" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_38_Drop"  x:Name="lbl_38" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="17" x:Name="lbl_38_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="18" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_39_Drop"  x:Name="lbl_39" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="18" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_39_Drop"  x:Name="lbl_39" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>
                     </Label>
                     <Label Grid.Row="0" Grid.Column="18" x:Name="lbl_39_Prix" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="9" FontWeight="Bold"></Label>
-                    <Label Grid.Row="0" Grid.Column="19" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_40_Drop"  x:Name="lbl_40" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" FontWeight="Bold">
+                    <Label Grid.Row="0" Grid.Column="19" AllowDrop="True" PreviewMouseLeftButtonDown="lbl_PreviewMouseLeftButtonDown" Drop="lbl_40_Drop"  x:Name="lbl_40" MinWidth="135" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="270"/>
                         </Label.LayoutTransform>

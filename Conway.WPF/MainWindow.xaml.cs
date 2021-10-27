@@ -65,6 +65,7 @@ namespace Conway.WPF
             Closing += MainWindow_Closing;
 
             data_Product.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(DgSupp_PreviewMouseLeftButtonDown);
+            data_Product.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(DgSupp_PreviewMouseLeftButtonUp);
             data_Product.PreviewKeyDown += new KeyEventHandler(DgSupp_KeyPress);
             data_Product.PreviewKeyUp += new KeyEventHandler(DgSupp_KeyPress);
             Clear();
@@ -335,6 +336,7 @@ namespace Conway.WPF
                 long id = 1;
                 long ean = 0;
                 string description = "";
+                string activatie = "";
                 string qt = "";
                 string prix = "";
                 string fabrikant = "";
@@ -382,13 +384,13 @@ namespace Conway.WPF
                                         }
                                         for (int i = 0; i < _Producten.Count; i++)
                                         {
-                                            if (_Producten[i].Eancode == ean) { fabrikant = _Producten[i].Fabrikant; hoogte = _Producten[i].Hoogte; breedte = _Producten[i].Breedte; inhoud = _Producten[i].Inhoud; }
+                                            if (_Producten[i].Eancode == ean) { fabrikant = _Producten[i].Fabrikant; activatie = _Producten[i].Activatie; hoogte = _Producten[i].Hoogte; breedte = _Producten[i].Breedte; inhoud = _Producten[i].Inhoud; }
                                         }
                                         string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
                                         double prix2 = double.Parse(prix, System.Globalization.CultureInfo.InvariantCulture);
-                                        var data = new Product(id, description, fabrikant, hoogte, breedte, 0, inhoud, ean, prix2);
+                                        var data = new Product(id, description, activatie, fabrikant, hoogte, breedte, 0, inhoud, ean, prix2);
                                         CheckFabrikantAantal(fabrikant);
-                                        var money = "\u20AC" + prix;
+                                        var money = prix;
                                         ToMachine(id, description, money, fabrikant);
                                         _Fabrikant.Add(fabrikant);
                                         index = data.Id.ToString();
@@ -398,6 +400,7 @@ namespace Conway.WPF
                                         id++;
                                         ean = 0;
                                         description = "";
+                                        activatie = "";
                                         qt = "";
                                         prix = "";
                                         fabrikant = "";
@@ -415,7 +418,7 @@ namespace Conway.WPF
                 }
                 else { Clear(); StartIni(); }
             }
-            else return;           
+            else return;
         }
 
         private void Breedte_Berekenen_Optellen(long id)
@@ -955,220 +958,220 @@ namespace Conway.WPF
 
         private void ToMachine(long i, string description, string prix, string fabrikant)
         {
-            if (i == 1) { lbl_1.Content = description; lbl_1_Prix.Content = prix; }
-            if (i == 2) { lbl_2.Content = description; lbl_2_Prix.Content = prix; }
-            if (i == 3) { lbl_3.Content = description; lbl_3_Prix.Content = prix; }
-            if (i == 4) { lbl_4.Content = description; lbl_4_Prix.Content = prix; }
-            if (i == 5) { lbl_5.Content = description; lbl_5_Prix.Content = prix; }
-            if (i == 6) { lbl_6.Content = description; lbl_6_Prix.Content = prix; }
-            if (i == 7) { lbl_7.Content = description; lbl_7_Prix.Content = prix; }
-            if (i == 8) { lbl_8.Content = description; lbl_8_Prix.Content = prix; }
-            if (i == 9) { lbl_9.Content = description; lbl_9_Prix.Content = prix; }
-            if (i == 10) { lbl_10.Content = description; lbl_10_Prix.Content = prix; }
+            if (i == 1) { lbl_1.Content = description; lbl_1_Prix.Content = "\u20AC" + prix; }
+            if (i == 2) { lbl_2.Content = description; lbl_2_Prix.Content = "\u20AC" + prix; }
+            if (i == 3) { lbl_3.Content = description; lbl_3_Prix.Content = "\u20AC" + prix; }
+            if (i == 4) { lbl_4.Content = description; lbl_4_Prix.Content = "\u20AC" + prix; }
+            if (i == 5) { lbl_5.Content = description; lbl_5_Prix.Content = "\u20AC" + prix; }
+            if (i == 6) { lbl_6.Content = description; lbl_6_Prix.Content = "\u20AC" + prix; }
+            if (i == 7) { lbl_7.Content = description; lbl_7_Prix.Content = "\u20AC" + prix; }
+            if (i == 8) { lbl_8.Content = description; lbl_8_Prix.Content = "\u20AC" + prix; }
+            if (i == 9) { lbl_9.Content = description; lbl_9_Prix.Content = "\u20AC" + prix; }
+            if (i == 10) { lbl_10.Content = description; lbl_10_Prix.Content = "\u20AC" + prix; }
 
-            if (i == 11) { lbl_11.Content = description; lbl_11_Prix.Content = prix; }
-            if (i == 12) { lbl_12.Content = description; lbl_12_Prix.Content = prix; }
-            if (i == 13) { lbl_13.Content = description; lbl_13_Prix.Content = prix; }
-            if (i == 14) { lbl_14.Content = description; lbl_14_Prix.Content = prix; }
-            if (i == 15) { lbl_15.Content = description; lbl_15_Prix.Content = prix; }
-            if (i == 16) { lbl_16.Content = description; lbl_16_Prix.Content = prix; }
-            if (i == 17) { lbl_17.Content = description; lbl_17_Prix.Content = prix; }
-            if (i == 18) { lbl_18.Content = description; lbl_18_Prix.Content = prix; }
-            if (i == 19) { lbl_19.Content = description; lbl_19_Prix.Content = prix; }
-            if (i == 20) { lbl_20.Content = description; lbl_20_Prix.Content = prix; }
+            if (i == 11) { lbl_11.Content = description; lbl_11_Prix.Content = "\u20AC" + prix; }
+            if (i == 12) { lbl_12.Content = description; lbl_12_Prix.Content = "\u20AC" + prix; }
+            if (i == 13) { lbl_13.Content = description; lbl_13_Prix.Content = "\u20AC" + prix; }
+            if (i == 14) { lbl_14.Content = description; lbl_14_Prix.Content = "\u20AC" + prix; }
+            if (i == 15) { lbl_15.Content = description; lbl_15_Prix.Content = "\u20AC" + prix; }
+            if (i == 16) { lbl_16.Content = description; lbl_16_Prix.Content = "\u20AC" + prix; }
+            if (i == 17) { lbl_17.Content = description; lbl_17_Prix.Content = "\u20AC" + prix; }
+            if (i == 18) { lbl_18.Content = description; lbl_18_Prix.Content = "\u20AC" + prix; }
+            if (i == 19) { lbl_19.Content = description; lbl_19_Prix.Content = "\u20AC" + prix; }
+            if (i == 20) { lbl_20.Content = description; lbl_20_Prix.Content = "\u20AC" + prix; }
 
-            if (i == 21) { lbl_21.Content = description; lbl_21_Prix.Content = prix; }
-            if (i == 22) { lbl_22.Content = description; lbl_22_Prix.Content = prix; }
-            if (i == 23) { lbl_23.Content = description; lbl_23_Prix.Content = prix; }
-            if (i == 24) { lbl_24.Content = description; lbl_24_Prix.Content = prix; }
-            if (i == 25) { lbl_25.Content = description; lbl_25_Prix.Content = prix; }
-            if (i == 26) { lbl_26.Content = description; lbl_26_Prix.Content = prix; }
-            if (i == 27) { lbl_27.Content = description; lbl_27_Prix.Content = prix; }
-            if (i == 28) { lbl_28.Content = description; lbl_28_Prix.Content = prix; }
-            if (i == 29) { lbl_29.Content = description; lbl_29_Prix.Content = prix; }
-            if (i == 30) { lbl_30.Content = description; lbl_30_Prix.Content = prix; }
+            if (i == 21) { lbl_21.Content = description; lbl_21_Prix.Content = "\u20AC" + prix; }
+            if (i == 22) { lbl_22.Content = description; lbl_22_Prix.Content = "\u20AC" + prix; }
+            if (i == 23) { lbl_23.Content = description; lbl_23_Prix.Content = "\u20AC" + prix; }
+            if (i == 24) { lbl_24.Content = description; lbl_24_Prix.Content = "\u20AC" + prix; }
+            if (i == 25) { lbl_25.Content = description; lbl_25_Prix.Content = "\u20AC" + prix; }
+            if (i == 26) { lbl_26.Content = description; lbl_26_Prix.Content = "\u20AC" + prix; }
+            if (i == 27) { lbl_27.Content = description; lbl_27_Prix.Content = "\u20AC" + prix; }
+            if (i == 28) { lbl_28.Content = description; lbl_28_Prix.Content = "\u20AC" + prix; }
+            if (i == 29) { lbl_29.Content = description; lbl_29_Prix.Content = "\u20AC" + prix; }
+            if (i == 30) { lbl_30.Content = description; lbl_30_Prix.Content = "\u20AC" + prix; }
 
-            if (i == 31) { lbl_31.Content = description; lbl_31_Prix.Content = prix; }
-            if (i == 32) { lbl_32.Content = description; lbl_32_Prix.Content = prix; }
-            if (i == 33) { lbl_33.Content = description; lbl_33_Prix.Content = prix; }
-            if (i == 34) { lbl_34.Content = description; lbl_34_Prix.Content = prix; }
-            if (i == 35) { lbl_35.Content = description; lbl_35_Prix.Content = prix; }
-            if (i == 36) { lbl_36.Content = description; lbl_36_Prix.Content = prix; }
-            if (i == 37) { lbl_37.Content = description; lbl_37_Prix.Content = prix; }
-            if (i == 38) { lbl_38.Content = description; lbl_38_Prix.Content = prix; }
-            if (i == 39) { lbl_39.Content = description; lbl_39_Prix.Content = prix; }
-            if (i == 40) { lbl_40.Content = description; lbl_40_Prix.Content = prix; }
+            if (i == 31) { lbl_31.Content = description; lbl_31_Prix.Content = "\u20AC" + prix; }
+            if (i == 32) { lbl_32.Content = description; lbl_32_Prix.Content = "\u20AC" + prix; }
+            if (i == 33) { lbl_33.Content = description; lbl_33_Prix.Content = "\u20AC" + prix; }
+            if (i == 34) { lbl_34.Content = description; lbl_34_Prix.Content = "\u20AC" + prix; }
+            if (i == 35) { lbl_35.Content = description; lbl_35_Prix.Content = "\u20AC" + prix; }
+            if (i == 36) { lbl_36.Content = description; lbl_36_Prix.Content = "\u20AC" + prix; }
+            if (i == 37) { lbl_37.Content = description; lbl_37_Prix.Content = "\u20AC" + prix; }
+            if (i == 38) { lbl_38.Content = description; lbl_38_Prix.Content = "\u20AC" + prix; }
+            if (i == 39) { lbl_39.Content = description; lbl_39_Prix.Content = "\u20AC" + prix; }
+            if (i == 40) { lbl_40.Content = description; lbl_40_Prix.Content = "\u20AC" + prix; }
 
-            if (i == 41) { lbl_41.Content = description; lbl_41_Prix.Content = prix; }
-            if (i == 42) { lbl_42.Content = description; lbl_42_Prix.Content = prix; }
-            if (i == 43) { lbl_43.Content = description; lbl_43_Prix.Content = prix; }
-            if (i == 44) { lbl_44.Content = description; lbl_44_Prix.Content = prix; }
-            if (i == 45) { lbl_45.Content = description; lbl_45_Prix.Content = prix; }
-            if (i == 46) { lbl_46.Content = description; lbl_46_Prix.Content = prix; }
-            if (i == 47) { lbl_47.Content = description; lbl_47_Prix.Content = prix; }
-            if (i == 48) { lbl_48.Content = description; lbl_48_Prix.Content = prix; }
-            if (i == 49) { lbl_49.Content = description; lbl_49_Prix.Content = prix; }
-            if (i == 50) { lbl_50.Content = description; lbl_50_Prix.Content = prix; }
+            if (i == 41) { lbl_41.Content = description; lbl_41_Prix.Content = "\u20AC" + prix; }
+            if (i == 42) { lbl_42.Content = description; lbl_42_Prix.Content = "\u20AC" + prix; }
+            if (i == 43) { lbl_43.Content = description; lbl_43_Prix.Content = "\u20AC" + prix; }
+            if (i == 44) { lbl_44.Content = description; lbl_44_Prix.Content = "\u20AC" + prix; }
+            if (i == 45) { lbl_45.Content = description; lbl_45_Prix.Content = "\u20AC" + prix; }
+            if (i == 46) { lbl_46.Content = description; lbl_46_Prix.Content = "\u20AC" + prix; }
+            if (i == 47) { lbl_47.Content = description; lbl_47_Prix.Content = "\u20AC" + prix; }
+            if (i == 48) { lbl_48.Content = description; lbl_48_Prix.Content = "\u20AC" + prix; }
+            if (i == 49) { lbl_49.Content = description; lbl_49_Prix.Content = "\u20AC" + prix; }
+            if (i == 50) { lbl_50.Content = description; lbl_50_Prix.Content = "\u20AC" + prix; }
 
-            if (i == 51) { lbl_51.Content = description; lbl_51_Prix.Content = prix; }
-            if (i == 52) { lbl_52.Content = description; lbl_52_Prix.Content = prix; }
-            if (i == 53) { lbl_53.Content = description; lbl_53_Prix.Content = prix; }
-            if (i == 54) { lbl_54.Content = description; lbl_54_Prix.Content = prix; }
-            if (i == 55) { lbl_55.Content = description; lbl_55_Prix.Content = prix; }
-            if (i == 56) { lbl_56.Content = description; lbl_56_Prix.Content = prix; }
-            if (i == 57) { lbl_57.Content = description; lbl_57_Prix.Content = prix; }
-            if (i == 58) { lbl_58.Content = description; lbl_58_Prix.Content = prix; }
-            if (i == 59) { lbl_59.Content = description; lbl_59_Prix.Content = prix; }
-            if (i == 60) { lbl_60.Content = description; lbl_60_Prix.Content = prix; }
+            if (i == 51) { lbl_51.Content = description; lbl_51_Prix.Content = "\u20AC" + prix; }
+            if (i == 52) { lbl_52.Content = description; lbl_52_Prix.Content = "\u20AC" + prix; }
+            if (i == 53) { lbl_53.Content = description; lbl_53_Prix.Content = "\u20AC" + prix; }
+            if (i == 54) { lbl_54.Content = description; lbl_54_Prix.Content = "\u20AC" + prix; }
+            if (i == 55) { lbl_55.Content = description; lbl_55_Prix.Content = "\u20AC" + prix; }
+            if (i == 56) { lbl_56.Content = description; lbl_56_Prix.Content = "\u20AC" + prix; }
+            if (i == 57) { lbl_57.Content = description; lbl_57_Prix.Content = "\u20AC" + prix; }
+            if (i == 58) { lbl_58.Content = description; lbl_58_Prix.Content = "\u20AC" + prix; }
+            if (i == 59) { lbl_59.Content = description; lbl_59_Prix.Content = "\u20AC" + prix; }
+            if (i == 60) { lbl_60.Content = description; lbl_60_Prix.Content = "\u20AC" + prix; }
 
-            if (i == 61) { lbl_61.Content = description; lbl_61_Prix.Content = prix; }
-            if (i == 62) { lbl_62.Content = description; lbl_62_Prix.Content = prix; }
-            if (i == 63) { lbl_63.Content = description; lbl_63_Prix.Content = prix; }
-            if (i == 64) { lbl_64.Content = description; lbl_64_Prix.Content = prix; }
-            if (i == 65) { lbl_65.Content = description; lbl_65_Prix.Content = prix; }
-            if (i == 66) { lbl_66.Content = description; lbl_66_Prix.Content = prix; }
-            if (i == 67) { lbl_67.Content = description; lbl_67_Prix.Content = prix; }
-            if (i == 68) { lbl_68.Content = description; lbl_68_Prix.Content = prix; }
-            if (i == 69) { lbl_69.Content = description; lbl_69_Prix.Content = prix; }
-            if (i == 70) { lbl_70.Content = description; lbl_70_Prix.Content = prix; }
+            if (i == 61) { lbl_61.Content = description; lbl_61_Prix.Content = "\u20AC" + prix; }
+            if (i == 62) { lbl_62.Content = description; lbl_62_Prix.Content = "\u20AC" + prix; }
+            if (i == 63) { lbl_63.Content = description; lbl_63_Prix.Content = "\u20AC" + prix; }
+            if (i == 64) { lbl_64.Content = description; lbl_64_Prix.Content = "\u20AC" + prix; }
+            if (i == 65) { lbl_65.Content = description; lbl_65_Prix.Content = "\u20AC" + prix; }
+            if (i == 66) { lbl_66.Content = description; lbl_66_Prix.Content = "\u20AC" + prix; }
+            if (i == 67) { lbl_67.Content = description; lbl_67_Prix.Content = "\u20AC" + prix; }
+            if (i == 68) { lbl_68.Content = description; lbl_68_Prix.Content = "\u20AC" + prix; }
+            if (i == 69) { lbl_69.Content = description; lbl_69_Prix.Content = "\u20AC" + prix; }
+            if (i == 70) { lbl_70.Content = description; lbl_70_Prix.Content = "\u20AC" + prix; }
 
-            if (i == 71) { lbl_71.Content = description; lbl_71_Prix.Content = prix; }
-            if (i == 72) { lbl_72.Content = description; lbl_72_Prix.Content = prix; }
-            if (i == 73) { lbl_73.Content = description; lbl_73_Prix.Content = prix; }
-            if (i == 74) { lbl_74.Content = description; lbl_74_Prix.Content = prix; }
-            if (i == 75) { lbl_75.Content = description; lbl_75_Prix.Content = prix; }
-            if (i == 76) { lbl_76.Content = description; lbl_76_Prix.Content = prix; }
-            if (i == 77) { lbl_77.Content = description; lbl_77_Prix.Content = prix; }
-            if (i == 78) { lbl_78.Content = description; lbl_78_Prix.Content = prix; }
-            if (i == 79) { lbl_79.Content = description; lbl_79_Prix.Content = prix; }
-            if (i == 80) { lbl_80.Content = description; lbl_80_Prix.Content = prix; }
+            if (i == 71) { lbl_71.Content = description; lbl_71_Prix.Content = "\u20AC" + prix; }
+            if (i == 72) { lbl_72.Content = description; lbl_72_Prix.Content = "\u20AC" + prix; }
+            if (i == 73) { lbl_73.Content = description; lbl_73_Prix.Content = "\u20AC" + prix; }
+            if (i == 74) { lbl_74.Content = description; lbl_74_Prix.Content = "\u20AC" + prix; }
+            if (i == 75) { lbl_75.Content = description; lbl_75_Prix.Content = "\u20AC" + prix; }
+            if (i == 76) { lbl_76.Content = description; lbl_76_Prix.Content = "\u20AC" + prix; }
+            if (i == 77) { lbl_77.Content = description; lbl_77_Prix.Content = "\u20AC" + prix; }
+            if (i == 78) { lbl_78.Content = description; lbl_78_Prix.Content = "\u20AC" + prix; }
+            if (i == 79) { lbl_79.Content = description; lbl_79_Prix.Content = "\u20AC" + prix; }
+            if (i == 80) { lbl_80.Content = description; lbl_80_Prix.Content = "\u20AC" + prix; }
 
-            if (i == 81) { lbl_81.Content = description; lbl_81_Prix.Content = prix; }
-            if (i == 82) { lbl_82.Content = description; lbl_82_Prix.Content = prix; }
-            if (i == 83) { lbl_83.Content = description; lbl_83_Prix.Content = prix; }
-            if (i == 84) { lbl_84.Content = description; lbl_84_Prix.Content = prix; }
-            if (i == 85) { lbl_85.Content = description; lbl_85_Prix.Content = prix; }
-            if (i == 86) { lbl_86.Content = description; lbl_86_Prix.Content = prix; }
-            if (i == 87) { lbl_87.Content = description; lbl_87_Prix.Content = prix; }
-            if (i == 88) { lbl_88.Content = description; lbl_88_Prix.Content = prix; }
-            if (i == 89) { lbl_89.Content = description; lbl_89_Prix.Content = prix; }
-            if (i == 90) { lbl_90.Content = description; lbl_90_Prix.Content = prix; }
+            if (i == 81) { lbl_81.Content = description; lbl_81_Prix.Content = "\u20AC" + prix; }
+            if (i == 82) { lbl_82.Content = description; lbl_82_Prix.Content = "\u20AC" + prix; }
+            if (i == 83) { lbl_83.Content = description; lbl_83_Prix.Content = "\u20AC" + prix; }
+            if (i == 84) { lbl_84.Content = description; lbl_84_Prix.Content = "\u20AC" + prix; }
+            if (i == 85) { lbl_85.Content = description; lbl_85_Prix.Content = "\u20AC" + prix; }
+            if (i == 86) { lbl_86.Content = description; lbl_86_Prix.Content = "\u20AC" + prix; }
+            if (i == 87) { lbl_87.Content = description; lbl_87_Prix.Content = "\u20AC" + prix; }
+            if (i == 88) { lbl_88.Content = description; lbl_88_Prix.Content = "\u20AC" + prix; }
+            if (i == 89) { lbl_89.Content = description; lbl_89_Prix.Content = "\u20AC" + prix; }
+            if (i == 90) { lbl_90.Content = description; lbl_90_Prix.Content = "\u20AC" + prix; }
         }
 
         #region Drop change in machine
-        private void lbl_1_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_1.Content = changedProduct.Naam; lbl_1_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 1); }
-        private void lbl_2_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_2.Content = changedProduct.Naam; lbl_2_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 2); }
-        private void lbl_3_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_3.Content = changedProduct.Naam; lbl_3_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 3); }
-        private void lbl_4_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_4.Content = changedProduct.Naam; lbl_4_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 4); }
-        private void lbl_5_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_5.Content = changedProduct.Naam; lbl_5_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 5); }
+        private void lbl_1_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_1.Content = changedProduct.Naam; lbl_1_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 1); }
+        private void lbl_2_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_2.Content = changedProduct.Naam; lbl_2_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 2); }
+        private void lbl_3_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_3.Content = changedProduct.Naam; lbl_3_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 3); }
+        private void lbl_4_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_4.Content = changedProduct.Naam; lbl_4_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 4); }
+        private void lbl_5_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_5.Content = changedProduct.Naam; lbl_5_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 5); }
 
-        private void lbl_6_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_6.Content = changedProduct.Naam; lbl_6_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 6); }
-        private void lbl_7_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_7.Content = changedProduct.Naam; lbl_7_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 7); }
-        private void lbl_8_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_8.Content = changedProduct.Naam; lbl_8_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 8); }
-        private void lbl_9_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_9.Content = changedProduct.Naam; lbl_9_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 9); }
-        private void lbl_10_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_10.Content = changedProduct.Naam; lbl_10_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 10); }
+        private void lbl_6_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_6.Content = changedProduct.Naam; lbl_6_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 6); }
+        private void lbl_7_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_7.Content = changedProduct.Naam; lbl_7_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 7); }
+        private void lbl_8_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_8.Content = changedProduct.Naam; lbl_8_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 8); }
+        private void lbl_9_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_9.Content = changedProduct.Naam; lbl_9_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 9); }
+        private void lbl_10_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_10.Content = changedProduct.Naam; lbl_10_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 10); }
 
-        private void lbl_11_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_11.Content = changedProduct.Naam; lbl_11_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 11); }
-        private void lbl_12_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_12.Content = changedProduct.Naam; lbl_12_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 12); }
-        private void lbl_13_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_13.Content = changedProduct.Naam; lbl_13_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 13); }
-        private void lbl_14_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_14.Content = changedProduct.Naam; lbl_14_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 14); }
-        private void lbl_15_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_15.Content = changedProduct.Naam; lbl_15_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 15); }
+        private void lbl_11_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_11.Content = changedProduct.Naam; lbl_11_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 11); }
+        private void lbl_12_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_12.Content = changedProduct.Naam; lbl_12_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 12); }
+        private void lbl_13_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_13.Content = changedProduct.Naam; lbl_13_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 13); }
+        private void lbl_14_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_14.Content = changedProduct.Naam; lbl_14_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 14); }
+        private void lbl_15_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_15.Content = changedProduct.Naam; lbl_15_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 15); }
 
-        private void lbl_16_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_16.Content = changedProduct.Naam; lbl_16_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 16); }
-        private void lbl_17_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_17.Content = changedProduct.Naam; lbl_17_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 17); }
-        private void lbl_18_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_18.Content = changedProduct.Naam; lbl_18_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 18); }
-        private void lbl_19_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_19.Content = changedProduct.Naam; lbl_19_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 19); }
-        private void lbl_20_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_20.Content = changedProduct.Naam; lbl_20_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 20); }
+        private void lbl_16_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_16.Content = changedProduct.Naam; lbl_16_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 16); }
+        private void lbl_17_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_17.Content = changedProduct.Naam; lbl_17_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 17); }
+        private void lbl_18_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_18.Content = changedProduct.Naam; lbl_18_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 18); }
+        private void lbl_19_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_19.Content = changedProduct.Naam; lbl_19_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 19); }
+        private void lbl_20_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_20.Content = changedProduct.Naam; lbl_20_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 20); }
 
-        private void lbl_21_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_21.Content = changedProduct.Naam; lbl_21_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 21); }
-        private void lbl_22_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_22.Content = changedProduct.Naam; lbl_22_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 22); }
-        private void lbl_23_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_23.Content = changedProduct.Naam; lbl_23_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 23); }
-        private void lbl_24_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_24.Content = changedProduct.Naam; lbl_24_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 24); }
-        private void lbl_25_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_25.Content = changedProduct.Naam; lbl_25_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 25); }
+        private void lbl_21_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_21.Content = changedProduct.Naam; lbl_21_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 21); }
+        private void lbl_22_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_22.Content = changedProduct.Naam; lbl_22_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 22); }
+        private void lbl_23_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_23.Content = changedProduct.Naam; lbl_23_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 23); }
+        private void lbl_24_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_24.Content = changedProduct.Naam; lbl_24_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 24); }
+        private void lbl_25_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_25.Content = changedProduct.Naam; lbl_25_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 25); }
 
-        private void lbl_26_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_26.Content = changedProduct.Naam; lbl_26_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 26); }
-        private void lbl_27_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_27.Content = changedProduct.Naam; lbl_27_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 27); }
-        private void lbl_28_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_28.Content = changedProduct.Naam; lbl_28_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 28); }
-        private void lbl_29_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_29.Content = changedProduct.Naam; lbl_29_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 29); }
-        private void lbl_30_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_30.Content = changedProduct.Naam; lbl_30_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 30); }
+        private void lbl_26_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_26.Content = changedProduct.Naam; lbl_26_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 26); }
+        private void lbl_27_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_27.Content = changedProduct.Naam; lbl_27_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 27); }
+        private void lbl_28_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_28.Content = changedProduct.Naam; lbl_28_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 28); }
+        private void lbl_29_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_29.Content = changedProduct.Naam; lbl_29_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 29); }
+        private void lbl_30_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_30.Content = changedProduct.Naam; lbl_30_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 30); }
 
-        private void lbl_31_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_31.Content = changedProduct.Naam; lbl_31_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 31); }
-        private void lbl_32_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_32.Content = changedProduct.Naam; lbl_32_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 32); }
-        private void lbl_33_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_33.Content = changedProduct.Naam; lbl_33_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 33); }
-        private void lbl_34_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_34.Content = changedProduct.Naam; lbl_34_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 34); }
-        private void lbl_35_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_35.Content = changedProduct.Naam; lbl_35_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 35); }
+        private void lbl_31_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_31.Content = changedProduct.Naam; lbl_31_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 31); }
+        private void lbl_32_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_32.Content = changedProduct.Naam; lbl_32_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 32); }
+        private void lbl_33_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_33.Content = changedProduct.Naam; lbl_33_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 33); }
+        private void lbl_34_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_34.Content = changedProduct.Naam; lbl_34_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 34); }
+        private void lbl_35_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_35.Content = changedProduct.Naam; lbl_35_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 35); }
 
-        private void lbl_36_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_36.Content = changedProduct.Naam; lbl_36_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 36); }
-        private void lbl_37_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_37.Content = changedProduct.Naam; lbl_37_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 37); }
-        private void lbl_38_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_38.Content = changedProduct.Naam; lbl_38_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 38); }
-        private void lbl_39_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_39.Content = changedProduct.Naam; lbl_39_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 39); }
-        private void lbl_40_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_40.Content = changedProduct.Naam; lbl_40_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 40); }
+        private void lbl_36_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_36.Content = changedProduct.Naam; lbl_36_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 36); }
+        private void lbl_37_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_37.Content = changedProduct.Naam; lbl_37_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 37); }
+        private void lbl_38_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_38.Content = changedProduct.Naam; lbl_38_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 38); }
+        private void lbl_39_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_39.Content = changedProduct.Naam; lbl_39_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 39); }
+        private void lbl_40_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_40.Content = changedProduct.Naam; lbl_40_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 40); }
 
-        private void lbl_41_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_41.Content = changedProduct.Naam; lbl_41_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 41); }
-        private void lbl_42_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_42.Content = changedProduct.Naam; lbl_42_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 42); }
-        private void lbl_43_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_43.Content = changedProduct.Naam; lbl_43_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 43); }
-        private void lbl_44_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_44.Content = changedProduct.Naam; lbl_44_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 44); }
-        private void lbl_45_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_45.Content = changedProduct.Naam; lbl_45_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 45); }
+        private void lbl_41_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_41.Content = changedProduct.Naam; lbl_41_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 41); }
+        private void lbl_42_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_42.Content = changedProduct.Naam; lbl_42_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 42); }
+        private void lbl_43_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_43.Content = changedProduct.Naam; lbl_43_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 43); }
+        private void lbl_44_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_44.Content = changedProduct.Naam; lbl_44_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 44); }
+        private void lbl_45_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_45.Content = changedProduct.Naam; lbl_45_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 45); }
 
-        private void lbl_46_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_46.Content = changedProduct.Naam; lbl_46_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 46); }
-        private void lbl_47_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_47.Content = changedProduct.Naam; lbl_47_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 47); }
-        private void lbl_48_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_48.Content = changedProduct.Naam; lbl_48_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 48); }
-        private void lbl_49_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_49.Content = changedProduct.Naam; lbl_49_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 49); }
-        private void lbl_50_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_50.Content = changedProduct.Naam; lbl_50_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 50); }
+        private void lbl_46_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_46.Content = changedProduct.Naam; lbl_46_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 46); }
+        private void lbl_47_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_47.Content = changedProduct.Naam; lbl_47_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 47); }
+        private void lbl_48_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_48.Content = changedProduct.Naam; lbl_48_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 48); }
+        private void lbl_49_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_49.Content = changedProduct.Naam; lbl_49_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 49); }
+        private void lbl_50_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_50.Content = changedProduct.Naam; lbl_50_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 50); }
 
-        private void lbl_51_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_51.Content = changedProduct.Naam; lbl_51_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 51); }
-        private void lbl_52_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_52.Content = changedProduct.Naam; lbl_52_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 52); }
-        private void lbl_53_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_53.Content = changedProduct.Naam; lbl_53_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 53); }
-        private void lbl_54_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_54.Content = changedProduct.Naam; lbl_54_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 54); }
-        private void lbl_55_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_55.Content = changedProduct.Naam; lbl_55_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 55); }
+        private void lbl_51_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_51.Content = changedProduct.Naam; lbl_51_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 51); }
+        private void lbl_52_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_52.Content = changedProduct.Naam; lbl_52_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 52); }
+        private void lbl_53_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_53.Content = changedProduct.Naam; lbl_53_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 53); }
+        private void lbl_54_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_54.Content = changedProduct.Naam; lbl_54_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 54); }
+        private void lbl_55_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_55.Content = changedProduct.Naam; lbl_55_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 55); }
 
-        private void lbl_56_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_56.Content = changedProduct.Naam; lbl_56_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 56); }
-        private void lbl_57_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_57.Content = changedProduct.Naam; lbl_57_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 57); }
-        private void lbl_58_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_58.Content = changedProduct.Naam; lbl_58_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 58); }
-        private void lbl_59_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_59.Content = changedProduct.Naam; lbl_59_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 59); }
-        private void lbl_60_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_60.Content = changedProduct.Naam; lbl_60_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 60); }
+        private void lbl_56_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_56.Content = changedProduct.Naam; lbl_56_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 56); }
+        private void lbl_57_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_57.Content = changedProduct.Naam; lbl_57_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 57); }
+        private void lbl_58_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_58.Content = changedProduct.Naam; lbl_58_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 58); }
+        private void lbl_59_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_59.Content = changedProduct.Naam; lbl_59_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 59); }
+        private void lbl_60_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_60.Content = changedProduct.Naam; lbl_60_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 60); }
 
-        private void lbl_61_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_61.Content = changedProduct.Naam; lbl_61_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 61); }
-        private void lbl_62_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_62.Content = changedProduct.Naam; lbl_62_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 62); }
-        private void lbl_63_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_63.Content = changedProduct.Naam; lbl_63_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 63); }
-        private void lbl_64_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_64.Content = changedProduct.Naam; lbl_64_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 64); }
-        private void lbl_65_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_65.Content = changedProduct.Naam; lbl_65_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 65); }
+        private void lbl_61_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_61.Content = changedProduct.Naam; lbl_61_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 61); }
+        private void lbl_62_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_62.Content = changedProduct.Naam; lbl_62_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 62); }
+        private void lbl_63_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_63.Content = changedProduct.Naam; lbl_63_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 63); }
+        private void lbl_64_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_64.Content = changedProduct.Naam; lbl_64_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 64); }
+        private void lbl_65_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_65.Content = changedProduct.Naam; lbl_65_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 65); }
 
-        private void lbl_66_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_66.Content = changedProduct.Naam; lbl_66_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 66); }
-        private void lbl_67_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_67.Content = changedProduct.Naam; lbl_67_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 67); }
-        private void lbl_68_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_68.Content = changedProduct.Naam; lbl_68_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 68); }
-        private void lbl_69_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_69.Content = changedProduct.Naam; lbl_69_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 69); }
-        private void lbl_70_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_70.Content = changedProduct.Naam; lbl_70_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 70); }
+        private void lbl_66_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_66.Content = changedProduct.Naam; lbl_66_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 66); }
+        private void lbl_67_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_67.Content = changedProduct.Naam; lbl_67_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 67); }
+        private void lbl_68_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_68.Content = changedProduct.Naam; lbl_68_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 68); }
+        private void lbl_69_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_69.Content = changedProduct.Naam; lbl_69_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 69); }
+        private void lbl_70_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_70.Content = changedProduct.Naam; lbl_70_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 70); }
 
-        private void lbl_71_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_71.Content = changedProduct.Naam; lbl_71_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 71); }
-        private void lbl_72_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_72.Content = changedProduct.Naam; lbl_72_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 72); }
-        private void lbl_73_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_73.Content = changedProduct.Naam; lbl_73_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 73); }
-        private void lbl_74_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_74.Content = changedProduct.Naam; lbl_74_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 74); }
-        private void lbl_75_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_75.Content = changedProduct.Naam; lbl_75_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 75); }
+        private void lbl_71_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_71.Content = changedProduct.Naam; lbl_71_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 71); }
+        private void lbl_72_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_72.Content = changedProduct.Naam; lbl_72_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 72); }
+        private void lbl_73_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_73.Content = changedProduct.Naam; lbl_73_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 73); }
+        private void lbl_74_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_74.Content = changedProduct.Naam; lbl_74_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 74); }
+        private void lbl_75_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_75.Content = changedProduct.Naam; lbl_75_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 75); }
 
-        private void lbl_76_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_76.Content = changedProduct.Naam; lbl_76_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 76); }
-        private void lbl_77_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_77.Content = changedProduct.Naam; lbl_77_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 77); }
-        private void lbl_78_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_78.Content = changedProduct.Naam; lbl_78_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 78); }
-        private void lbl_79_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_79.Content = changedProduct.Naam; lbl_79_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 79); }
-        private void lbl_80_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_80.Content = changedProduct.Naam; lbl_80_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 80); }
+        private void lbl_76_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_76.Content = changedProduct.Naam; lbl_76_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 76); }
+        private void lbl_77_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_77.Content = changedProduct.Naam; lbl_77_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 77); }
+        private void lbl_78_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_78.Content = changedProduct.Naam; lbl_78_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 78); }
+        private void lbl_79_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_79.Content = changedProduct.Naam; lbl_79_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 79); }
+        private void lbl_80_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_80.Content = changedProduct.Naam; lbl_80_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 80); }
 
-        private void lbl_81_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_81.Content = changedProduct.Naam; lbl_81_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 81); }
-        private void lbl_82_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_82.Content = changedProduct.Naam; lbl_82_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 82); }
-        private void lbl_83_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_83.Content = changedProduct.Naam; lbl_83_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 83); }
-        private void lbl_84_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_84.Content = changedProduct.Naam; lbl_84_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 84); }
-        private void lbl_85_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_85.Content = changedProduct.Naam; lbl_85_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 85); }
+        private void lbl_81_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_81.Content = changedProduct.Naam; lbl_81_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 81); }
+        private void lbl_82_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_82.Content = changedProduct.Naam; lbl_82_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 82); }
+        private void lbl_83_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_83.Content = changedProduct.Naam; lbl_83_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 83); }
+        private void lbl_84_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_84.Content = changedProduct.Naam; lbl_84_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 84); }
+        private void lbl_85_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_85.Content = changedProduct.Naam; lbl_85_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 85); }
 
-        private void lbl_86_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_86.Content = changedProduct.Naam; lbl_86_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 86); }
-        private void lbl_87_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_87.Content = changedProduct.Naam; lbl_87_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 87); }
-        private void lbl_88_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_88.Content = changedProduct.Naam; lbl_88_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 88); }
-        private void lbl_89_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_89.Content = changedProduct.Naam; lbl_89_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 89); }
-        private void lbl_90_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_90.Content = changedProduct.Naam; lbl_90_Prix.Content = changedProduct.Prijs; HerstelIni(changedProduct, 90); }
+        private void lbl_86_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_86.Content = changedProduct.Naam; lbl_86_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 86); }
+        private void lbl_87_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_87.Content = changedProduct.Naam; lbl_87_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 87); }
+        private void lbl_88_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_88.Content = changedProduct.Naam; lbl_88_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 88); }
+        private void lbl_89_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_89.Content = changedProduct.Naam; lbl_89_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 89); }
+        private void lbl_90_Drop(object sender, DragEventArgs e) { Product changedProduct = _Producten[rowIndex]; lbl_90.Content = changedProduct.Naam; lbl_90_Prix.Content = "\u20AC" + changedProduct.Prijs; HerstelIni(changedProduct, 90); }
         #endregion
 
         private void HerstelIni(Product product, int id)
         {
 
-            Product p = new Product(id, product.Naam, product.Fabrikant, product.Hoogte, product.Breedte, product.Diepte, product.Inhoud, product.Eancode, product.Prijs);
+            Product p = new Product(id, product.Naam, product.Activatie, product.Fabrikant, product.Hoogte, product.Breedte, product.Diepte, product.Inhoud, product.Eancode, product.Prijs);
             var v = _Ini.Where(x => x.Id == id).FirstOrDefault();
             if (p != null)
             {
@@ -1236,8 +1239,13 @@ namespace Conway.WPF
             }
             var currentRow = data_Product.SelectedItem;
             //var p = _Producten.Contains(currentRow);
-            rowIndex = (b-1);
+            rowIndex = (b - 1);
             data_Product.IsReadOnly = false;
+        }
+        private void DgSupp_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            data_Product.CancelEdit();
+            data_Product.BeginEdit();
         }
         #endregion
 
@@ -1256,7 +1264,7 @@ namespace Conway.WPF
             if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
             FrameworkElement s = sender as FrameworkElement;
             string name = s.Name;
-            Product product = new Product(1, "dismounted", "", 0, 0, 0, 0, 0, 0);
+            Product product = new Product(1, "dismounted", "Niet Actief", "", 0, 0, 0, 0, 0, 0);
             if (name.ToString() == "lbl_1") { product.Id = 1; HerstelIni(product, 1); lbl_1.Content = "dismounted"; lbl_1_Prix.Content = "0"; }
             if (name.ToString() == "lbl_2") { product.Id = 2; HerstelIni(product, 2); lbl_2.Content = "dismounted"; lbl_2_Prix.Content = "0"; }
             if (name.ToString() == "lbl_3") { product.Id = 3; HerstelIni(product, 3); lbl_3.Content = "dismounted"; lbl_3_Prix.Content = "0"; }
@@ -1310,7 +1318,7 @@ namespace Conway.WPF
             if (name.ToString() == "lbl_43") { product.Id = 43; HerstelIni(product, 43); lbl_43.Content = "dismounted"; lbl_43_Prix.Content = "0"; }
             if (name.ToString() == "lbl_44") { product.Id = 44; HerstelIni(product, 44); lbl_44.Content = "dismounted"; lbl_44_Prix.Content = "0"; }
             if (name.ToString() == "lbl_45") { product.Id = 45; HerstelIni(product, 45); lbl_45.Content = "dismounted"; lbl_45_Prix.Content = "0"; }
-        
+
             if (name.ToString() == "lbl_46") { product.Id = 46; HerstelIni(product, 46); lbl_46.Content = "dismounted"; lbl_46_Prix.Content = "0"; }
             if (name.ToString() == "lbl_47") { product.Id = 47; HerstelIni(product, 47); lbl_47.Content = "dismounted"; lbl_47_Prix.Content = "0"; }
             if (name.ToString() == "lbl_48") { product.Id = 48; HerstelIni(product, 48); lbl_48.Content = "dismounted"; lbl_48_Prix.Content = "0"; }
@@ -1482,7 +1490,7 @@ namespace Conway.WPF
                         if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
                     }
                 }
-                    ClearCodeCheck = 1;
+                ClearCodeCheck = 1;
             }
             else { clearColor(); ClearCodeCheck = 0; }
         }
@@ -1596,7 +1604,7 @@ namespace Conway.WPF
                         if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
                     }
                 }
-                    ClearCodeCheck = 1;
+                ClearCodeCheck = 1;
             }
             else { clearColor(); ClearCodeCheck = 0; }
         }

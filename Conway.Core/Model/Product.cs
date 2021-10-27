@@ -12,10 +12,11 @@ namespace Conway.Core.Model
     {
         #region CTR
         public Product(){}
-        public Product(long id, string naam, string fabrikant, double hoogte, double breedte, double diepte, int inhoud, long eancode, double prijs)
+        public Product(long id, string naam, string activatie, string fabrikant, double hoogte, double breedte, double diepte, int inhoud, long eancode, double prijs)
         {
             Id = id;
             SetNaam(naam);
+            SetActivatie(activatie);
             SetFabrikant(fabrikant);
             SetHoogte(hoogte);
             SetBreedte(breedte);
@@ -29,6 +30,7 @@ namespace Conway.Core.Model
         #region Model
         private long _Id;
         private string _Naam;
+        private string _Activatie;
         private string _Fabrikant;
         private double _Hoogte;
         private double _Breedte;
@@ -49,6 +51,12 @@ namespace Conway.Core.Model
         {
             get { return _Naam; }
             set { _Naam = value; }
+        }
+
+        public string Activatie
+        {
+            get { return _Activatie; }
+            set { _Activatie = value; }
         }
 
         public string Fabrikant
@@ -103,6 +111,10 @@ namespace Conway.Core.Model
         {
             return Naam;
         }
+        public string GetActivatie()
+        {
+            return Activatie;
+        }
         public string GetFabrikant()
         {
             return Fabrikant;
@@ -138,6 +150,11 @@ namespace Conway.Core.Model
         {
             if (naam.Trim().Length <= 1) { throw new ProductException("Invalid naam."); }
             Naam = naam;
+        }
+        public void SetActivatie(string actief)
+        {
+            if (actief.Trim().Length <= 1) { actief ="Niet Actief"; }
+            Activatie = actief;
         }
         public void SetFabrikant(string fabrikant)
         {
