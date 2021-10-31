@@ -20,5 +20,13 @@ namespace Conway.Core.Manager
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Products_");
             return JsonConvert.DeserializeObject<List<Product>>(response);
         }
+
+        public async Task UpdateProduct(long id, Product product)
+        {
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(product);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PutAsync(AppSettings.ApiUrl + "api/Products_/" + id, content);
+        }
     }
 }

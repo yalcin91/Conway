@@ -26,12 +26,55 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <DataGrid x:Name="data_Portal" 
+                      Grid.Row="1"
+                      Grid.Column="0" 
+                      Margin="5" 
+                      AlternatingRowBackground="Plum" 
+                      CanUserAddRows="False" 
+                      CanUserDeleteRows="False"/>
+            
+            <DataGrid x:Name="data_Product" 
+                      Grid.Row="1" 
+                      Grid.Column="1" 
+                      Margin="5" 
+                      AlternatingRowBackground="BlueViolet" 
+                      CanUserAddRows="False" 
+                      CanUserDeleteRows="False"/>
+        </Grid>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" 
+                    Content="Import" 
+                    Width="60" Height="30" 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" 
+                    Click="btn_Import_Click"
+                    Cursor="Hand"/>
+            
+            <Button Grid.Column="1" 
+                    Content="Save" 
+                    Width="60" 
+                    Height="30" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Bottom"
+                    Click="btn_Save_Click"
+                    Cursor="Hand"/>
 
-            <DataGrid x:Name="data_Portal" Grid.Row="1" Grid.Column="0" Margin="5" AlternatingRowBackground="LightCyan" 
-                      CanUserAddRows="False" CanUserDeleteRows="False"/>
-
-            <DataGrid x:Name="data_Product" Grid.Row="1" Grid.Column="1" Margin="5" AlternatingRowBackground="LightCyan" 
-                      CanUserAddRows="False" CanUserDeleteRows="False"/>
+            <ProgressBar Grid.Column="2"
+                         x:Name="pb_Updating"
+                         Minimum="0"
+                         Maximum="100"
+                         MinWidth="400"
+                         MinHeight="50"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Bottom"
+                         Foreground="#FF06FF12"/>
         </Grid>
     </Grid>
 </Window>

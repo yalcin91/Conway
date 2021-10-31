@@ -17,5 +17,10 @@ namespace Conway.Core.Manager
             products = server_Product.GetAllProducts();
             return await products;
         }
+
+        public async void UpdateProduct(long id, Product product)
+        {
+            await server_Product.UpdateProduct(id, product);
+        }
     }
 }

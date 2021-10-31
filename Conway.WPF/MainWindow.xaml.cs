@@ -11,18 +11,9 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Conway.WPF
@@ -64,6 +55,8 @@ namespace Conway.WPF
             AssortimentWpf.Closing += AssortimentWpf_Closing;
             Closing += MainWindow_Closing;
 
+            ProductenWpf.Update += Vernieuwen;
+
             data_Product.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(DgSupp_PreviewMouseLeftButtonDown);
             data_Product.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(DgSupp_PreviewMouseLeftButtonUp);
             data_Product.PreviewKeyDown += new KeyEventHandler(DgSupp_KeyPress);
@@ -72,10 +65,18 @@ namespace Conway.WPF
             StartIni();
         }
 
+        #region Mijn Event Methode
+        public void Vernieuwen(object sender, RoutedEventArgs e)
+        {
+            GetProduct();
+        }
+        #endregion
+
         #region Get all Products
         private async void GetProduct()
         {
             var producten = await Context.Product_Manager.GetProducten();
+            _Producten = new ObservableCollection<Product>();
             foreach (var item in producten)
             {
                 _Producten.Add(item);
@@ -191,7 +192,6 @@ namespace Conway.WPF
         private void btn_Producten_Click(object sender, RoutedEventArgs e)
         {
             if (ProductenWpf != null) { ProductenWpf.Show(); }
-
         }
 
         private void btn_Assortiment_Click(object sender, RoutedEventArgs e)
