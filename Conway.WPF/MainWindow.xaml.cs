@@ -75,11 +75,14 @@ namespace Conway.WPF
         #region Get all Products
         private async void GetProduct()
         {
+            long id = 1;
             var producten = await Context.Product_Manager.GetProducten();
             _Producten = new ObservableCollection<Product>();
             foreach (var item in producten)
             {
+                item.Id = id;
                 _Producten.Add(item);
+                id++;
             }
             data_Product.ItemsSource = _Producten;
             cb_Producten.ItemsSource = _Producten;

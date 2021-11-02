@@ -9,7 +9,7 @@
         Topmost="True"
         MinWidth="1500" MinHeight="800"
         WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize"
-        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.ico" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
+        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.jpg" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
 
     <Grid>
         <Grid.Background>
@@ -17,32 +17,71 @@
         </Grid.Background>
 
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="data_Portal" 
+                      Grid.Row="2"
+                      Grid.Column="0"
+                      Margin="10" 
+                      AlternatingRowBackground="Plum" 
+                      CanUserAddRows="False" 
+                      CanUserDeleteRows="False" 
+                      ScrollViewer.CanContentScroll="True"  
+                      ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                      ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                      FontWeight="SemiBold"
+                      Style="{DynamicResource DGHeaderStyle}"
+                      FontStyle="Italic">
+                <DataGrid.Background>
+                    <SolidColorBrush Opacity="0.6"
+                                 Color="#FFD14BDB"/>
+                </DataGrid.Background>
+            </DataGrid>
+
+            <DataGrid x:Name="data_Product" 
+                      Grid.Row="1" 
+                      Grid.Column="1" 
+                      Margin="10" 
+                      AlternatingRowBackground="BlueViolet" 
+                      CanUserAddRows="False" 
+                      CanUserDeleteRows="False" 
+                      ScrollViewer.CanContentScroll="True"  
+                      ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                      ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                      FontWeight="SemiBold"
+                      Style="{DynamicResource DGHeaderStyle}"
+                      FontStyle="Italic">
+                <DataGrid.Background>
+                    <SolidColorBrush Opacity="0.6"
+                                     Color="#FFD14BDB"/>
+                </DataGrid.Background>
+            </DataGrid>
+        </Grid>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="data_Portal" 
-                      Grid.Row="1"
-                      Grid.Column="0" 
-                      Margin="5" 
-                      AlternatingRowBackground="Plum" 
-                      CanUserAddRows="False" 
-                      CanUserDeleteRows="False"/>
-            
-            <DataGrid x:Name="data_Product" 
-                      Grid.Row="1" 
-                      Grid.Column="1" 
-                      Margin="5" 
-                      AlternatingRowBackground="BlueViolet" 
-                      CanUserAddRows="False" 
-                      CanUserDeleteRows="False"/>
+            <Label Content="PORTAL"
+                   Grid.Column="0"                   
+                   Foreground="#FFD589EC"
+                   FontSize="40"/>
+
+            <Label Content="PRODUCTENLIJST"
+                   Grid.Column="1"
+                   Foreground="#FFD589EC"
+                   FontSize="40"/>
         </Grid>
-        
+
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -56,7 +95,7 @@
                     VerticalAlignment="Bottom" 
                     Click="btn_Import_Click"
                     Cursor="Hand"/>
-            
+
             <Button Grid.Column="1" 
                     Content="Save" 
                     Width="60" 
@@ -71,10 +110,11 @@
                          Minimum="0"
                          Maximum="100"
                          MinWidth="400"
-                         MinHeight="50"
+                         MinHeight="35"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Bottom"
-                         Foreground="#FF06FF12"/>
+                         Foreground="#FF06FF12"
+                         Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </Window>

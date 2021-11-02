@@ -22,5 +22,10 @@ namespace Conway.Core.Manager
         {
             await server_Product.UpdateProduct(id, product);
         }
+
+        public async void AddProduct(Product product)
+        {
+            await server_Product.AddProduct(product);
+        }
     }
 }

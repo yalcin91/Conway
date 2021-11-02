@@ -7,14 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media.Animation;
 
 namespace Conway.WPF.Products
 {
@@ -26,6 +22,7 @@ namespace Conway.WPF.Products
         private ObservableCollection<Product> _Producten;
         private ObservableCollection<Product> _Portal;
         private List<long> _eanCodes;
+        private List<long> _eanCodesPortal;
 
         public ProductenWpf()
         {
@@ -33,6 +30,7 @@ namespace Conway.WPF.Products
             _Producten = new ObservableCollection<Product>();
             _Portal = new ObservableCollection<Product>();
             _eanCodes = new List<long>();
+            _eanCodesPortal = new List<long>();
             GetProduct();
         }
 
@@ -67,13 +65,14 @@ namespace Conway.WPF.Products
             long id = 1;
             long ean = 0;
             string description = "";
-            string activatie = "";
+            string activatie = "Actief";
             string prix = "";
             string fabrikant = "";
             double hoogte = 0;
             double breedte = 0;
             double diepte = 0;
             int inhoud = 0;
+            var data = new Product();
             List<string> _Naam = new List<string>();
             if (path != null)
             {
@@ -120,13 +119,21 @@ namespace Conway.WPF.Products
                         prix = _VolledigString[i];
                         prix = prix.Remove(prix.Length - 2);
                         double prix2 = double.Parse(prix);
-                        var data = new Product(id, description, activatie, fabrikant, hoogte, breedte, diepte, inhoud, ean, prix2);
+                        if (_Producten.Select(x=>x.Naam).Contains(description))
+                        {
+                            var newId = _Producten.Where(x => x.Naam == description).Select(x => x.Id).FirstOrDefault();
+                            data = new Product(newId, description, activatie, fabrikant, hoogte, breedte, diepte, inhoud, ean, prix2);
+                        }
+                        else
+                        {
+                            id = _Portal.Count;
+                            data = new Product(id, description, activatie, fabrikant, hoogte, breedte, diepte, inhoud, ean, prix2);
+                        }
                         _Portal.Add(data);
+                        _eanCodesPortal.Add(ean);
                         data_Portal.ItemsSource = _Portal;
-                        id++;
                         ean = 0;
                         description = "";
-                        activatie = "";
                         prix = "";
                         fabrikant = "";
                         breedte = 0;
@@ -137,12 +144,17 @@ namespace Conway.WPF.Products
                     }
                     reader.Close();
                 }
+                data_Portal.Items.SortDescriptions.Clear();
+                data_Portal.Items.SortDescriptions.Add(new SortDescription("Id", ListSortDirection.Ascending));
+                data_Portal.Items.Refresh();
             }
         }
 
         private void Clear()
         {
             _Portal = new ObservableCollection<Product>();
+            data_Portal.ItemsSource = _Portal;
+            _eanCodesPortal = new List<long>();
         }
 
         public EventHandler<RoutedEventArgs> Update;
@@ -155,25 +167,55 @@ namespace Conway.WPF.Products
                 if (_eanCodes.Contains(v.Eancode))
                 {
                     var d = _Producten.Where(x => x.Eancode == v.Eancode).FirstOrDefault();
-                    v.Id = d.Id;
-                    v.Activatie = d.Activatie;
-                    Context.Product_Manager.UpdateProduct(v.Id, v);
-                    await Task.Delay(1);
-                    pb_Updating.Value += 1;
-                }
-                /*foreach (var k in _Portal)
-                {
-                    if (v.Eancode == k.Eancode)
+                    if (d.Activatie != v.Activatie ||
+                        d.Breedte != v.Breedte ||
+                        d.Diepte != v.Diepte ||
+                        d.Fabrikant != v.Fabrikant ||
+                        d.Hoogte != v.Hoogte ||
+                        d.Inhoud != v.Inhoud ||
+                        d.Naam != v.Naam ||
+                        d.Prijs != v.Prijs)
                     {
-                        k.Id = v.Id;
-                        k.Activatie = v.Activatie;
-                        Context.Product_Manager.UpdateProduct(k.Id, k);
+                        v.Id = d.Id;
+                        Context.Product_Manager.UpdateProduct(v.Id, v);
+                        GetProduct();
+                        Update?.Invoke(this, e);
                     }
-                }*/
+                }
+                else
+                {
+                    Product product = new Product();
+                    product.Naam = v.Naam;
+                    product.Activatie = v.Activatie;
+                    product.Fabrikant = v.Fabrikant;
+                    product.Hoogte = v.Hoogte;
+                    product.Breedte = v.Breedte;
+                    product.Diepte = v.Diepte;
+                    product.Inhoud = v.Inhoud;
+                    product.Eancode = v.Eancode;
+                    product.Prijs = v.Prijs;
+                    Context.Product_Manager.AddProduct(product);
+                    GetProduct();
+                    Update?.Invoke(this, e);
+                }
+                await Task.Delay(1);
+                pb_Updating.Value += 1;
             }
             GetProduct();
             Update?.Invoke(this, e);
             pb_Updating.Value = 0;
+            pb_Updating.Visibility = Visibility.Collapsed;
+            foreach (var item in _Producten)
+            {
+                //var s = _Portal.Select(x=>x.Eancode);
+                if (!_eanCodesPortal.Contains(item.Eancode))
+                {
+                    item.Activatie = "Niet Actief";
+                    Context.Product_Manager.UpdateProduct(item.Id, item);
+                }
+            }
+            GetProduct();
+            Update?.Invoke(this, e);
         }
 
         #region Import Excel to datagried

@@ -23,7 +23,7 @@
 
         <Grid Grid.Row="0" Margin="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="10" ></ColumnDefinition>
                 <ColumnDefinition MinWidth="690"></ColumnDefinition>
                 <ColumnDefinition Width="10" ></ColumnDefinition>
@@ -36,16 +36,66 @@
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
 
-            <Grid Grid.Row="0" Grid.Column="6" Background="White">
+            <Grid Grid.Row="0" Grid.Column="6">
+                <Grid.Background>
+                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                </Grid.Background>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Button x:Name="btn_Producten" Click="btn_Producten_Click" IsEnabled="False" Content="Producten" Grid.Row="0" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button x:Name="btn_Assortiment" Click="btn_Assortiment_Click" IsEnabled="False" Content="Assortiment" Grid.Row="0" Height="28" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Click="btn_Check_Click" Grid.Row="1" Cursor="Hand" Content="Check" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <PasswordBox x:Name="txtb_Pass"  KeyUp="txtb_Pass_KeyDown" KeyDown="txtb_Pass_KeyDown" Grid.Row="1" ToolTip="enter password" Height="28" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" FontStyle="Italic" FontWeight="Bold"></PasswordBox>
+                <Button x:Name="btn_Producten" 
+                        Click="btn_Producten_Click" 
+                        IsEnabled="False" 
+                        Content="Producten" 
+                        Grid.Row="0" 
+                        Height="28" 
+                        Width="100" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" 
+                        Margin="5" 
+                        FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <Button x:Name="btn_Assortiment" 
+                        Click="btn_Assortiment_Click" 
+                        IsEnabled="False" 
+                        Content="Assortiment" 
+                        Grid.Row="0" 
+                        Height="28" 
+                        Width="100" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top" 
+                        Margin="5" 
+                        FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <Button Click="btn_Check_Click" 
+                        Grid.Row="1" 
+                        Cursor="Hand" 
+                        Content="Check" 
+                        Height="28" 
+                        Width="100" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" 
+                        Margin="5" 
+                        FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <PasswordBox x:Name="txtb_Pass" 
+                             KeyUp="txtb_Pass_KeyDown" 
+                             KeyDown="txtb_Pass_KeyDown" 
+                             Grid.Row="1" 
+                             ToolTip="enter password" 
+                             Height="28" 
+                             Width="100" 
+                             HorizontalAlignment="Right" 
+                             VerticalAlignment="Top" 
+                             Margin="5" 
+                             FontStyle="Italic" 
+                             FontWeight="Bold"/>
+                
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"></ColumnDefinition>
@@ -60,18 +110,91 @@
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Content="BAT = " FontWeight="Bold" FontSize="20"></Label>
-                    <Label Grid.Column="0" Grid.Row="1" Content="ITB = " FontWeight="Bold" FontSize="20"></Label>
-                    <Label Grid.Column="0" Grid.Row="2" Content="JTI = " FontWeight="Bold" FontSize="20"></Label>
-                    <Label Grid.Column="0" Grid.Row="3" Content="PMI = " FontWeight="Bold" FontSize="20"></Label>
+                    <Label Grid.Column="0" 
+                           Grid.Row="0" 
+                           Content="BAT = " 
+                           FontWeight="Bold" 
+                           FontSize="20"/>
 
-                    <Label Grid.Column="1" Grid.Row="0" x:Name="lbl_BAT" FontWeight="Bold" FontSize="20"></Label>
-                    <Label Grid.Column="1" Grid.Row="1" x:Name="lbl_ITB" FontWeight="Bold" FontSize="20"></Label>
-                    <Label Grid.Column="1" Grid.Row="2" x:Name="lbl_JTI" FontWeight="Bold" FontSize="20"></Label>
-                    <Label Grid.Column="1" Grid.Row="3" x:Name="lbl_PMI" FontWeight="Bold" FontSize="20"></Label>
-                    <Button Grid.Column="0" Grid.Row="4" Cursor="Hand" Margin="0" Click="btn_20_Inhoud_Click" Content="20" Width="50" Height="35" FontWeight="ExtraBold" FontSize="15" HorizontalAlignment="Left" Background="Aqua"></Button>
-                    <Button Grid.Column="0" Grid.Row="5" Cursor="Hand" Margin="0" Click="btn_21_46_Click" Content="21-46" Width="50" Height="35" FontWeight="ExtraBold" FontSize="15" HorizontalAlignment="Left" Background="Orange"></Button>
-                    <Button Grid.Column="0" Grid.Row="6" Cursor="Hand" Margin="0" Click="btn_47_60_Click" Content="47-60" Width="50" Height="35" FontWeight="ExtraBold" FontSize="15" HorizontalAlignment="Left" Background="SaddleBrown"></Button>
+                    <Label Grid.Column="0" 
+                           Grid.Row="1" 
+                           Content="ITB = " 
+                           FontWeight="Bold" 
+                           FontSize="20"/>
+
+                    <Label Grid.Column="0" 
+                           Grid.Row="2" 
+                           Content="JTI = " 
+                           FontWeight="Bold" 
+                           FontSize="20"/>
+                    <Label Grid.Column="0" 
+                           Grid.Row="3" 
+                           Content="PMI = " 
+                           FontWeight="Bold" 
+                           FontSize="20"/>
+
+                    <Label Grid.Column="1" 
+                           Grid.Row="0" 
+                           x:Name="lbl_BAT" 
+                           FontWeight="Bold" 
+                           FontSize="20"/>
+
+                    <Label Grid.Column="1" 
+                           Grid.Row="1" 
+                           x:Name="lbl_ITB" 
+                           FontWeight="Bold" 
+                           FontSize="20"/>
+
+                    <Label Grid.Column="1" 
+                           Grid.Row="2" 
+                           x:Name="lbl_JTI" 
+                           FontWeight="Bold" 
+                           FontSize="20"/>
+
+                    <Label Grid.Column="1" 
+                           Grid.Row="3" 
+                           x:Name="lbl_PMI" 
+                           FontWeight="Bold" 
+                           FontSize="20"/>
+
+                    <Button Grid.Column="0" 
+                            Grid.Row="4" 
+                            Cursor="Hand" 
+                            Margin="0" 
+                            Click="btn_20_Inhoud_Click" 
+                            Content="20" 
+                            Width="50" 
+                            Height="35" 
+                            FontWeight="ExtraBold" 
+                            FontSize="15" 
+                            HorizontalAlignment="Left" 
+                            Background="Aqua"/>
+
+                    <Button Grid.Column="0" 
+                            Grid.Row="5" 
+                            Cursor="Hand" 
+                            Margin="0" 
+                            Click="btn_21_46_Click" 
+                            Content="21-46" 
+                            Width="50" 
+                            Height="35" 
+                            FontWeight="ExtraBold" 
+                            FontSize="15" 
+                            HorizontalAlignment="Left" 
+                            Background="Orange"/>
+
+                    <Button Grid.Column="0" 
+                            Grid.Row="6" 
+                            Cursor="Hand" 
+                            Margin="0" 
+                            Click="btn_47_60_Click" 
+                            Content="47-60" 
+                            Width="50" 
+                            Height="35" 
+                            FontWeight="ExtraBold" 
+                            FontSize="15" 
+                            HorizontalAlignment="Left" 
+                            Background="SaddleBrown"/>
                 </Grid>
             </Grid>
 
@@ -79,7 +202,10 @@
 
             </Grid>
 
-            <Grid Grid.Column="0" Background="White">
+            <Grid Grid.Column="0" Opacity="0.9">
+                <Grid.Background>
+                    <SolidColorBrush Color="White"/>
+                </Grid.Background>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="25"></RowDefinition>
@@ -180,7 +306,7 @@
             </Grid>
             <Label x:Name="lbl_Breedte_Links" Grid.Row="0" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
 
-            <Grid Grid.Column="4">
+            <Grid Grid.Column="4" Opacity="0.9">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition ></RowDefinition>
@@ -390,7 +516,7 @@
                 <Label x:Name="lbl_Breedte_Rechts_Beneden" Grid.Row="2" MinWidth="35" Height="20" Background="Green" HorizontalAlignment="Right" VerticalAlignment="Top" Content="645" FontSize="11" Foreground="White"></Label>
             </Grid>
 
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" Opacity="0.9">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition ></RowDefinition>
@@ -1005,13 +1131,63 @@
                 <ColumnDefinition ></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <DataGrid x:Name="data_Ini" FontWeight="Bold" AlternatingRowBackground="LightGoldenrodYellow" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False"  Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
+                <DataGrid x:Name="data_Ini"
+                          FontWeight="Bold" 
+                          AlternatingRowBackground="LightGoldenrodYellow" 
+                          IsReadOnly="True" 
+                          CanUserAddRows="False" 
+                          CanUserDeleteRows="False"  
+                          Margin="10" 
+                          FontStyle="Italic" 
+                          ScrollViewer.CanContentScroll="True"  
+                          ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                          Style="{DynamicResource DGHeaderStyle}">
+                    <DataGrid.Background>
+                        <SolidColorBrush Opacity="0.8"
+                                 Color="White"/>
+                    </DataGrid.Background>
+                </DataGrid>
             </Grid>
+
             <Grid Grid.Column="1">
-                <DataGrid x:Name="data_Product" AlternatingRowBackground="LightCyan" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" IsReadOnly="False" FontWeight="Bold" CanUserAddRows="False" CanUserDeleteRows="False"  Margin="10" FontStyle="Italic"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
+                <DataGrid x:Name="data_Product" 
+                          AlternatingRowBackground="LightCyan" 
+                          IsTextSearchEnabled="True" 
+                          IsTextSearchCaseSensitive="False" 
+                          IsReadOnly="False" 
+                          FontWeight="Bold" 
+                          CanUserAddRows="False" 
+                          CanUserDeleteRows="False"  
+                          Margin="10" 
+                          FontStyle="Italic"  
+                          ScrollViewer.CanContentScroll="True"  
+                          ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                    <DataGrid.Background>
+                        <SolidColorBrush Opacity="0.8"
+                                 Color="White"/>
+                    </DataGrid.Background>
+                </DataGrid>
             </Grid>
+
             <Grid Grid.Column="2">
-                <DataGrid x:Name="data_Assortiment" AlternatingRowBackground="LightGreen" FontWeight="Bold" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10" FontStyle="Italic" ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible"></DataGrid>
+                <DataGrid x:Name="data_Assortiment" 
+                          AlternatingRowBackground="LightGreen" 
+                          FontWeight="Bold" IsReadOnly="True" 
+                          CanUserAddRows="False" 
+                          CanUserDeleteRows="False" 
+                          Margin="10" 
+                          FontStyle="Italic" 
+                          ScrollViewer.CanContentScroll="True"  
+                          ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                          Style="{DynamicResource DGHeaderStyle}">
+                    <DataGrid.Background>
+                        <SolidColorBrush Opacity="0.8"
+                                 Color="White"/>
+                    </DataGrid.Background>
+                </DataGrid>
             </Grid>
         </Grid>
     </Grid>

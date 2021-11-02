@@ -28,5 +28,16 @@ namespace Conway.Core.Manager
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await httpClient.PutAsync(AppSettings.ApiUrl + "api/Products_/" + id, content);
         }
+
+        public async Task<bool> AddProduct(Product product)
+        {
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(product);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesToken", string.Empty));  ----=> dit is later als er een inlog pagina komt voor TOKEN voor wachtwoord.
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/Products_", content);
+            if (!response.IsSuccessStatusCode) return false;
+            return true;
+        }
     }
 }
