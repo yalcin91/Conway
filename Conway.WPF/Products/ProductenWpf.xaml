@@ -90,7 +90,8 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" 
                     Content="Import" 
-                    Width="60" Height="30" 
+                    Width="60" 
+                    Height="30" 
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom" 
                     Click="btn_Import_Click"
@@ -103,14 +104,17 @@
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Bottom"
                     Click="btn_Save_Click"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    x:Name="btn_Save"
+                    ToolTip="DataTabel Portal mag niet leeg zijn !!"/>
 
             <ProgressBar Grid.Column="2"
                          x:Name="pb_Updating"
                          Minimum="0"
                          Maximum="100"
                          MinWidth="400"
-                         MinHeight="35"
+                         MinHeight="30"
+                         Margin="10"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Bottom"
                          Foreground="#FF06FF12"

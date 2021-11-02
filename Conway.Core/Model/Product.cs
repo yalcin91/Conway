@@ -153,7 +153,7 @@ namespace Conway.Core.Model
         }
         public void SetActivatie(string actief)
         {
-            if (actief.Trim().Length <= 1) { actief ="Niet Actief"; }
+            if (actief.Trim().Length <= 1) { actief ="Actief"; }
             Activatie = actief;
         }
         public void SetFabrikant(string fabrikant)

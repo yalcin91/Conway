@@ -72,8 +72,7 @@
                         FontStyle="Italic"/>
 
                 <Button Click="btn_Check_Click" 
-                        Grid.Row="1" 
-                        Cursor="Hand" 
+                        Grid.Row="1"  
                         Content="Check" 
                         Height="28" 
                         Width="100" 
@@ -98,10 +97,11 @@
                 
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
                         <ColumnDefinition Width="70"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
@@ -157,8 +157,28 @@
                            FontWeight="Bold" 
                            FontSize="20"/>
 
+                    <Label Grid.Column="1" 
+                           Grid.Row="4" 
+                           x:Name="lbl_NietActief" 
+                           FontWeight="ExtraBold" 
+                           FontSize="20"
+                           Foreground="Red"
+                           VerticalAlignment="Center"/>
+
+                    <Button Grid.Row="4"
+                            Grid.Column="0"
+                            Cursor="Hand" 
+                            Margin="0"
+                            Click="btn_Activatie_Click" 
+                            Content="Niet Actief" 
+                            Height="35" 
+                            FontWeight="Bold" 
+                            FontSize="14" 
+                            HorizontalAlignment="Left" 
+                            Background="Red"/>
+
                     <Button Grid.Column="0" 
-                            Grid.Row="4" 
+                            Grid.Row="5" 
                             Cursor="Hand" 
                             Margin="0" 
                             Click="btn_20_Inhoud_Click" 
@@ -171,7 +191,7 @@
                             Background="Aqua"/>
 
                     <Button Grid.Column="0" 
-                            Grid.Row="5" 
+                            Grid.Row="6" 
                             Cursor="Hand" 
                             Margin="0" 
                             Click="btn_21_46_Click" 
@@ -184,7 +204,7 @@
                             Background="Orange"/>
 
                     <Button Grid.Column="0" 
-                            Grid.Row="6" 
+                            Grid.Row="7" 
                             Cursor="Hand" 
                             Margin="0" 
                             Click="btn_47_60_Click" 

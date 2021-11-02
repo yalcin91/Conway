@@ -76,6 +76,7 @@ namespace Conway.WPF.Products
             List<string> _Naam = new List<string>();
             if (path != null)
             {
+                btn_Save.ToolTip = "";
                 using (StreamReader reader = new StreamReader(path))
                 {
                     while ((line = reader.ReadLine()) != null)
@@ -160,6 +161,11 @@ namespace Conway.WPF.Products
         public EventHandler<RoutedEventArgs> Update;
         private async void btn_Save_Click(object sender, RoutedEventArgs e)
         {
+            if(_Portal.Count <= 0)
+            {
+                btn_Save.ToolTip = "DataTabel Portal mag niet leeg zijn !!";
+                return;
+            }
             pb_Updating.Maximum = _Producten.Count;
             pb_Updating.Visibility = Visibility.Visible;
             foreach (var v in _Portal)

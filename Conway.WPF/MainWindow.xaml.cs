@@ -12,6 +12,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -35,6 +36,10 @@ namespace Conway.WPF
         private ObservableCollection<PMI_Cigarette> _PMI_Cigaretten;
         private ObservableCollection<Product> _Ini;
 
+        private List<Label> _lbl_Prix;
+        private List<Label> _lbl_Grids;
+        private List<Border> _clm;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -49,6 +54,12 @@ namespace Conway.WPF
             _JTI_Tabac = new ObservableCollection<JTI_Tabac>();
             _PMI_Cigaretten = new ObservableCollection<PMI_Cigarette>();
             _Ini = new ObservableCollection<Product>();
+            _lbl_Grids = new List<Label>();
+            _lbl_Prix = new List<Label>();
+            _clm = new List<Border>();
+            LabelsInLijst();
+            LabelsPrixInLijst();
+            GridsInList();
             GetProduct();
             GetBAT_Cigarette();
             ProductenWpf.Closing += ProductenWpf_Closing;
@@ -307,6 +318,7 @@ namespace Conway.WPF
 
 
         private List<string> _Fabrikant = new List<string>();
+        private List<int> _Activatie = new List<int>();
         private List<int> _BAT = new List<int>();
         private List<int> _ITB = new List<int>();
         private List<int> _JTI = new List<int>();
@@ -393,6 +405,7 @@ namespace Conway.WPF
                                         double prix2 = double.Parse(prix, System.Globalization.CultureInfo.InvariantCulture);
                                         var data = new Product(id, description, activatie, fabrikant, hoogte, breedte, 0, inhoud, ean, prix2);
                                         CheckFabrikantAantal(fabrikant);
+                                        CheckAantalNietActief(activatie);
                                         var money = prix;
                                         ToMachine(id, description, money, fabrikant);
                                         _Fabrikant.Add(fabrikant);
@@ -576,7 +589,7 @@ namespace Conway.WPF
             if (fabrikant == "ITB") { _ITB.Add(1); lbl_ITB.Content = _ITB.Count(); }
             if (fabrikant == "JTI") { _JTI.Add(1); lbl_JTI.Content = _JTI.Count(); }
             if (fabrikant == "PMI") { _PMI.Add(1); lbl_PMI.Content = _PMI.Count(); }
-        }
+        }   
 
         private void CheckFabrikantAantal_Verminderen(string fabrikant)
         {
@@ -584,6 +597,16 @@ namespace Conway.WPF
             if (fabrikant == "ITB") { _ITB.Remove(1); lbl_ITB.Content = _ITB.Count(); }
             if (fabrikant == "JTI") { _JTI.Remove(1); lbl_JTI.Content = _JTI.Count(); }
             if (fabrikant == "PMI") { _PMI.Remove(1); lbl_PMI.Content = _PMI.Count(); }
+        }
+
+        private void CheckAantalNietActief(string activatie)
+        {
+            if (activatie == "Niet Actief") { _Activatie.Add(1); lbl_NietActief.Content = _Activatie.Count(); }
+        }
+
+        private void CheckAantalNietActiefVerminderen(string activatie)
+        {
+            if (activatie == "Niet Actief") { _Activatie.Remove(1); lbl_NietActief.Content = _Activatie.Count(); }
         }
 
         #region Fabrikant code kleur
@@ -889,16 +912,19 @@ namespace Conway.WPF
                 _ITB = new List<int>();
                 _JTI = new List<int>();
                 _PMI = new List<int>();
+                _Activatie = new List<int>();
 
                 _BAT.Clear();
                 _ITB.Clear();
                 _JTI.Clear();
                 _PMI.Clear();
+                _Activatie.Clear();
 
                 lbl_BAT.Content = _BAT.Count();
                 lbl_ITB.Content = _ITB.Count();
                 lbl_JTI.Content = _JTI.Count();
                 lbl_PMI.Content = _PMI.Count();
+                lbl_NietActief.Content = _Activatie.Count();
 
                 Breedte_Links = 645;
                 Breedte_Rechts_Boven = 645;
@@ -921,144 +947,24 @@ namespace Conway.WPF
                 lbl_Breedte_Midden_Midden.Background = new System.Windows.Media.SolidColorBrush(Colors.Green);
                 lbl_Breedte_Midden_Beneden.Background = new System.Windows.Media.SolidColorBrush(Colors.Green);
 
-                lbl_1.Content = ""; lbl_1_Prix.Content = ""; lbl_2.Content = ""; lbl_2_Prix.Content = ""; lbl_3.Content = ""; lbl_3_Prix.Content = "";
-                lbl_4.Content = ""; lbl_4_Prix.Content = ""; lbl_5.Content = ""; lbl_5_Prix.Content = ""; lbl_6.Content = ""; lbl_6_Prix.Content = ""; lbl_7.Content = "";
-                lbl_7_Prix.Content = ""; lbl_8.Content = ""; lbl_8_Prix.Content = ""; lbl_9.Content = ""; lbl_9_Prix.Content = ""; lbl_10.Content = ""; lbl_10_Prix.Content = "";
+                foreach (var elementen in _lbl_Grids)
+                {
+                    elementen.Content = "";
+                }
 
-                lbl_11.Content = ""; lbl_11_Prix.Content = ""; lbl_12.Content = ""; lbl_12_Prix.Content = ""; lbl_13.Content = ""; lbl_13_Prix.Content = "";
-                lbl_14.Content = ""; lbl_14_Prix.Content = ""; lbl_15.Content = ""; lbl_15_Prix.Content = ""; lbl_16.Content = ""; lbl_16_Prix.Content = ""; lbl_17.Content = "";
-                lbl_17_Prix.Content = ""; lbl_18.Content = ""; lbl_18_Prix.Content = ""; lbl_19.Content = ""; lbl_19_Prix.Content = ""; lbl_20.Content = ""; lbl_20_Prix.Content = "";
-
-                lbl_21.Content = ""; lbl_21_Prix.Content = ""; lbl_22.Content = ""; lbl_22_Prix.Content = ""; lbl_23.Content = ""; lbl_23_Prix.Content = "";
-                lbl_24.Content = ""; lbl_24_Prix.Content = ""; lbl_25.Content = ""; lbl_25_Prix.Content = ""; lbl_26.Content = ""; lbl_26_Prix.Content = ""; lbl_27.Content = "";
-                lbl_27_Prix.Content = ""; lbl_28.Content = ""; lbl_28_Prix.Content = ""; lbl_29.Content = ""; lbl_29_Prix.Content = ""; lbl_30.Content = ""; lbl_30_Prix.Content = "";
-
-                lbl_31.Content = ""; lbl_31_Prix.Content = ""; lbl_32.Content = ""; lbl_32_Prix.Content = ""; lbl_33.Content = ""; lbl_33_Prix.Content = "";
-                lbl_34.Content = ""; lbl_34_Prix.Content = ""; lbl_35.Content = ""; lbl_35_Prix.Content = ""; lbl_36.Content = ""; lbl_36_Prix.Content = ""; lbl_37.Content = "";
-                lbl_37_Prix.Content = ""; lbl_38.Content = ""; lbl_38_Prix.Content = ""; lbl_39.Content = ""; lbl_39_Prix.Content = ""; lbl_40.Content = ""; lbl_40_Prix.Content = "";
-
-                lbl_41.Content = ""; lbl_41_Prix.Content = ""; lbl_42.Content = ""; lbl_42_Prix.Content = ""; lbl_43.Content = ""; lbl_43_Prix.Content = "";
-                lbl_44.Content = ""; lbl_44_Prix.Content = ""; lbl_45.Content = ""; lbl_45_Prix.Content = ""; lbl_46.Content = ""; lbl_46_Prix.Content = ""; lbl_47.Content = "";
-                lbl_47_Prix.Content = ""; lbl_48.Content = ""; lbl_48_Prix.Content = ""; lbl_49.Content = ""; lbl_49_Prix.Content = ""; lbl_50.Content = ""; lbl_50_Prix.Content = "";
-
-                lbl_51.Content = ""; lbl_51_Prix.Content = ""; lbl_52.Content = ""; lbl_52_Prix.Content = ""; lbl_53.Content = ""; lbl_53_Prix.Content = "";
-                lbl_54.Content = ""; lbl_54_Prix.Content = ""; lbl_55.Content = ""; lbl_55_Prix.Content = ""; lbl_56.Content = ""; lbl_56_Prix.Content = ""; lbl_57.Content = "";
-                lbl_57_Prix.Content = ""; lbl_58.Content = ""; lbl_58_Prix.Content = ""; lbl_59.Content = ""; lbl_59_Prix.Content = ""; lbl_60.Content = ""; lbl_60_Prix.Content = "";
-
-                lbl_61.Content = ""; lbl_61_Prix.Content = ""; lbl_62.Content = ""; lbl_62_Prix.Content = ""; lbl_63.Content = ""; lbl_63_Prix.Content = "";
-                lbl_64.Content = ""; lbl_64_Prix.Content = ""; lbl_65.Content = ""; lbl_65_Prix.Content = ""; lbl_66.Content = ""; lbl_66_Prix.Content = ""; lbl_67.Content = "";
-                lbl_67_Prix.Content = ""; lbl_68.Content = ""; lbl_68_Prix.Content = ""; lbl_69.Content = ""; lbl_69_Prix.Content = ""; lbl_70.Content = ""; lbl_70_Prix.Content = "";
-
-                lbl_71.Content = ""; lbl_71_Prix.Content = ""; lbl_72.Content = ""; lbl_72_Prix.Content = ""; lbl_73.Content = ""; lbl_73_Prix.Content = "";
-                lbl_74.Content = ""; lbl_74_Prix.Content = ""; lbl_75.Content = ""; lbl_75_Prix.Content = ""; lbl_76.Content = ""; lbl_76_Prix.Content = ""; lbl_77.Content = "";
-                lbl_77_Prix.Content = ""; lbl_78.Content = ""; lbl_78_Prix.Content = ""; lbl_79.Content = ""; lbl_79_Prix.Content = ""; lbl_80.Content = ""; lbl_80_Prix.Content = "";
-
-                lbl_81.Content = ""; lbl_81_Prix.Content = ""; lbl_82.Content = ""; lbl_82_Prix.Content = ""; lbl_83.Content = ""; lbl_83_Prix.Content = "";
-                lbl_84.Content = ""; lbl_84_Prix.Content = ""; lbl_85.Content = ""; lbl_85_Prix.Content = ""; lbl_86.Content = ""; lbl_86_Prix.Content = ""; lbl_87.Content = "";
-                lbl_87_Prix.Content = ""; lbl_88.Content = ""; lbl_88_Prix.Content = ""; lbl_89.Content = ""; lbl_89_Prix.Content = ""; lbl_90.Content = ""; lbl_90_Prix.Content = "";
+                foreach (var elementen in _lbl_Prix)
+                {
+                    elementen.Content = "";
+                }
             }
         }
 
         private void ToMachine(long i, string description, string prix, string fabrikant)
         {
-            if (i == 1) { lbl_1.Content = description; lbl_1_Prix.Content = "\u20AC" + prix; }
-            if (i == 2) { lbl_2.Content = description; lbl_2_Prix.Content = "\u20AC" + prix; }
-            if (i == 3) { lbl_3.Content = description; lbl_3_Prix.Content = "\u20AC" + prix; }
-            if (i == 4) { lbl_4.Content = description; lbl_4_Prix.Content = "\u20AC" + prix; }
-            if (i == 5) { lbl_5.Content = description; lbl_5_Prix.Content = "\u20AC" + prix; }
-            if (i == 6) { lbl_6.Content = description; lbl_6_Prix.Content = "\u20AC" + prix; }
-            if (i == 7) { lbl_7.Content = description; lbl_7_Prix.Content = "\u20AC" + prix; }
-            if (i == 8) { lbl_8.Content = description; lbl_8_Prix.Content = "\u20AC" + prix; }
-            if (i == 9) { lbl_9.Content = description; lbl_9_Prix.Content = "\u20AC" + prix; }
-            if (i == 10) { lbl_10.Content = description; lbl_10_Prix.Content = "\u20AC" + prix; }
-
-            if (i == 11) { lbl_11.Content = description; lbl_11_Prix.Content = "\u20AC" + prix; }
-            if (i == 12) { lbl_12.Content = description; lbl_12_Prix.Content = "\u20AC" + prix; }
-            if (i == 13) { lbl_13.Content = description; lbl_13_Prix.Content = "\u20AC" + prix; }
-            if (i == 14) { lbl_14.Content = description; lbl_14_Prix.Content = "\u20AC" + prix; }
-            if (i == 15) { lbl_15.Content = description; lbl_15_Prix.Content = "\u20AC" + prix; }
-            if (i == 16) { lbl_16.Content = description; lbl_16_Prix.Content = "\u20AC" + prix; }
-            if (i == 17) { lbl_17.Content = description; lbl_17_Prix.Content = "\u20AC" + prix; }
-            if (i == 18) { lbl_18.Content = description; lbl_18_Prix.Content = "\u20AC" + prix; }
-            if (i == 19) { lbl_19.Content = description; lbl_19_Prix.Content = "\u20AC" + prix; }
-            if (i == 20) { lbl_20.Content = description; lbl_20_Prix.Content = "\u20AC" + prix; }
-
-            if (i == 21) { lbl_21.Content = description; lbl_21_Prix.Content = "\u20AC" + prix; }
-            if (i == 22) { lbl_22.Content = description; lbl_22_Prix.Content = "\u20AC" + prix; }
-            if (i == 23) { lbl_23.Content = description; lbl_23_Prix.Content = "\u20AC" + prix; }
-            if (i == 24) { lbl_24.Content = description; lbl_24_Prix.Content = "\u20AC" + prix; }
-            if (i == 25) { lbl_25.Content = description; lbl_25_Prix.Content = "\u20AC" + prix; }
-            if (i == 26) { lbl_26.Content = description; lbl_26_Prix.Content = "\u20AC" + prix; }
-            if (i == 27) { lbl_27.Content = description; lbl_27_Prix.Content = "\u20AC" + prix; }
-            if (i == 28) { lbl_28.Content = description; lbl_28_Prix.Content = "\u20AC" + prix; }
-            if (i == 29) { lbl_29.Content = description; lbl_29_Prix.Content = "\u20AC" + prix; }
-            if (i == 30) { lbl_30.Content = description; lbl_30_Prix.Content = "\u20AC" + prix; }
-
-            if (i == 31) { lbl_31.Content = description; lbl_31_Prix.Content = "\u20AC" + prix; }
-            if (i == 32) { lbl_32.Content = description; lbl_32_Prix.Content = "\u20AC" + prix; }
-            if (i == 33) { lbl_33.Content = description; lbl_33_Prix.Content = "\u20AC" + prix; }
-            if (i == 34) { lbl_34.Content = description; lbl_34_Prix.Content = "\u20AC" + prix; }
-            if (i == 35) { lbl_35.Content = description; lbl_35_Prix.Content = "\u20AC" + prix; }
-            if (i == 36) { lbl_36.Content = description; lbl_36_Prix.Content = "\u20AC" + prix; }
-            if (i == 37) { lbl_37.Content = description; lbl_37_Prix.Content = "\u20AC" + prix; }
-            if (i == 38) { lbl_38.Content = description; lbl_38_Prix.Content = "\u20AC" + prix; }
-            if (i == 39) { lbl_39.Content = description; lbl_39_Prix.Content = "\u20AC" + prix; }
-            if (i == 40) { lbl_40.Content = description; lbl_40_Prix.Content = "\u20AC" + prix; }
-
-            if (i == 41) { lbl_41.Content = description; lbl_41_Prix.Content = "\u20AC" + prix; }
-            if (i == 42) { lbl_42.Content = description; lbl_42_Prix.Content = "\u20AC" + prix; }
-            if (i == 43) { lbl_43.Content = description; lbl_43_Prix.Content = "\u20AC" + prix; }
-            if (i == 44) { lbl_44.Content = description; lbl_44_Prix.Content = "\u20AC" + prix; }
-            if (i == 45) { lbl_45.Content = description; lbl_45_Prix.Content = "\u20AC" + prix; }
-            if (i == 46) { lbl_46.Content = description; lbl_46_Prix.Content = "\u20AC" + prix; }
-            if (i == 47) { lbl_47.Content = description; lbl_47_Prix.Content = "\u20AC" + prix; }
-            if (i == 48) { lbl_48.Content = description; lbl_48_Prix.Content = "\u20AC" + prix; }
-            if (i == 49) { lbl_49.Content = description; lbl_49_Prix.Content = "\u20AC" + prix; }
-            if (i == 50) { lbl_50.Content = description; lbl_50_Prix.Content = "\u20AC" + prix; }
-
-            if (i == 51) { lbl_51.Content = description; lbl_51_Prix.Content = "\u20AC" + prix; }
-            if (i == 52) { lbl_52.Content = description; lbl_52_Prix.Content = "\u20AC" + prix; }
-            if (i == 53) { lbl_53.Content = description; lbl_53_Prix.Content = "\u20AC" + prix; }
-            if (i == 54) { lbl_54.Content = description; lbl_54_Prix.Content = "\u20AC" + prix; }
-            if (i == 55) { lbl_55.Content = description; lbl_55_Prix.Content = "\u20AC" + prix; }
-            if (i == 56) { lbl_56.Content = description; lbl_56_Prix.Content = "\u20AC" + prix; }
-            if (i == 57) { lbl_57.Content = description; lbl_57_Prix.Content = "\u20AC" + prix; }
-            if (i == 58) { lbl_58.Content = description; lbl_58_Prix.Content = "\u20AC" + prix; }
-            if (i == 59) { lbl_59.Content = description; lbl_59_Prix.Content = "\u20AC" + prix; }
-            if (i == 60) { lbl_60.Content = description; lbl_60_Prix.Content = "\u20AC" + prix; }
-
-            if (i == 61) { lbl_61.Content = description; lbl_61_Prix.Content = "\u20AC" + prix; }
-            if (i == 62) { lbl_62.Content = description; lbl_62_Prix.Content = "\u20AC" + prix; }
-            if (i == 63) { lbl_63.Content = description; lbl_63_Prix.Content = "\u20AC" + prix; }
-            if (i == 64) { lbl_64.Content = description; lbl_64_Prix.Content = "\u20AC" + prix; }
-            if (i == 65) { lbl_65.Content = description; lbl_65_Prix.Content = "\u20AC" + prix; }
-            if (i == 66) { lbl_66.Content = description; lbl_66_Prix.Content = "\u20AC" + prix; }
-            if (i == 67) { lbl_67.Content = description; lbl_67_Prix.Content = "\u20AC" + prix; }
-            if (i == 68) { lbl_68.Content = description; lbl_68_Prix.Content = "\u20AC" + prix; }
-            if (i == 69) { lbl_69.Content = description; lbl_69_Prix.Content = "\u20AC" + prix; }
-            if (i == 70) { lbl_70.Content = description; lbl_70_Prix.Content = "\u20AC" + prix; }
-
-            if (i == 71) { lbl_71.Content = description; lbl_71_Prix.Content = "\u20AC" + prix; }
-            if (i == 72) { lbl_72.Content = description; lbl_72_Prix.Content = "\u20AC" + prix; }
-            if (i == 73) { lbl_73.Content = description; lbl_73_Prix.Content = "\u20AC" + prix; }
-            if (i == 74) { lbl_74.Content = description; lbl_74_Prix.Content = "\u20AC" + prix; }
-            if (i == 75) { lbl_75.Content = description; lbl_75_Prix.Content = "\u20AC" + prix; }
-            if (i == 76) { lbl_76.Content = description; lbl_76_Prix.Content = "\u20AC" + prix; }
-            if (i == 77) { lbl_77.Content = description; lbl_77_Prix.Content = "\u20AC" + prix; }
-            if (i == 78) { lbl_78.Content = description; lbl_78_Prix.Content = "\u20AC" + prix; }
-            if (i == 79) { lbl_79.Content = description; lbl_79_Prix.Content = "\u20AC" + prix; }
-            if (i == 80) { lbl_80.Content = description; lbl_80_Prix.Content = "\u20AC" + prix; }
-
-            if (i == 81) { lbl_81.Content = description; lbl_81_Prix.Content = "\u20AC" + prix; }
-            if (i == 82) { lbl_82.Content = description; lbl_82_Prix.Content = "\u20AC" + prix; }
-            if (i == 83) { lbl_83.Content = description; lbl_83_Prix.Content = "\u20AC" + prix; }
-            if (i == 84) { lbl_84.Content = description; lbl_84_Prix.Content = "\u20AC" + prix; }
-            if (i == 85) { lbl_85.Content = description; lbl_85_Prix.Content = "\u20AC" + prix; }
-            if (i == 86) { lbl_86.Content = description; lbl_86_Prix.Content = "\u20AC" + prix; }
-            if (i == 87) { lbl_87.Content = description; lbl_87_Prix.Content = "\u20AC" + prix; }
-            if (i == 88) { lbl_88.Content = description; lbl_88_Prix.Content = "\u20AC" + prix; }
-            if (i == 89) { lbl_89.Content = description; lbl_89_Prix.Content = "\u20AC" + prix; }
-            if (i == 90) { lbl_90.Content = description; lbl_90_Prix.Content = "\u20AC" + prix; }
+            for (int k = 0; k < 90; k++)
+            {
+                if (i == k+1) { _lbl_Grids[k].Content = description; _lbl_Prix[k].Content = "\u20AC" + prix; }
+            }
         }
 
         #region Drop change in machine
@@ -1182,12 +1088,14 @@ namespace Conway.WPF
                 {
                     Breedte_Berekenen_Optellen(p.Id);
                     CheckFabrikantAantal_Verminderen(v.Fabrikant);
+                    CheckAantalNietActiefVerminderen(v.Activatie);
                     _Ini.Remove(v);
                     p.Breedte = p.Breedte + 8.5;
                     _Ini.Insert((id - 1), p);
                     data_Ini.ItemsSource = _Ini;
                     Breedte_Berekenen_Verminderen(p.Id);
                     CheckFabrikantAantal(product.Fabrikant);
+                    CheckAantalNietActief(product.Activatie);
                     if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
                     return;
                 }
@@ -1195,10 +1103,12 @@ namespace Conway.WPF
                 if (v.Naam == "dismounted")
                 {
                     CheckFabrikantAantal_Verminderen(v.Fabrikant);
+                    CheckAantalNietActiefVerminderen(v.Activatie);
                     _Ini.Remove(v);
                     _Ini.Insert((id - 1), p);
                     data_Ini.ItemsSource = _Ini;
                     CheckFabrikantAantal(product.Fabrikant);
+                    CheckAantalNietActief(product.Activatie);
                     if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
                     return;
                 }
@@ -1207,10 +1117,12 @@ namespace Conway.WPF
                 {
                     Breedte_Berekenen_Optellen(v.Id);
                     CheckFabrikantAantal_Verminderen(v.Fabrikant);
+                    CheckAantalNietActiefVerminderen(v.Activatie);
                     _Ini.Remove(v);
                     _Ini.Insert((id - 1), p);
                     data_Ini.ItemsSource = _Ini;
                     CheckFabrikantAantal(product.Fabrikant);
+                    CheckAantalNietActief(product.Activatie);
                     if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
                     return;
                 }
@@ -1260,121 +1172,21 @@ namespace Conway.WPF
         #region Maak grids leeg
         private void lbl_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            /*List<Label> obje = new List<Label>();   =>    Dit Zal later mijn update worden om codes te verkleinen zoals hieronder (alles zal in een loop zitten) !!!
-            obje.Add(lbl_37);
-            var v = obje[0];
-            MessageBox.Show(v.Content.ToString()); return;*/
             if (ClearCodeCheck == 1) { clearColor(); ClearCodeCheck = 0; }
             FrameworkElement s = sender as FrameworkElement;
             string name = s.Name;
-            Product product = new Product(1, "dismounted", "Niet Actief", "", 0, 0, 0, 0, 0, 0);
-            if (name.ToString() == "lbl_1") { product.Id = 1; HerstelIni(product, 1); lbl_1.Content = "dismounted"; lbl_1_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_2") { product.Id = 2; HerstelIni(product, 2); lbl_2.Content = "dismounted"; lbl_2_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_3") { product.Id = 3; HerstelIni(product, 3); lbl_3.Content = "dismounted"; lbl_3_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_4") { product.Id = 4; HerstelIni(product, 4); lbl_4.Content = "dismounted"; lbl_4_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_5") { product.Id = 5; HerstelIni(product, 5); lbl_5.Content = "dismounted"; lbl_5_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_6") { product.Id = 6; HerstelIni(product, 6); lbl_6.Content = "dismounted"; lbl_6_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_7") { product.Id = 7; HerstelIni(product, 7); lbl_7.Content = "dismounted"; lbl_7_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_8") { product.Id = 8; HerstelIni(product, 8); lbl_8.Content = "dismounted"; lbl_8_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_9") { product.Id = 9; HerstelIni(product, 9); lbl_9.Content = "dismounted"; lbl_9_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_10") { product.Id = 10; HerstelIni(product, 10); lbl_10.Content = "dismounted"; lbl_10_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_11") { product.Id = 11; HerstelIni(product, 11); lbl_11.Content = "dismounted"; lbl_11_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_12") { product.Id = 12; HerstelIni(product, 12); lbl_12.Content = "dismounted"; lbl_12_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_13") { product.Id = 13; HerstelIni(product, 13); lbl_13.Content = "dismounted"; lbl_13_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_14") { product.Id = 14; HerstelIni(product, 14); lbl_14.Content = "dismounted"; lbl_14_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_15") { product.Id = 15; HerstelIni(product, 15); lbl_15.Content = "dismounted"; lbl_15_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_16") { product.Id = 16; HerstelIni(product, 16); lbl_16.Content = "dismounted"; lbl_16_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_17") { product.Id = 17; HerstelIni(product, 17); lbl_17.Content = "dismounted"; lbl_17_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_18") { product.Id = 18; HerstelIni(product, 18); lbl_18.Content = "dismounted"; lbl_18_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_19") { product.Id = 19; HerstelIni(product, 19); lbl_19.Content = "dismounted"; lbl_19_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_20") { product.Id = 20; HerstelIni(product, 20); lbl_20.Content = "dismounted"; lbl_20_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_21") { product.Id = 21; HerstelIni(product, 21); lbl_21.Content = "dismounted"; lbl_21_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_22") { product.Id = 22; HerstelIni(product, 22); lbl_22.Content = "dismounted"; lbl_22_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_23") { product.Id = 23; HerstelIni(product, 23); lbl_23.Content = "dismounted"; lbl_23_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_24") { product.Id = 24; HerstelIni(product, 24); lbl_24.Content = "dismounted"; lbl_24_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_25") { product.Id = 25; HerstelIni(product, 25); lbl_25.Content = "dismounted"; lbl_25_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_26") { product.Id = 26; HerstelIni(product, 26); lbl_26.Content = "dismounted"; lbl_26_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_27") { product.Id = 27; HerstelIni(product, 27); lbl_27.Content = "dismounted"; lbl_27_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_28") { product.Id = 28; HerstelIni(product, 28); lbl_28.Content = "dismounted"; lbl_28_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_29") { product.Id = 29; HerstelIni(product, 29); lbl_29.Content = "dismounted"; lbl_29_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_30") { product.Id = 30; HerstelIni(product, 30); lbl_30.Content = "dismounted"; lbl_30_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_31") { product.Id = 31; HerstelIni(product, 31); lbl_31.Content = "dismounted"; lbl_31_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_32") { product.Id = 32; HerstelIni(product, 32); lbl_32.Content = "dismounted"; lbl_32_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_33") { product.Id = 33; HerstelIni(product, 33); lbl_33.Content = "dismounted"; lbl_33_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_34") { product.Id = 34; HerstelIni(product, 34); lbl_34.Content = "dismounted"; lbl_34_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_35") { product.Id = 35; HerstelIni(product, 35); lbl_35.Content = "dismounted"; lbl_35_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_36") { product.Id = 36; HerstelIni(product, 36); lbl_36.Content = "dismounted"; lbl_36_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_37") { product.Id = 37; HerstelIni(product, 37); lbl_37.Content = "dismounted"; lbl_37_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_38") { product.Id = 38; HerstelIni(product, 38); lbl_38.Content = "dismounted"; lbl_38_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_39") { product.Id = 39; HerstelIni(product, 39); lbl_39.Content = "dismounted"; lbl_39_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_40") { product.Id = 40; HerstelIni(product, 40); lbl_40.Content = "dismounted"; lbl_40_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_41") { product.Id = 41; HerstelIni(product, 41); lbl_41.Content = "dismounted"; lbl_41_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_42") { product.Id = 42; HerstelIni(product, 42); lbl_42.Content = "dismounted"; lbl_42_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_43") { product.Id = 43; HerstelIni(product, 43); lbl_43.Content = "dismounted"; lbl_43_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_44") { product.Id = 44; HerstelIni(product, 44); lbl_44.Content = "dismounted"; lbl_44_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_45") { product.Id = 45; HerstelIni(product, 45); lbl_45.Content = "dismounted"; lbl_45_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_46") { product.Id = 46; HerstelIni(product, 46); lbl_46.Content = "dismounted"; lbl_46_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_47") { product.Id = 47; HerstelIni(product, 47); lbl_47.Content = "dismounted"; lbl_47_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_48") { product.Id = 48; HerstelIni(product, 48); lbl_48.Content = "dismounted"; lbl_48_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_49") { product.Id = 49; HerstelIni(product, 49); lbl_49.Content = "dismounted"; lbl_49_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_50") { product.Id = 50; HerstelIni(product, 50); lbl_50.Content = "dismounted"; lbl_50_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_51") { product.Id = 51; HerstelIni(product, 51); lbl_51.Content = "dismounted"; lbl_51_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_52") { product.Id = 52; HerstelIni(product, 52); lbl_52.Content = "dismounted"; lbl_52_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_53") { product.Id = 53; HerstelIni(product, 53); lbl_53.Content = "dismounted"; lbl_53_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_54") { product.Id = 54; HerstelIni(product, 54); lbl_54.Content = "dismounted"; lbl_54_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_55") { product.Id = 55; HerstelIni(product, 55); lbl_55.Content = "dismounted"; lbl_55_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_56") { product.Id = 56; HerstelIni(product, 56); lbl_56.Content = "dismounted"; lbl_56_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_57") { product.Id = 57; HerstelIni(product, 57); lbl_57.Content = "dismounted"; lbl_57_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_58") { product.Id = 58; HerstelIni(product, 58); lbl_58.Content = "dismounted"; lbl_58_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_59") { product.Id = 59; HerstelIni(product, 59); lbl_59.Content = "dismounted"; lbl_59_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_60") { product.Id = 60; HerstelIni(product, 60); lbl_60.Content = "dismounted"; lbl_60_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_61") { product.Id = 61; HerstelIni(product, 61); lbl_61.Content = "dismounted"; lbl_61_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_62") { product.Id = 62; HerstelIni(product, 62); lbl_62.Content = "dismounted"; lbl_62_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_63") { product.Id = 63; HerstelIni(product, 63); lbl_63.Content = "dismounted"; lbl_63_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_64") { product.Id = 64; HerstelIni(product, 64); lbl_64.Content = "dismounted"; lbl_64_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_65") { product.Id = 65; HerstelIni(product, 65); lbl_65.Content = "dismounted"; lbl_65_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_66") { product.Id = 66; HerstelIni(product, 66); lbl_66.Content = "dismounted"; lbl_66_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_67") { product.Id = 67; HerstelIni(product, 67); lbl_67.Content = "dismounted"; lbl_67_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_68") { product.Id = 68; HerstelIni(product, 68); lbl_68.Content = "dismounted"; lbl_68_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_69") { product.Id = 69; HerstelIni(product, 69); lbl_69.Content = "dismounted"; lbl_69_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_70") { product.Id = 70; HerstelIni(product, 70); lbl_70.Content = "dismounted"; lbl_70_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_71") { product.Id = 71; HerstelIni(product, 71); lbl_71.Content = "dismounted"; lbl_71_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_72") { product.Id = 72; HerstelIni(product, 72); lbl_72.Content = "dismounted"; lbl_72_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_73") { product.Id = 73; HerstelIni(product, 73); lbl_73.Content = "dismounted"; lbl_73_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_74") { product.Id = 74; HerstelIni(product, 74); lbl_74.Content = "dismounted"; lbl_74_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_75") { product.Id = 75; HerstelIni(product, 75); lbl_75.Content = "dismounted"; lbl_75_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_76") { product.Id = 76; HerstelIni(product, 76); lbl_76.Content = "dismounted"; lbl_76_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_77") { product.Id = 77; HerstelIni(product, 77); lbl_77.Content = "dismounted"; lbl_77_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_78") { product.Id = 78; HerstelIni(product, 78); lbl_78.Content = "dismounted"; lbl_78_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_79") { product.Id = 79; HerstelIni(product, 79); lbl_79.Content = "dismounted"; lbl_79_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_80") { product.Id = 80; HerstelIni(product, 80); lbl_80.Content = "dismounted"; lbl_80_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_81") { product.Id = 81; HerstelIni(product, 81); lbl_81.Content = "dismounted"; lbl_81_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_82") { product.Id = 82; HerstelIni(product, 82); lbl_82.Content = "dismounted"; lbl_82_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_83") { product.Id = 83; HerstelIni(product, 83); lbl_83.Content = "dismounted"; lbl_83_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_84") { product.Id = 84; HerstelIni(product, 84); lbl_84.Content = "dismounted"; lbl_84_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_85") { product.Id = 85; HerstelIni(product, 85); lbl_85.Content = "dismounted"; lbl_85_Prix.Content = "0"; }
-
-            if (name.ToString() == "lbl_86") { product.Id = 86; HerstelIni(product, 86); lbl_86.Content = "dismounted"; lbl_86_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_87") { product.Id = 87; HerstelIni(product, 87); lbl_87.Content = "dismounted"; lbl_87_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_88") { product.Id = 88; HerstelIni(product, 88); lbl_88.Content = "dismounted"; lbl_88_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_89") { product.Id = 89; HerstelIni(product, 89); lbl_89.Content = "dismounted"; lbl_89_Prix.Content = "0"; }
-            if (name.ToString() == "lbl_90") { product.Id = 90; HerstelIni(product, 90); lbl_90.Content = "dismounted"; lbl_90_Prix.Content = "0"; }
+            Product product = new Product(1, "dismounted", "", "", 0, 0, 0, 0, 0, 0);
+            for (int i = 0; i < 90; i++)
+            {
+                var naam = _lbl_Grids[i].Name.ToString();
+                if (name.ToString() == naam)
+                {
+                    product.Id = i + 1;
+                    HerstelIni(product, i+1);
+                    _lbl_Grids[i].Content = "dismounted";
+                    _lbl_Prix[i].Content = "0";
+                }
+            }
 
             lbl_BAT.Content = _BAT.Count();
             lbl_ITB.Content = _ITB.Count();
@@ -1393,104 +1205,10 @@ namespace Conway.WPF
                 {
                     if (_Ini[m].Inhoud == 20)
                     {
-                        if (m == 0) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 1) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 2) clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 3) clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 4) clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 5) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 6) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 7) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 8) clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 9) clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-
-                        if (m == 10) clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 11) clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 12) clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 13) clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 14) clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 15) clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 16) clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 17) clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 18) clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 19) clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-
-                        if (m == 20) clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 21) clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 22) clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 23) clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 24) clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 25) clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 26) clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 27) clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 28) clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 29) clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-
-                        if (m == 30) clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 31) clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 32) clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 33) clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 34) clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 35) clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 36) clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 37) clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 38) clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 39) clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-
-                        if (m == 40) clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 41) clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 42) clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 43) clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 44) clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 45) clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 46) clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 47) clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 48) clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 49) clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-
-                        if (m == 50) clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 51) clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 52) clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 53) clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 54) clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 55) clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 56) clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 57) clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 58) clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 59) clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-
-                        if (m == 60) clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 61) clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 62) clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 63) clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 64) clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 65) clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 66) clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 67) clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 68) clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 69) clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-
-                        if (m == 70) clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 71) clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 72) clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 73) clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 74) clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 75) clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 76) clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 77) clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 78) clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 79) clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-
-                        if (m == 80) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 81) clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 82) clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 83) clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 84) clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 85) clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 86) clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 87) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 88) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
-                        if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        for (int i = 0; i < 90; i++)
+                        {
+                            if (m == i) _clm[i].Background = new System.Windows.Media.SolidColorBrush(Colors.Aqua);
+                        }
                     }
                 }
                 ClearCodeCheck = 1;
@@ -1507,104 +1225,10 @@ namespace Conway.WPF
                 {
                     if (_Ini[m].Inhoud >= 21 && _Ini[m].Inhoud <= 46)
                     {
-                        if (m == 0) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 1) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 2) clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 3) clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 4) clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 5) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 6) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 7) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 8) clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 9) clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-
-                        if (m == 10) clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 11) clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 12) clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 13) clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 14) clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 15) clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 16) clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 17) clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 18) clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 19) clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-
-                        if (m == 20) clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 21) clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 22) clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 23) clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 24) clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 25) clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 26) clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 27) clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 28) clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 29) clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-
-                        if (m == 30) clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 31) clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 32) clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 33) clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 34) clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 35) clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 36) clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 37) clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 38) clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 39) clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-
-                        if (m == 40) clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 41) clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 42) clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 43) clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 44) clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 45) clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 46) clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 47) clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 48) clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 49) clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-
-                        if (m == 50) clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 51) clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 52) clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 53) clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 54) clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 55) clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 56) clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 57) clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 58) clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 59) clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-
-                        if (m == 60) clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 61) clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 62) clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 63) clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 64) clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 65) clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 66) clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 67) clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 68) clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 69) clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-
-                        if (m == 70) clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 71) clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 72) clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 73) clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 74) clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 75) clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 76) clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 77) clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 78) clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 79) clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-
-                        if (m == 80) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 81) clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 82) clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 83) clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 84) clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 85) clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 86) clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 87) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 88) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
-                        if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        for (int i = 0; i < 90; i++)
+                        {
+                            if (m == i) _clm[i].Background = new System.Windows.Media.SolidColorBrush(Colors.Orange);
+                        }
                     }
                 }
                 ClearCodeCheck = 1;
@@ -1621,104 +1245,30 @@ namespace Conway.WPF
                 {
                     if (_Ini[m].Inhoud >= 47 && _Ini[m].Inhoud <= 60)
                     {
-                        if (m == 0) clm_1.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 1) clm_2.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 2) clm_3.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 3) clm_4.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 4) clm_5.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 5) clm_6.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 6) clm_7.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 7) clm_8.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 8) clm_9.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 9) clm_10.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        for (int i = 0; i < 90; i++)
+                        {
+                            if (m == i) _clm[i].Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+                        }
+                    }
+                }
+                ClearCodeCheck = 1;
+            }
+            else { clearColor(); ClearCodeCheck = 0; }
+        }
 
-                        if (m == 10) clm_11.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 11) clm_12.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 12) clm_13.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 13) clm_14.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 14) clm_15.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 15) clm_16.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 16) clm_17.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 17) clm_18.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 18) clm_19.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 19) clm_20.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-
-                        if (m == 20) clm_21.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 21) clm_22.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 22) clm_23.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 23) clm_24.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 24) clm_25.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 25) clm_26.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 26) clm_27.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 27) clm_28.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 28) clm_29.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 29) clm_30.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-
-                        if (m == 30) clm_31.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 31) clm_32.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 32) clm_33.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 33) clm_34.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 34) clm_35.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 35) clm_36.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 36) clm_37.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 37) clm_38.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 38) clm_39.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 39) clm_40.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-
-                        if (m == 40) clm_41.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 41) clm_42.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 42) clm_43.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 43) clm_44.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 44) clm_45.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 45) clm_46.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 46) clm_47.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 47) clm_48.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 48) clm_49.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 49) clm_50.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-
-                        if (m == 50) clm_51.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 51) clm_52.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 52) clm_53.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 53) clm_54.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 54) clm_55.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 55) clm_56.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 56) clm_57.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 57) clm_58.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 58) clm_59.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 59) clm_60.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-
-                        if (m == 60) clm_61.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 61) clm_62.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 62) clm_63.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 63) clm_64.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 64) clm_65.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 65) clm_66.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 66) clm_67.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 67) clm_68.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 68) clm_69.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 69) clm_70.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-
-                        if (m == 70) clm_71.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 71) clm_72.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 72) clm_73.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 73) clm_74.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 74) clm_75.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 75) clm_76.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 76) clm_77.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 77) clm_78.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 78) clm_79.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 79) clm_80.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-
-                        if (m == 80) clm_81.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 81) clm_82.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 82) clm_83.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 83) clm_84.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 84) clm_85.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 85) clm_86.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 86) clm_87.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 87) clm_88.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 88) clm_89.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
-                        if (m == 89) clm_90.Background = new System.Windows.Media.SolidColorBrush(Colors.SaddleBrown);
+        private void btn_Activatie_Click(object sender, RoutedEventArgs e)
+        {
+            if (ClearCodeCheck == 0)
+            {
+                clearColor();
+                for (int m = 0; m < _Ini.Count; m++)
+                {
+                    if (_Ini[m].Activatie == "Niet Actief")
+                    {
+                        for (int i = 0; i < 90; i++)
+                        {
+                            if (m == i) _clm[i].Background = new System.Windows.Media.SolidColorBrush(Colors.Red);
+                        }
                     }
                 }
                 ClearCodeCheck = 1;
@@ -1733,5 +1283,85 @@ namespace Conway.WPF
             if (v == null) { return; }
             data_Product.ScrollIntoView(v);
         }
+
+        #region Steek alle Labels Grids in een lijst
+        private void LabelsInLijst()
+        {
+            _lbl_Grids.Add(lbl_1); _lbl_Grids.Add(lbl_2); _lbl_Grids.Add(lbl_3); _lbl_Grids.Add(lbl_4); _lbl_Grids.Add(lbl_5);
+            _lbl_Grids.Add(lbl_6); _lbl_Grids.Add(lbl_7); _lbl_Grids.Add(lbl_8); _lbl_Grids.Add(lbl_9); _lbl_Grids.Add(lbl_10);
+            _lbl_Grids.Add(lbl_11); _lbl_Grids.Add(lbl_12); _lbl_Grids.Add(lbl_13); _lbl_Grids.Add(lbl_14); _lbl_Grids.Add(lbl_15);
+            _lbl_Grids.Add(lbl_16); _lbl_Grids.Add(lbl_17); _lbl_Grids.Add(lbl_18); _lbl_Grids.Add(lbl_19); _lbl_Grids.Add(lbl_20);
+
+            _lbl_Grids.Add(lbl_21); _lbl_Grids.Add(lbl_22); _lbl_Grids.Add(lbl_23); _lbl_Grids.Add(lbl_24); _lbl_Grids.Add(lbl_25);
+            _lbl_Grids.Add(lbl_26); _lbl_Grids.Add(lbl_27); _lbl_Grids.Add(lbl_28); _lbl_Grids.Add(lbl_29); _lbl_Grids.Add(lbl_30);
+            _lbl_Grids.Add(lbl_31); _lbl_Grids.Add(lbl_32); _lbl_Grids.Add(lbl_33); _lbl_Grids.Add(lbl_34); _lbl_Grids.Add(lbl_35);
+            _lbl_Grids.Add(lbl_36); _lbl_Grids.Add(lbl_37); _lbl_Grids.Add(lbl_38); _lbl_Grids.Add(lbl_39); _lbl_Grids.Add(lbl_40);
+
+            _lbl_Grids.Add(lbl_41); _lbl_Grids.Add(lbl_42); _lbl_Grids.Add(lbl_43); _lbl_Grids.Add(lbl_44); _lbl_Grids.Add(lbl_45);
+            _lbl_Grids.Add(lbl_46); _lbl_Grids.Add(lbl_47); _lbl_Grids.Add(lbl_48); _lbl_Grids.Add(lbl_49); _lbl_Grids.Add(lbl_50);
+            _lbl_Grids.Add(lbl_51); _lbl_Grids.Add(lbl_52); _lbl_Grids.Add(lbl_53); _lbl_Grids.Add(lbl_54); _lbl_Grids.Add(lbl_55);
+            _lbl_Grids.Add(lbl_56); _lbl_Grids.Add(lbl_57); _lbl_Grids.Add(lbl_58); _lbl_Grids.Add(lbl_59); _lbl_Grids.Add(lbl_60);
+
+            _lbl_Grids.Add(lbl_61); _lbl_Grids.Add(lbl_62); _lbl_Grids.Add(lbl_63); _lbl_Grids.Add(lbl_64); _lbl_Grids.Add(lbl_65);
+            _lbl_Grids.Add(lbl_66); _lbl_Grids.Add(lbl_67); _lbl_Grids.Add(lbl_68); _lbl_Grids.Add(lbl_69); _lbl_Grids.Add(lbl_70);
+            _lbl_Grids.Add(lbl_71); _lbl_Grids.Add(lbl_72); _lbl_Grids.Add(lbl_73); _lbl_Grids.Add(lbl_74); _lbl_Grids.Add(lbl_75);
+            _lbl_Grids.Add(lbl_76); _lbl_Grids.Add(lbl_77); _lbl_Grids.Add(lbl_78); _lbl_Grids.Add(lbl_79); _lbl_Grids.Add(lbl_80);
+
+            _lbl_Grids.Add(lbl_81); _lbl_Grids.Add(lbl_82); _lbl_Grids.Add(lbl_83); _lbl_Grids.Add(lbl_84); _lbl_Grids.Add(lbl_85);
+            _lbl_Grids.Add(lbl_86); _lbl_Grids.Add(lbl_87); _lbl_Grids.Add(lbl_88); _lbl_Grids.Add(lbl_89); _lbl_Grids.Add(lbl_90);
+        }
+
+        private void LabelsPrixInLijst()
+        {
+            _lbl_Prix.Add(lbl_1_Prix); _lbl_Prix.Add(lbl_2_Prix); _lbl_Prix.Add(lbl_3_Prix); _lbl_Prix.Add(lbl_4_Prix); _lbl_Prix.Add(lbl_5_Prix);
+            _lbl_Prix.Add(lbl_6_Prix); _lbl_Prix.Add(lbl_7_Prix); _lbl_Prix.Add(lbl_8_Prix); _lbl_Prix.Add(lbl_9_Prix); _lbl_Prix.Add(lbl_10_Prix);
+            _lbl_Prix.Add(lbl_11_Prix); _lbl_Prix.Add(lbl_12_Prix); _lbl_Prix.Add(lbl_13_Prix); _lbl_Prix.Add(lbl_14_Prix); _lbl_Prix.Add(lbl_15_Prix);
+            _lbl_Prix.Add(lbl_16_Prix); _lbl_Prix.Add(lbl_17_Prix); _lbl_Prix.Add(lbl_18_Prix); _lbl_Prix.Add(lbl_19_Prix); _lbl_Prix.Add(lbl_20_Prix);
+
+            _lbl_Prix.Add(lbl_21_Prix); _lbl_Prix.Add(lbl_22_Prix); _lbl_Prix.Add(lbl_23_Prix); _lbl_Prix.Add(lbl_24_Prix); _lbl_Prix.Add(lbl_25_Prix);
+            _lbl_Prix.Add(lbl_26_Prix); _lbl_Prix.Add(lbl_27_Prix); _lbl_Prix.Add(lbl_28_Prix); _lbl_Prix.Add(lbl_29_Prix); _lbl_Prix.Add(lbl_30_Prix);
+            _lbl_Prix.Add(lbl_31_Prix); _lbl_Prix.Add(lbl_32_Prix); _lbl_Prix.Add(lbl_33_Prix); _lbl_Prix.Add(lbl_34_Prix); _lbl_Prix.Add(lbl_35_Prix);
+            _lbl_Prix.Add(lbl_36_Prix); _lbl_Prix.Add(lbl_37_Prix); _lbl_Prix.Add(lbl_38_Prix); _lbl_Prix.Add(lbl_39_Prix); _lbl_Prix.Add(lbl_40_Prix);
+
+            _lbl_Prix.Add(lbl_41_Prix); _lbl_Prix.Add(lbl_42_Prix); _lbl_Prix.Add(lbl_43_Prix); _lbl_Prix.Add(lbl_44_Prix); _lbl_Prix.Add(lbl_45_Prix);
+            _lbl_Prix.Add(lbl_46_Prix); _lbl_Prix.Add(lbl_47_Prix); _lbl_Prix.Add(lbl_48_Prix); _lbl_Prix.Add(lbl_49_Prix); _lbl_Prix.Add(lbl_50_Prix);
+            _lbl_Prix.Add(lbl_51_Prix); _lbl_Prix.Add(lbl_52_Prix); _lbl_Prix.Add(lbl_53_Prix); _lbl_Prix.Add(lbl_54_Prix); _lbl_Prix.Add(lbl_55_Prix);
+            _lbl_Prix.Add(lbl_56_Prix); _lbl_Prix.Add(lbl_57_Prix); _lbl_Prix.Add(lbl_58_Prix); _lbl_Prix.Add(lbl_59_Prix); _lbl_Prix.Add(lbl_60_Prix);
+
+            _lbl_Prix.Add(lbl_61_Prix); _lbl_Prix.Add(lbl_62_Prix); _lbl_Prix.Add(lbl_63_Prix); _lbl_Prix.Add(lbl_64_Prix); _lbl_Prix.Add(lbl_65_Prix);
+            _lbl_Prix.Add(lbl_66_Prix); _lbl_Prix.Add(lbl_67_Prix); _lbl_Prix.Add(lbl_68_Prix); _lbl_Prix.Add(lbl_69_Prix); _lbl_Prix.Add(lbl_70_Prix);
+            _lbl_Prix.Add(lbl_71_Prix); _lbl_Prix.Add(lbl_72_Prix); _lbl_Prix.Add(lbl_73_Prix); _lbl_Prix.Add(lbl_74_Prix); _lbl_Prix.Add(lbl_75_Prix);
+            _lbl_Prix.Add(lbl_76_Prix); _lbl_Prix.Add(lbl_77_Prix); _lbl_Prix.Add(lbl_78_Prix); _lbl_Prix.Add(lbl_79_Prix); _lbl_Prix.Add(lbl_80_Prix);
+
+            _lbl_Prix.Add(lbl_81_Prix); _lbl_Prix.Add(lbl_82_Prix); _lbl_Prix.Add(lbl_83_Prix); _lbl_Prix.Add(lbl_84_Prix); _lbl_Prix.Add(lbl_85_Prix);
+            _lbl_Prix.Add(lbl_86_Prix); _lbl_Prix.Add(lbl_87_Prix); _lbl_Prix.Add(lbl_88_Prix); _lbl_Prix.Add(lbl_89_Prix); _lbl_Prix.Add(lbl_90_Prix);
+        }
+
+        private void GridsInList()
+        {
+            _clm.Add(clm_1); _clm.Add(clm_2); _clm.Add(clm_3); _clm.Add(clm_4); _clm.Add(clm_5);
+            _clm.Add(clm_6); _clm.Add(clm_7); _clm.Add(clm_8); _clm.Add(clm_9); _clm.Add(clm_10);
+            _clm.Add(clm_11); _clm.Add(clm_12); _clm.Add(clm_13); _clm.Add(clm_14); _clm.Add(clm_15);
+            _clm.Add(clm_16); _clm.Add(clm_17); _clm.Add(clm_18); _clm.Add(clm_19); _clm.Add(clm_20);
+
+            _clm.Add(clm_21); _clm.Add(clm_22); _clm.Add(clm_23); _clm.Add(clm_24); _clm.Add(clm_25);
+            _clm.Add(clm_26); _clm.Add(clm_27); _clm.Add(clm_28); _clm.Add(clm_29); _clm.Add(clm_30);
+            _clm.Add(clm_31); _clm.Add(clm_32); _clm.Add(clm_33); _clm.Add(clm_34); _clm.Add(clm_35);
+            _clm.Add(clm_36); _clm.Add(clm_37); _clm.Add(clm_38); _clm.Add(clm_39); _clm.Add(clm_40);
+
+            _clm.Add(clm_41); _clm.Add(clm_42); _clm.Add(clm_43); _clm.Add(clm_44); _clm.Add(clm_45);
+            _clm.Add(clm_46); _clm.Add(clm_47); _clm.Add(clm_48); _clm.Add(clm_49); _clm.Add(clm_50);
+            _clm.Add(clm_51); _clm.Add(clm_52); _clm.Add(clm_53); _clm.Add(clm_54); _clm.Add(clm_55);
+            _clm.Add(clm_56); _clm.Add(clm_57); _clm.Add(clm_58); _clm.Add(clm_59); _clm.Add(clm_60);
+
+            _clm.Add(clm_61); _clm.Add(clm_62); _clm.Add(clm_63); _clm.Add(clm_64); _clm.Add(clm_65);
+            _clm.Add(clm_66); _clm.Add(clm_67); _clm.Add(clm_68); _clm.Add(clm_69); _clm.Add(clm_70);
+            _clm.Add(clm_71); _clm.Add(clm_72); _clm.Add(clm_73); _clm.Add(clm_74); _clm.Add(clm_75);
+            _clm.Add(clm_76); _clm.Add(clm_77); _clm.Add(clm_78); _clm.Add(clm_79); _clm.Add(clm_80);
+
+            _clm.Add(clm_81); _clm.Add(clm_82); _clm.Add(clm_83); _clm.Add(clm_84); _clm.Add(clm_85);
+            _clm.Add(clm_86); _clm.Add(clm_87); _clm.Add(clm_88); _clm.Add(clm_89); _clm.Add(clm_90);
+        }
+        #endregion
     }
 }
