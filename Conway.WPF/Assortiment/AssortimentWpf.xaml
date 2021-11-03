@@ -7,13 +7,22 @@
         mc:Ignorable="d"
         Title="Conway"
         Topmost="True"
-        MinWidth="1500" MinHeight="800"
-        WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize"
-        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.ico" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
+        MinWidth="1500" 
+        MinHeight="800"
+        WindowStyle="SingleBorderWindow"  
+        WindowState="Maximized" 
+        ResizeMode="CanResize"
+        WindowChrome.IsHitTestVisibleInChrome="True" 
+        FontWeight="Bold" 
+        UseLayoutRounding="False" 
+        Grid.IsSharedSizeScope="True" 
+        FontFamily="Arial"
+        Icon="/Images/conway.ico">
 
         <Grid>
-            <Grid.Background>
-                <ImageBrush ImageSource="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\4.jpg"></ImageBrush>
-            </Grid.Background>
+        <!-- Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.ico" -->
+        <Grid.Background>
+                <ImageBrush ImageSource="/Images/4.jpg"></ImageBrush>
+            </Grid.Background> 
         </Grid>
 </Window>

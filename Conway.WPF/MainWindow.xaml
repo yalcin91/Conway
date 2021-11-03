@@ -8,12 +8,20 @@
         Title="Conway"
         Topmost="True"
         MinWidth="1500" MinHeight="800"
-        WindowStyle="SingleBorderWindow"  WindowState="Maximized" ResizeMode="CanResize"
-        Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.jpg" WindowChrome.IsHitTestVisibleInChrome="True" FontWeight="Bold" UseLayoutRounding="False" Grid.IsSharedSizeScope="True" FontFamily="Arial">
+        WindowStyle="SingleBorderWindow"  
+        WindowState="Maximized" 
+        ResizeMode="CanResize"
+        WindowChrome.IsHitTestVisibleInChrome="True" 
+        FontWeight="Bold" 
+        UseLayoutRounding="False" 
+        Grid.IsSharedSizeScope="True" 
+        FontFamily="Arial"
+        Icon="/Images/conway.ico">
 
     <Grid>
+        <!-- Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.ico" -->
         <Grid.Background>
-            <ImageBrush ImageSource="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\17.jpg"></ImageBrush>
+            <ImageBrush ImageSource="/Images/17.jpg"></ImageBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="400" Height="151*"></RowDefinition>
@@ -1161,8 +1169,7 @@
                           FontStyle="Italic" 
                           ScrollViewer.CanContentScroll="True"  
                           ScrollViewer.VerticalScrollBarVisibility="Visible"  
-                          ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                          Style="{DynamicResource DGHeaderStyle}">
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible">
                     <DataGrid.Background>
                         <SolidColorBrush Opacity="0.8"
                                  Color="White"/>
@@ -1201,8 +1208,7 @@
                           FontStyle="Italic" 
                           ScrollViewer.CanContentScroll="True"  
                           ScrollViewer.VerticalScrollBarVisibility="Visible"  
-                          ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                          Style="{DynamicResource DGHeaderStyle}">
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible">
                     <DataGrid.Background>
                         <SolidColorBrush Opacity="0.8"
                                  Color="White"/>
