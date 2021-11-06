@@ -11,11 +11,14 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
+
 
 namespace Conway.WPF
 {
@@ -1363,5 +1366,32 @@ namespace Conway.WPF
             _clm.Add(clm_86); _clm.Add(clm_87); _clm.Add(clm_88); _clm.Add(clm_89); _clm.Add(clm_90);
         }
         #endregion
+
+        #region TitelBar regelen
+        private void PackIconForkAwesome_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void PackIconForkAwesome_MouseLeftButtonUp_Maximize(object sender, MouseButtonEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+            }
+            else WindowState = WindowState.Maximized;
+        }
+
+        private void PackIconForkAwesome_MouseLeftButtonUp_Minimize(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        #endregion
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            MaxHeight = SystemParameters.MaximumWindowTrackHeight;
+            MaxWidth = SystemParameters.MaximumWindowTrackWidth;
+        }
     }
 }

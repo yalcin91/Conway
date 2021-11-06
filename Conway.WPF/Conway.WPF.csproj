@@ -13,12 +13,17 @@
     <None Remove="Images\17.jpg" />
     <None Remove="Images\4.jpg" />
     <None Remove="Images\5.jpg" />
+    <None Remove="Images\close.ico" />
     <None Remove="Images\conway.ico" />
     <None Remove="Images\conway.jpg" />
+    <None Remove="Images\maximize.ico" />
+    <None Remove="Images\minimize.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.3.0-ci53" />
+    <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="19.3.0.48" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,10 +47,19 @@
     <Content Include="Images\5.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\close.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\conway.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\conway.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\maximize.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\minimize.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

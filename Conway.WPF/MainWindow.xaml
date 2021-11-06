@@ -3,33 +3,93 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:Conway.WPF"
         mc:Ignorable="d"
         Title="Conway"
         Topmost="True"
-        MinWidth="1500" MinHeight="800"
-        WindowStyle="SingleBorderWindow"  
-        WindowState="Maximized" 
         ResizeMode="CanResize"
-        WindowChrome.IsHitTestVisibleInChrome="True" 
+        MinWidth="1500" 
+        MinHeight="800"
+        WindowStyle="None"  
+        WindowState="Maximized" 
         FontWeight="Bold" 
         UseLayoutRounding="False" 
         Grid.IsSharedSizeScope="True" 
         FontFamily="Arial"
+        AllowsTransparency="True"
+        Loaded="Window_Loaded"
         Icon="/Images/conway.ico">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="35"/>
+    </WindowChrome.WindowChrome>
 
     <Grid>
         <!-- Icon="D:\Users\Yalcin\Desktop\HBO5\Werkpleksimulatie\Conway\Conway\Conway.WPF\Images\conway.ico" -->
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/17.jpg"></ImageBrush>
+            <ImageBrush ImageSource="/Images/17.jpg"/>
         </Grid.Background>
+        
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition MinHeight="400" Height="151*"></RowDefinition>
             <RowDefinition MinHeight="30"></RowDefinition>
             <RowDefinition Height="300"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="5">
+        <StackPanel Orientation="Horizontal"
+                    Background="WhiteSmoke">
+            
+            <Image Source="/Images/conway.ico" 
+                   Width="25" 
+                   Height="25"
+                   Margin="5"/>
+
+            <TextBlock Text="Conway"
+                        Height="15"
+                        FontSize="15"
+                        FontWeight="ExtraBold"
+                        Margin="5"
+                        HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Right">
+            
+            <Image Source="/Images/minimize.ico"
+                   HorizontalAlignment="Right" 
+                   VerticalAlignment="Center"
+                   Height="25"
+                   Width="25"
+                   Cursor="Hand"
+                   Margin="5"
+                   MouseLeftButtonUp="PackIconForkAwesome_MouseLeftButtonUp_Minimize"
+                   WindowChrome.IsHitTestVisibleInChrome="True"/>
+
+            <Image Source="/Images/maximize.ico"
+                   HorizontalAlignment="Right" 
+                   VerticalAlignment="Center"
+                   Height="24"
+                   Width="22"
+                   Cursor="Hand"
+                   Margin="5"
+                   MouseLeftButtonUp="PackIconForkAwesome_MouseLeftButtonUp_Maximize"
+                   WindowChrome.IsHitTestVisibleInChrome="True"/>
+
+            <Image Source="/Images/close.ico"
+                   HorizontalAlignment="Right" 
+                   VerticalAlignment="Center"
+                   Height="30"
+                   Width="25"
+                   Cursor="Hand"
+                   Margin="5"
+                   MouseLeftButtonUp="PackIconForkAwesome_MouseLeftButtonUp"
+                   WindowChrome.IsHitTestVisibleInChrome="True"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1"
+              Margin="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="10" ></ColumnDefinition>
@@ -39,12 +99,15 @@
                 <ColumnDefinition Width="10" ></ColumnDefinition>
                 <ColumnDefinition Width="215" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
             <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0"/>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4"/>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="6"/>
 
-            <Grid Grid.Row="0" Grid.Column="6">
+            <Grid Grid.Row="0" 
+                  Grid.Column="6"
+                  MinHeight="10">
                 <Grid.Background>
                     <SolidColorBrush Color="White" Opacity="0.6"/>
                 </Grid.Background>
@@ -53,13 +116,14 @@
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
+                
                 <Button x:Name="btn_Producten" 
                         Click="btn_Producten_Click" 
                         IsEnabled="False" 
                         Content="Producten" 
                         Grid.Row="0" 
-                        Height="28" 
-                        Width="100" 
+                        MinHeight="28" 
+                        MinWidth="100" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Margin="5" 
@@ -71,8 +135,8 @@
                         IsEnabled="False" 
                         Content="Assortiment" 
                         Grid.Row="0" 
-                        Height="28" 
-                        Width="100" 
+                        MinHeight="28" 
+                        MinWidth="100" 
                         HorizontalAlignment="Right" 
                         VerticalAlignment="Top" 
                         Margin="5" 
@@ -82,8 +146,8 @@
                 <Button Click="btn_Check_Click" 
                         Grid.Row="1"  
                         Content="Check" 
-                        Height="28" 
-                        Width="100" 
+                        MinHeight="28" 
+                        MinWidth="100" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Margin="5" 
@@ -95,75 +159,85 @@
                              KeyDown="txtb_Pass_KeyDown" 
                              Grid.Row="1" 
                              ToolTip="enter password" 
-                             Height="28" 
-                             Width="100" 
+                             MinHeight="28" 
+                             MinWidth="100" 
                              HorizontalAlignment="Right" 
                              VerticalAlignment="Top" 
                              Margin="5" 
                              FontStyle="Italic" 
                              FontWeight="Bold"/>
-                
+
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="90"></ColumnDefinition>
-                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition MinWidth="90"></ColumnDefinition>
+                        <ColumnDefinition MinWidth="70"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
                     </Grid.RowDefinitions>
+                    
                     <Label Grid.Column="0" 
                            Grid.Row="0" 
                            Content="BAT = " 
                            FontWeight="Bold" 
-                           FontSize="20"/>
+                           FontSize="20"
+                           MinHeight="10"/>
 
                     <Label Grid.Column="0" 
                            Grid.Row="1" 
                            Content="ITB = " 
                            FontWeight="Bold" 
-                           FontSize="20"/>
+                           FontSize="20"
+                           MinHeight="10"/>
 
                     <Label Grid.Column="0" 
                            Grid.Row="2" 
                            Content="JTI = " 
                            FontWeight="Bold" 
-                           FontSize="20"/>
+                           FontSize="20"
+                           MinHeight="10"/>
+                    
                     <Label Grid.Column="0" 
                            Grid.Row="3" 
                            Content="PMI = " 
                            FontWeight="Bold" 
-                           FontSize="20"/>
+                           FontSize="20"
+                           MinHeight="10"/>
 
                     <Label Grid.Column="1" 
                            Grid.Row="0" 
                            x:Name="lbl_BAT" 
                            FontWeight="Bold" 
-                           FontSize="20"/>
+                           FontSize="20"
+                           MinHeight="10"/>
 
                     <Label Grid.Column="1" 
                            Grid.Row="1" 
                            x:Name="lbl_ITB" 
                            FontWeight="Bold" 
-                           FontSize="20"/>
+                           FontSize="20"
+                           MinHeight="10"/>
 
                     <Label Grid.Column="1" 
                            Grid.Row="2" 
                            x:Name="lbl_JTI" 
                            FontWeight="Bold" 
-                           FontSize="20"/>
+                           FontSize="20"
+                           MinHeight="10"/>
 
                     <Label Grid.Column="1" 
                            Grid.Row="3" 
                            x:Name="lbl_PMI" 
                            FontWeight="Bold" 
-                           FontSize="20"/>
+                           FontSize="20"
+                           MinHeight="10"/>
 
                     <Label Grid.Column="1" 
                            Grid.Row="4" 
@@ -171,7 +245,8 @@
                            FontWeight="ExtraBold" 
                            FontSize="20"
                            Foreground="Red"
-                           VerticalAlignment="Center"/>
+                           VerticalAlignment="Center"
+                           MinHeight="10"/>
 
                     <Button Grid.Row="4"
                             Grid.Column="0"
@@ -179,11 +254,12 @@
                             Margin="0"
                             Click="btn_Activatie_Click" 
                             Content="Niet Actief" 
-                            Height="35" 
                             FontWeight="Bold" 
                             FontSize="14" 
                             HorizontalAlignment="Left" 
-                            Background="Red"/>
+                            Background="Red"
+                            MinHeight="10"
+                            MaxHeight="35"/>
 
                     <Button Grid.Column="0" 
                             Grid.Row="5" 
@@ -192,7 +268,8 @@
                             Click="btn_20_Inhoud_Click" 
                             Content="20" 
                             Width="50" 
-                            Height="35" 
+                            MinHeight="10" 
+                            MaxHeight="35"
                             FontWeight="ExtraBold" 
                             FontSize="15" 
                             HorizontalAlignment="Left" 
@@ -205,7 +282,8 @@
                             Click="btn_21_46_Click" 
                             Content="21-46" 
                             Width="50" 
-                            Height="35" 
+                            MinHeight="10" 
+                            MaxHeight="35"
                             FontWeight="ExtraBold" 
                             FontSize="15" 
                             HorizontalAlignment="Left" 
@@ -218,7 +296,8 @@
                             Click="btn_47_60_Click" 
                             Content="47-60" 
                             Width="50" 
-                            Height="35" 
+                            MinHeight="10" 
+                            MaxHeight="35"
                             FontWeight="ExtraBold" 
                             FontSize="15" 
                             HorizontalAlignment="Left" 
@@ -227,7 +306,6 @@
             </Grid>
 
             <Grid Grid.Column="7">
-
             </Grid>
 
             <Grid Grid.Column="0" Opacity="0.9">
@@ -250,6 +328,7 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                
                 <Border x:Name="clm_81" BorderBrush="Black" BorderThickness="1" Grid.Column="0"/>
                 <Border x:Name="clm_82" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
                 <Border x:Name="clm_83" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
@@ -1131,33 +1210,138 @@
         </Grid>
 
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Cursor="Hand" Content="Import" Click="btn_Import_Click" Height="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-            <Button Grid.Column="1" Cursor="Hand" Content="Export" Click="btn_Export_Click" Height="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-            <ComboBox Grid.Column="2" x:Name="cb_Producten" Background="White" MinWidth="300" HorizontalAlignment="Right" KeyUp="cb_Producten_KeyUp" IsTextSearchEnabled="True" IsEditable="True" VerticalAlignment="Center" DisplayMemberPath="Naam" SelectedValuePath="Naam" FontWeight="Bold" FontStyle="Italic"></ComboBox>
-            <StackPanel Grid.Column="3" Orientation="Horizontal"  HorizontalAlignment="Right">
-                <Button Cursor="Hand"  Content="BAT_C" Click="btn_BAT_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Cursor="Hand" Content="BAT_T" Click="btn_BAT_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Cursor="Hand"  Content="ITB_C" Click="btn_ITB_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Cursor="Hand"  Content="ITB_T" Click="btn_ITB_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Cursor="Hand" Content="JTI_C" Click="btn_JTI_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Cursor="Hand" Content="JTI_T" Click="btn_JTI_T" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
-                <Button Cursor="Hand" Content="PMI_C" Click="btn_PMI_C" Height="28" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontStyle="Italic"></Button>
+
+            <Button Grid.Column="0" 
+                    Cursor="Hand" 
+                    Content="Import" 
+                    Click="btn_Import_Click" 
+                    Height="28" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Margin="5" 
+                    FontWeight="Bold" 
+                    FontStyle="Italic"/>
+
+            <Button Grid.Column="1" 
+                    Cursor="Hand" 
+                    Content="Export" 
+                    Click="btn_Export_Click" 
+                    Height="28" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Margin="5" 
+                    FontWeight="Bold" 
+                    FontStyle="Italic"/>
+
+            <ComboBox Grid.Column="2" 
+                      x:Name="cb_Producten" 
+                      Background="White" 
+                      MinWidth="300" 
+                      HorizontalAlignment="Right" 
+                      KeyUp="cb_Producten_KeyUp" 
+                      IsTextSearchEnabled="True" 
+                      IsEditable="True" 
+                      VerticalAlignment="Center" 
+                      DisplayMemberPath="Naam" 
+                      SelectedValuePath="Naam" 
+                      FontWeight="Bold" 
+                      FontStyle="Italic"/>
+
+            <StackPanel Grid.Column="3" 
+                        Orientation="Horizontal"  
+                        HorizontalAlignment="Right">
+                
+                <Button Cursor="Hand"  
+                        Content="BAT_C" 
+                        Click="btn_BAT_C" 
+                        Height="28" 
+                        Width="60" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"
+                        Margin="5" FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <Button Cursor="Hand" 
+                        Content="BAT_T" 
+                        Click="btn_BAT_T" 
+                        Height="28" 
+                        Width="60" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" 
+                        Margin="5"
+                        FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <Button Cursor="Hand"  
+                        Content="ITB_C" 
+                        Click="btn_ITB_C" 
+                        Height="28"
+                        Width="60" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" 
+                        Margin="5" 
+                        FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <Button Cursor="Hand"  
+                        Content="ITB_T" 
+                        Click="btn_ITB_T"
+                        Height="28" Width="60"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" 
+                        Margin="5"
+                        FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <Button Cursor="Hand" 
+                        Content="JTI_C"
+                        Click="btn_JTI_C" 
+                        Height="28"
+                        Width="60"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center" 
+                        Margin="5" 
+                        FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <Button Cursor="Hand"
+                        Content="JTI_T"
+                        Click="btn_JTI_T"
+                        Height="28" 
+                        Width="60"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center" 
+                        Margin="5"
+                        FontWeight="Bold" 
+                        FontStyle="Italic"/>
+
+                <Button Cursor="Hand" 
+                        Content="PMI_C"
+                        Click="btn_PMI_C" 
+                        Height="28" 
+                        Width="60"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"
+                        Margin="5" 
+                        FontWeight="Bold"
+                        FontStyle="Italic"/>
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition ></ColumnDefinition>
                 <ColumnDefinition ></ColumnDefinition>
                 <ColumnDefinition ></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
             <Grid Grid.Column="0">
                 <DataGrid x:Name="data_Ini"
                           FontWeight="Bold" 
