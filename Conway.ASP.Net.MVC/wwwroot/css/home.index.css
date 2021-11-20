@@ -1,0 +1,130 @@
+﻿.rows {
+    display: grid;
+    grid-template-rows: auto 45px 250px;
+}
+
+
+.row1 {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 5px;
+    height: auto;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.meubel-links {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border: solid;
+    margin:2px;
+    min-height: 400px;
+    max-height:auto;
+    min-width: 300px;
+    max-width: 900px;
+}
+
+    .meubel-links > .boven {
+        border: solid 1px;
+        min-height: 363px;
+    }
+
+    .meubel-links > .beneden {
+        border: solid 1px;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.meubel-midden {
+    display: grid;
+    min-width: 650px;
+    max-width:2000px;
+    width:auto;
+    grid-template-columns: repeat(20, 1fr);
+    border: solid;
+    margin: 2px;
+}
+
+    .meubel-midden > .boven {
+        border: solid 1px;
+        min-height: 100px;
+    }
+
+    .meubel-midden > .beneden {
+        border: solid 1px;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.meubel-rechts {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border: solid;
+    margin: 2px;
+    min-height: 400px;
+    min-width: 300px;
+    max-width: 900px;
+}
+
+    .meubel-rechts > .boven {
+        border: solid 1px;
+        min-height: 165px;
+    }
+
+    .meubel-rechts > .beneden {
+        border: solid 1px;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.info-kolom {
+    border: solid;
+    margin: 2px;
+    max-width: 500px;
+    min-width:240px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.row2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 5px;
+    max-height: 40px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.btn {
+    background-color: lightgrey;
+    margin: 1px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.import-export {
+    justify-content:left;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.fabrikanten {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.row3 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.my-custom-scrollbar {
+
+    overflow: auto;
+    min-width:500px;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+    margin: 5px;
+}
+
