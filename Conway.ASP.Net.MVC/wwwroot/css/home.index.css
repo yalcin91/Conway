@@ -1,6 +1,6 @@
 ﻿.rows {
     display: grid;
-    grid-template-rows: auto 45px 250px;
+    grid-template-rows: auto 45px minmax(250px, 34.5vh);
 }
 
 
@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
     padding: 5px;
-    height: auto;
+    height: 59vh;
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -18,18 +18,18 @@
     border: solid;
     margin:2px;
     min-height: 400px;
-    max-height:auto;
     min-width: 300px;
     max-width: 900px;
 }
 
     .meubel-links > .boven {
         border: solid 1px;
-        min-height: 363px;
+        height: 54.5vh;
     }
 
     .meubel-links > .beneden {
         border: solid 1px;
+        height: 3.6vh;
     }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -45,11 +45,12 @@
 
     .meubel-midden > .boven {
         border: solid 1px;
-        min-height: 100px;
+        height: 15.7vh;
     }
 
     .meubel-midden > .beneden {
         border: solid 1px;
+        height: 3.6vh;
     }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -58,18 +59,19 @@
     grid-template-columns: repeat(10, 1fr);
     border: solid;
     margin: 2px;
-    min-height: 400px;
+    height: 58.3vh;
     min-width: 300px;
     max-width: 900px;
 }
 
     .meubel-rechts > .boven {
         border: solid 1px;
-        min-height: 165px;
+        height: 25.3vh;
     }
 
     .meubel-rechts > .beneden {
         border: solid 1px;
+        height: 3.6vh;
     }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -77,7 +79,8 @@
     border: solid;
     margin: 2px;
     max-width: 500px;
-    min-width:240px;
+    min-width: 240px;
+    height: 58.3vh;
 }
 
 /*-------------------------------------------------------------------------------------------*/
