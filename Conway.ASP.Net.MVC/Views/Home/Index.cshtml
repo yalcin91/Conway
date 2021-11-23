@@ -4,9 +4,7 @@
 @model dynamic
 
 
-@{
-    ViewData["Title"] = "Home Page";
-}
+
 
 <link rel="stylesheet" href="~/css/home.index.css" />
 
@@ -212,43 +210,72 @@
             </div>
 
             <div class="info-kolom">
-
+                
             </div>
         </div>
 
         <div class="row2">
             <div class="import-export">
-                <button class="btn" id="btn-import">Import</button>
-                <button class="btn" id="btn-export">Export</button>
+                <form asp-controller="Home" asp-action="Test" enctype="multipart/form-data">
+                    <input class="btn"  type="file" name="file"/>
+                    <input type="submit" value="Upload" />
+                    @*<input class="btn" id="btn-export" value="Export" />*@
+                </form>
+                
             </div>
 
             <div class="fabrikanten">
-                <form>
-
+                @using (Html.BeginForm("Index", "Home"))
+                {
                     <button class="btn"
                             name="button"
                             id="btn-BAT_C"
-                            value="BAT_C"
-                            asp-action="Index">
+                            value="BAT_C">
                         BAT_C
                     </button>
 
                     <button class="btn"
                             name="button"
                             id="btn-BAT_T"
-                            value="BAT_T"
-                            asp-action="Index">
+                            value="BAT_T">
                         BAT_T
                     </button>
 
-                    <button class="btn" id="btn-ITB_C">ITB_C</button>
-                    <button class="btn" id="btn-ITB_T">ITB_T</button>
-                    <button class="btn" id="btn-JTI_C">JTI_C</button>
-                    <button class="btn" id="btn-JTI_T">JTI_T</button>
-                    <button class="btn" id="btn-PMI_C">PMI_C</button>
+                    <button class="btn" 
+                            name="button"
+                            id="btn-ITB_C"
+                            value="ITB_C">
+                        ITB_C
+                    </button>
 
+                    <button class="btn" 
+                            name="button"
+                            id="btn-ITB_T"
+                            value="ITB_T">
+                        ITB_T
+                    </button>
 
-                </form>
+                    <button class="btn" 
+                            name="button"
+                            id="btn-JTI_C"
+                            value="JTI_C">
+                         JTI_C
+                    </button>
+
+                    <button class="btn" 
+                            name="button"
+                            id="btn-JTI_T"
+                            value="JTI_T">
+                        JTI_T
+                    </button>
+
+                    <button class="btn" 
+                            name="button"
+                            id="btn-PMI_C"
+                            value="PMI_C">
+                        PMI_C
+                    </button>
+                }
             </div>
         </div>
 
@@ -272,7 +299,7 @@
                         </tr>
                     </thead>
                     <tbody class="tabel-prdocuten-body">
-                        @foreach (var item in Model.Product)
+                        @foreach (var item in Model.Ini)
                         {
                             <tr>
                                 <td>@item.Id</td>
@@ -349,7 +376,7 @@
                             <th>Color</th>
                         </tr>
                     </thead>
-                    <tbody class="tabel-fabrikanten-body">
+                    <tbody class="tabel-fabrikanten-body" name="">
                         @foreach (var item in Model.naamFabrikant)
                         {
                             <tr>

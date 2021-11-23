@@ -6,7 +6,7 @@
 
 .row1 {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: minmax(0px, 75vh) minmax(300px, 150vh) minmax(0px, 75vh) 35vh;
     padding: 5px;
     height: 59vh;
 }
@@ -16,10 +16,8 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     border: solid;
-    margin:2px;
-    min-height: 400px;
-    min-width: 300px;
-    max-width: 900px;
+    margin: 2px;
+    height: 58.3vh;
 }
 
     .meubel-links > .boven {
@@ -35,12 +33,10 @@
 /*-------------------------------------------------------------------------------------------*/
 .meubel-midden {
     display: grid;
-    min-width: 650px;
-    max-width:2000px;
-    width:auto;
     grid-template-columns: repeat(20, 1fr);
     border: solid;
     margin: 2px;
+    height: 58.3vh;
 }
 
     .meubel-midden > .boven {
@@ -60,8 +56,6 @@
     border: solid;
     margin: 2px;
     height: 58.3vh;
-    min-width: 300px;
-    max-width: 900px;
 }
 
     .meubel-rechts > .boven {
