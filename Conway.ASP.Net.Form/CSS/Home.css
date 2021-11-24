@@ -1,0 +1,125 @@
+﻿.rows {
+    display: grid;
+    grid-template-rows: auto 45px minmax(250px, 34.5vh);
+}
+
+
+.row1 {
+    display: grid;
+    grid-template-columns: minmax(0px, 75vh) minmax(300px, 150vh) minmax(0px, 75vh) 35vh;
+    padding: 5px;
+    height: 59vh;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.meubel-links {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border: solid;
+    margin: 2px;
+    height: 58.3vh;
+}
+
+    .meubel-links > .boven {
+        border: solid 1px;
+        height: 54.5vh;
+    }
+
+    .meubel-links > .beneden {
+        border: solid 1px;
+        height: 3.2vh;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.meubel-midden {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    border: solid;
+    margin: 2px;
+    height: 58.3vh;
+}
+
+    .meubel-midden > .boven {
+        border: solid 1px;
+        height: 15.7vh;
+    }
+
+    .meubel-midden > .beneden {
+        border: solid 1px;
+        height: 3.6vh;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.meubel-rechts {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border: solid;
+    margin: 2px;
+    height: 58.3vh;
+}
+
+    .meubel-rechts > .boven {
+        border: solid 1px;
+        height: 25.3vh;
+    }
+
+    .meubel-rechts > .beneden {
+        border: solid 1px;
+        height: 3.6vh;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.info-kolom {
+    border: solid;
+    margin: 2px;
+    max-width: 500px;
+    min-width: 240px;
+    height: 58.3vh;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.row2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 5px;
+    max-height: 40px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.btn {
+    background-color: lightgrey;
+    margin: 1px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.import-export {
+    justify-content: left;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.fabrikanten {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.row3 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.my-custom-scrollbar {
+    overflow: auto;
+    min-width: 500px;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+    margin: 5px;
+}

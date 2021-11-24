@@ -32,34 +32,47 @@ namespace Conway.ASP.Net.MVC.Controllers
         private List<JTI_Tabac> _JTI_Tabac;
         private List<PMI_Cigarette> _PMI_Cigaretten;
         private List<Product> _Ini;
+        //ProductModel productModel = new ProductModel();
 
         private IHostingEnvironment Environment;
 
         public HomeController(ILogger<HomeController> logger, IHostingEnvironment hostingEnvironment)
         {
             _logger = logger;
-            _Producten = new List<Product>();
-            _BAT_Cigaretten = new List<BAT_Cigarette>();
-            _BAT_Tabac = new List<BAT_Tabac>();
-            _ITB_Cigaretten = new List<ITB_Cigarette>();
-            _ITB_Tabac = new List<ITB_Tabac>();
-            _JTI_Cigaretten = new List<JTI_Cigarette>();
-            _JTI_Tabac = new List<JTI_Tabac>();
-            _PMI_Cigaretten = new List<PMI_Cigarette>();
-            _Ini = new List<Product>();
-
+            if (_Producten == null) { _Producten = new List<Product>(); }
+            if (_BAT_Cigaretten == null) { _BAT_Cigaretten = new List<BAT_Cigarette>(); }
+            if (_BAT_Tabac == null) { _BAT_Tabac = new List<BAT_Tabac>(); }
+            if (_ITB_Cigaretten == null) { _ITB_Cigaretten = new List<ITB_Cigarette>(); }
+            if (_ITB_Tabac == null) { _ITB_Tabac = new List<ITB_Tabac>(); }
+            if (_JTI_Cigaretten == null) { _JTI_Cigaretten = new List<JTI_Cigarette>(); }
+            if (_JTI_Tabac == null) { _JTI_Tabac = new List<JTI_Tabac>(); }
+            if (_PMI_Cigaretten == null) { _PMI_Cigaretten = new List<PMI_Cigarette>(); }
+            if (_Ini == null) { _Ini = new List<Product>(); }
+            //_Producten = new List<Product>();
+            //_BAT_Cigaretten = new List<BAT_Cigarette>();
+            //_BAT_Tabac = new List<BAT_Tabac>();
+            //_ITB_Cigaretten = new List<ITB_Cigarette>();
+            //_ITB_Tabac = new List<ITB_Tabac>();
+            //_JTI_Cigaretten = new List<JTI_Cigarette>();
+            //_JTI_Tabac = new List<JTI_Tabac>();
+            //_PMI_Cigaretten = new List<PMI_Cigarette>();
+            //_Ini = new List<Product>();
             Environment = hostingEnvironment;
         }
-
         
-        public async Task<ActionResult> Index(string button)
+        public async Task<ActionResult> Index(string button, ProductModel productModel1)
         {
-            Product product = new Product();
+            //ProductModel productModel = new ProductModel();
+            //Product product = new Product();
             //product = (List<Product>)TempData["product"];
             dynamic mymodel = new ExpandoObject();
             mymodel.Product = await GetProduct();
             //_Ini.Add(product);
-            mymodel.Ini = await Test();
+            //if (_Ini == null) { _Ini = new List<Product>(); }
+            //if (productModel == null ) { productModel = new ProductModel(); }
+            if (productModel1 == null) { productModel1 = new ProductModel(); }
+            var v = productModel1.GetProducts();
+            mymodel.Ini =  v;
 
             if (button == null)
             {
@@ -97,10 +110,14 @@ namespace Conway.ASP.Net.MVC.Controllers
             return View(mymodel);
         }
 
-        public async Task<List<Product>> Test(/*IFormFile file*/)
+
+        public async Task<ActionResult> Test(/*IFormFile file*/ProductModel productModel1)
         {
+            //var v = productModel.GetProducts();
+            //productModel = new ProductModel();
+            var v = productModel1.GetProducts();
             //_Ini = new List<Product>();
-            List<Product> product = new List<Product>();
+            //List<Product> product = new List<Product>();
 
             /*string wwwPath = this.Environment.WebRootPath;
             string contentPath = this.Environment.ContentRootPath;
@@ -186,7 +203,7 @@ namespace Conway.ASP.Net.MVC.Controllers
                                     //_Fabrikant.Add(fabrikant);
                                     index = data.Id.ToString();
                                     int indexx = int.Parse(index);
-                                    _Ini.Insert((indexx - 1), data);
+                                    v.Insert((indexx - 1), data);
                                     //Breedte_Berekenen_Verminderen(id);
                                     id++;
                                     ean = 0;
@@ -207,11 +224,12 @@ namespace Conway.ASP.Net.MVC.Controllers
                     //product = _Ini;
                     //TempData["_Ini"] = new ;
                     //TempData["product"] = product;
-                    product = _Ini;
+                    //product = _Ini;
                     reader.Close();
                 }
             }
-            return _Ini;
+            productModel1.SetProducts(v);
+            return RedirectToAction("Index", v);
         }
 
 
