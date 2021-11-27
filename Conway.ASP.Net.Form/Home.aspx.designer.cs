@@ -24,6 +24,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// clm_81 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_81;
+
+        /// <summary>
         /// lbl_81_Prix control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_81;
+
+        /// <summary>
+        /// clm_82 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_82;
 
         /// <summary>
         /// lbl_82_Prix control.
@@ -60,6 +78,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_82;
 
         /// <summary>
+        /// clm_83 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_83;
+
+        /// <summary>
         /// lbl_83_Prix control.
         /// </summary>
         /// <remarks>
@@ -76,6 +103,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_83;
+
+        /// <summary>
+        /// clm_84 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_84;
 
         /// <summary>
         /// lbl_84_Prix control.
@@ -96,6 +132,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_84;
 
         /// <summary>
+        /// clm_85 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_85;
+
+        /// <summary>
         /// lbl_85_Prix control.
         /// </summary>
         /// <remarks>
@@ -112,6 +157,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_85;
+
+        /// <summary>
+        /// clm_86 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_86;
 
         /// <summary>
         /// lbl_86_Prix control.
@@ -132,6 +186,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_86;
 
         /// <summary>
+        /// clm_87 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_87;
+
+        /// <summary>
         /// lbl_87_Prix control.
         /// </summary>
         /// <remarks>
@@ -148,6 +211,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_87;
+
+        /// <summary>
+        /// clm_88 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_88;
 
         /// <summary>
         /// lbl_88_Prix control.
@@ -168,6 +240,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_88;
 
         /// <summary>
+        /// clm_89 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_89;
+
+        /// <summary>
         /// lbl_89_Prix control.
         /// </summary>
         /// <remarks>
@@ -184,6 +265,24 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_89;
+
+        /// <summary>
+        /// clm_90 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_90;
+
+        /// <summary>
+        /// lbl_Breedte_Links control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Breedte_Links;
 
         /// <summary>
         /// lbl_90_Prix control.
@@ -204,6 +303,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_90;
 
         /// <summary>
+        /// clm_61 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_61;
+
+        /// <summary>
         /// lbl_61_Prix control.
         /// </summary>
         /// <remarks>
@@ -220,6 +328,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_61;
+
+        /// <summary>
+        /// clm_62 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_62;
 
         /// <summary>
         /// lbl_62_Prix control.
@@ -240,6 +357,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_62;
 
         /// <summary>
+        /// clm_63 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_63;
+
+        /// <summary>
         /// lbl_63_Prix control.
         /// </summary>
         /// <remarks>
@@ -256,6 +382,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_63;
+
+        /// <summary>
+        /// clm_64 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_64;
 
         /// <summary>
         /// lbl_64_Prix control.
@@ -276,6 +411,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_64;
 
         /// <summary>
+        /// clm_65 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_65;
+
+        /// <summary>
         /// lbl_65_Prix control.
         /// </summary>
         /// <remarks>
@@ -292,6 +436,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_65;
+
+        /// <summary>
+        /// clm_66 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_66;
 
         /// <summary>
         /// lbl_66_Prix control.
@@ -312,6 +465,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_66;
 
         /// <summary>
+        /// clm_67 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_67;
+
+        /// <summary>
         /// lbl_67_Prix control.
         /// </summary>
         /// <remarks>
@@ -328,6 +490,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_67;
+
+        /// <summary>
+        /// clm_68 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_68;
 
         /// <summary>
         /// lbl_68_Prix control.
@@ -348,6 +519,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_68;
 
         /// <summary>
+        /// clm_69 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_69;
+
+        /// <summary>
         /// lbl_69_Prix control.
         /// </summary>
         /// <remarks>
@@ -364,6 +544,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_69;
+
+        /// <summary>
+        /// clm_70 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_70;
 
         /// <summary>
         /// lbl_70_Prix control.
@@ -384,6 +573,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_70;
 
         /// <summary>
+        /// clm_71 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_71;
+
+        /// <summary>
         /// lbl_71_Prix control.
         /// </summary>
         /// <remarks>
@@ -400,6 +598,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_71;
+
+        /// <summary>
+        /// clm_72 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_72;
 
         /// <summary>
         /// lbl_72_Prix control.
@@ -420,6 +627,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_72;
 
         /// <summary>
+        /// clm_73 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_73;
+
+        /// <summary>
         /// lbl_73_Prix control.
         /// </summary>
         /// <remarks>
@@ -436,6 +652,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_73;
+
+        /// <summary>
+        /// clm_74 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_74;
 
         /// <summary>
         /// lbl_74_Prix control.
@@ -456,6 +681,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_74;
 
         /// <summary>
+        /// clm_75 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_75;
+
+        /// <summary>
         /// lbl_75_Prix control.
         /// </summary>
         /// <remarks>
@@ -472,6 +706,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_75;
+
+        /// <summary>
+        /// clm_76 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_76;
 
         /// <summary>
         /// lbl_76_Prix control.
@@ -492,6 +735,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_76;
 
         /// <summary>
+        /// clm_77 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_77;
+
+        /// <summary>
         /// lbl_77_Prix control.
         /// </summary>
         /// <remarks>
@@ -508,6 +760,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_77;
+
+        /// <summary>
+        /// clm_78 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_78;
 
         /// <summary>
         /// lbl_78_Prix control.
@@ -528,6 +789,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_78;
 
         /// <summary>
+        /// clm_79 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_79;
+
+        /// <summary>
         /// lbl_79_Prix control.
         /// </summary>
         /// <remarks>
@@ -544,6 +814,24 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_79;
+
+        /// <summary>
+        /// clm_80 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_80;
+
+        /// <summary>
+        /// lbl_Breedte_Midden_Boven control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Breedte_Midden_Boven;
 
         /// <summary>
         /// lbl_80_Prix control.
@@ -564,6 +852,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_80;
 
         /// <summary>
+        /// clm_41 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_41;
+
+        /// <summary>
         /// lbl_41_Prix control.
         /// </summary>
         /// <remarks>
@@ -580,6 +877,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_41;
+
+        /// <summary>
+        /// clm_42 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_42;
 
         /// <summary>
         /// lbl_42_Prix control.
@@ -600,6 +906,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_42;
 
         /// <summary>
+        /// clm_43 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_43;
+
+        /// <summary>
         /// lbl_43_Prix control.
         /// </summary>
         /// <remarks>
@@ -616,6 +931,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_43;
+
+        /// <summary>
+        /// clm_44 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_44;
 
         /// <summary>
         /// lbl_44_Prix control.
@@ -636,6 +960,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_44;
 
         /// <summary>
+        /// clm_45 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_45;
+
+        /// <summary>
         /// lbl_45_Prix control.
         /// </summary>
         /// <remarks>
@@ -652,6 +985,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_45;
+
+        /// <summary>
+        /// clm_46 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_46;
 
         /// <summary>
         /// lbl_46_Prix control.
@@ -672,6 +1014,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_46;
 
         /// <summary>
+        /// clm_47 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_47;
+
+        /// <summary>
         /// lbl_47_Prix control.
         /// </summary>
         /// <remarks>
@@ -688,6 +1039,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_47;
+
+        /// <summary>
+        /// clm_48 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_48;
 
         /// <summary>
         /// lbl_48_Prix control.
@@ -708,6 +1068,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_48;
 
         /// <summary>
+        /// clm_49 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_49;
+
+        /// <summary>
         /// lbl_49_Prix control.
         /// </summary>
         /// <remarks>
@@ -724,6 +1093,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_49;
+
+        /// <summary>
+        /// clm_50 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_50;
 
         /// <summary>
         /// lbl_50_Prix control.
@@ -744,6 +1122,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_50;
 
         /// <summary>
+        /// clm_51 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_51;
+
+        /// <summary>
         /// lbl_51_Prix control.
         /// </summary>
         /// <remarks>
@@ -760,6 +1147,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_51;
+
+        /// <summary>
+        /// clm_52 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_52;
 
         /// <summary>
         /// lbl_52_Prix control.
@@ -780,6 +1176,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_52;
 
         /// <summary>
+        /// clm_53 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_53;
+
+        /// <summary>
         /// lbl_53_Prix control.
         /// </summary>
         /// <remarks>
@@ -796,6 +1201,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_53;
+
+        /// <summary>
+        /// clm_54 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_54;
 
         /// <summary>
         /// lbl_54_Prix control.
@@ -816,6 +1230,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_54;
 
         /// <summary>
+        /// clm_55 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_55;
+
+        /// <summary>
         /// lbl_55_Prix control.
         /// </summary>
         /// <remarks>
@@ -832,6 +1255,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_55;
+
+        /// <summary>
+        /// clm_56 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_56;
 
         /// <summary>
         /// lbl_56_Prix control.
@@ -852,6 +1284,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_56;
 
         /// <summary>
+        /// clm_57 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_57;
+
+        /// <summary>
         /// lbl_57_Prix control.
         /// </summary>
         /// <remarks>
@@ -868,6 +1309,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_57;
+
+        /// <summary>
+        /// clm_58 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_58;
 
         /// <summary>
         /// lbl_58_Prix control.
@@ -888,6 +1338,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_58;
 
         /// <summary>
+        /// clm_59 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_59;
+
+        /// <summary>
         /// lbl_59_Prix control.
         /// </summary>
         /// <remarks>
@@ -904,6 +1363,24 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_59;
+
+        /// <summary>
+        /// clm_60 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_60;
+
+        /// <summary>
+        /// lbl_Breedte_Midden_Midden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Breedte_Midden_Midden;
 
         /// <summary>
         /// lbl_60_Prix control.
@@ -924,6 +1401,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_60;
 
         /// <summary>
+        /// clm_21 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_21;
+
+        /// <summary>
         /// lbl_21_Prix control.
         /// </summary>
         /// <remarks>
@@ -940,6 +1426,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_21;
+
+        /// <summary>
+        /// clm_22 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_22;
 
         /// <summary>
         /// lbl_22_Prix control.
@@ -960,6 +1455,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_22;
 
         /// <summary>
+        /// clm_23 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_23;
+
+        /// <summary>
         /// lbl_23_Prix control.
         /// </summary>
         /// <remarks>
@@ -976,6 +1480,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_23;
+
+        /// <summary>
+        /// clm_24 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_24;
 
         /// <summary>
         /// lbl_24_Prix control.
@@ -996,6 +1509,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_24;
 
         /// <summary>
+        /// clm_25 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_25;
+
+        /// <summary>
         /// lbl_25_Prix control.
         /// </summary>
         /// <remarks>
@@ -1012,6 +1534,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_25;
+
+        /// <summary>
+        /// clm_26 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_26;
 
         /// <summary>
         /// lbl_26_Prix control.
@@ -1032,6 +1563,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_26;
 
         /// <summary>
+        /// clm_27 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_27;
+
+        /// <summary>
         /// lbl_27_Prix control.
         /// </summary>
         /// <remarks>
@@ -1048,6 +1588,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_27;
+
+        /// <summary>
+        /// clm_28 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_28;
 
         /// <summary>
         /// lbl_28_Prix control.
@@ -1068,6 +1617,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_28;
 
         /// <summary>
+        /// clm_29 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_29;
+
+        /// <summary>
         /// lbl_29_Prix control.
         /// </summary>
         /// <remarks>
@@ -1084,6 +1642,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_29;
+
+        /// <summary>
+        /// clm_30 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_30;
 
         /// <summary>
         /// lbl_30_Prix control.
@@ -1104,6 +1671,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_30;
 
         /// <summary>
+        /// clm_31 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_31;
+
+        /// <summary>
         /// lbl_31_Prix control.
         /// </summary>
         /// <remarks>
@@ -1120,6 +1696,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_31;
+
+        /// <summary>
+        /// clm_32 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_32;
 
         /// <summary>
         /// lbl_32_Prix control.
@@ -1140,6 +1725,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_32;
 
         /// <summary>
+        /// clm_33 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_33;
+
+        /// <summary>
         /// lbl_33_Prix control.
         /// </summary>
         /// <remarks>
@@ -1156,6 +1750,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_33;
+
+        /// <summary>
+        /// clm_34 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_34;
 
         /// <summary>
         /// lbl_34_Prix control.
@@ -1176,6 +1779,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_34;
 
         /// <summary>
+        /// clm_35 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_35;
+
+        /// <summary>
         /// lbl_35_Prix control.
         /// </summary>
         /// <remarks>
@@ -1192,6 +1804,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_35;
+
+        /// <summary>
+        /// clm_36 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_36;
 
         /// <summary>
         /// lbl_36_Prix control.
@@ -1212,6 +1833,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_36;
 
         /// <summary>
+        /// clm_37 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_37;
+
+        /// <summary>
         /// lbl_37_Prix control.
         /// </summary>
         /// <remarks>
@@ -1228,6 +1858,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_37;
+
+        /// <summary>
+        /// clm_38 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_38;
 
         /// <summary>
         /// lbl_38_Prix control.
@@ -1248,6 +1887,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_38;
 
         /// <summary>
+        /// clm_39 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_39;
+
+        /// <summary>
         /// lbl_39_Prix control.
         /// </summary>
         /// <remarks>
@@ -1264,6 +1912,24 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_39;
+
+        /// <summary>
+        /// clm_40 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_40;
+
+        /// <summary>
+        /// lbl_Breedte_Midden_Beneden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Breedte_Midden_Beneden;
 
         /// <summary>
         /// lbl_40_Prix control.
@@ -1284,6 +1950,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_40;
 
         /// <summary>
+        /// clm_11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_11;
+
+        /// <summary>
         /// lbl_11_Prix control.
         /// </summary>
         /// <remarks>
@@ -1300,6 +1975,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_11;
+
+        /// <summary>
+        /// clm_12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_12;
 
         /// <summary>
         /// lbl_12_Prix control.
@@ -1320,6 +2004,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_12;
 
         /// <summary>
+        /// clm_13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_13;
+
+        /// <summary>
         /// lbl_13_Prix control.
         /// </summary>
         /// <remarks>
@@ -1336,6 +2029,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_13;
+
+        /// <summary>
+        /// clm_14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_14;
 
         /// <summary>
         /// lbl_14_Prix control.
@@ -1356,6 +2058,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_14;
 
         /// <summary>
+        /// clm_15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_15;
+
+        /// <summary>
         /// lbl_15_Prix control.
         /// </summary>
         /// <remarks>
@@ -1372,6 +2083,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_15;
+
+        /// <summary>
+        /// clm_16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_16;
 
         /// <summary>
         /// lbl_16_Prix control.
@@ -1392,6 +2112,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_16;
 
         /// <summary>
+        /// clm_17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_17;
+
+        /// <summary>
         /// lbl_17_Prix control.
         /// </summary>
         /// <remarks>
@@ -1408,6 +2137,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_17;
+
+        /// <summary>
+        /// clm_18 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_18;
 
         /// <summary>
         /// lbl_18_Prix control.
@@ -1428,6 +2166,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_18;
 
         /// <summary>
+        /// clm_19 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_19;
+
+        /// <summary>
         /// lbl_19_Prix control.
         /// </summary>
         /// <remarks>
@@ -1444,6 +2191,24 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_19;
+
+        /// <summary>
+        /// clm_20 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_20;
+
+        /// <summary>
+        /// lbl_Breedte_Rechts_Boven control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Breedte_Rechts_Boven;
 
         /// <summary>
         /// lbl_20_Prix control.
@@ -1464,6 +2229,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_20;
 
         /// <summary>
+        /// clm_1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_1;
+
+        /// <summary>
         /// lbl_1_Prix control.
         /// </summary>
         /// <remarks>
@@ -1480,6 +2254,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_1;
+
+        /// <summary>
+        /// clm_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_2;
 
         /// <summary>
         /// lbl_2_Prix control.
@@ -1500,6 +2283,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_2;
 
         /// <summary>
+        /// clm_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_3;
+
+        /// <summary>
         /// lbl_3_Prix control.
         /// </summary>
         /// <remarks>
@@ -1516,6 +2308,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_3;
+
+        /// <summary>
+        /// clm_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_4;
 
         /// <summary>
         /// lbl_4_Prix control.
@@ -1536,6 +2337,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_4;
 
         /// <summary>
+        /// clm_5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_5;
+
+        /// <summary>
         /// lbl_5_Prix control.
         /// </summary>
         /// <remarks>
@@ -1552,6 +2362,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_5;
+
+        /// <summary>
+        /// clm_6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_6;
 
         /// <summary>
         /// lbl_6_Prix control.
@@ -1572,6 +2391,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_6;
 
         /// <summary>
+        /// clm_7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_7;
+
+        /// <summary>
         /// lbl_7_Prix control.
         /// </summary>
         /// <remarks>
@@ -1588,6 +2416,15 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_7;
+
+        /// <summary>
+        /// clm_8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_8;
 
         /// <summary>
         /// lbl_8_Prix control.
@@ -1608,6 +2445,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_8;
 
         /// <summary>
+        /// clm_9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_9;
+
+        /// <summary>
         /// lbl_9_Prix control.
         /// </summary>
         /// <remarks>
@@ -1624,6 +2470,24 @@ namespace Conway.ASP.Net.Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_9;
+
+        /// <summary>
+        /// clm_10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel clm_10;
+
+        /// <summary>
+        /// lbl_Breedte_Rechts_Beneden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Breedte_Rechts_Beneden;
 
         /// <summary>
         /// lbl_10_Prix control.
@@ -1680,6 +2544,15 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.Label lbl_PMI;
 
         /// <summary>
+        /// lbl_NietActief control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_NietActief;
+
+        /// <summary>
         /// btn_import control.
         /// </summary>
         /// <remarks>
@@ -1698,67 +2571,67 @@ namespace Conway.ASP.Net.Form
         protected global::System.Web.UI.WebControls.TextBox txtID;
 
         /// <summary>
-        /// btn_BAT_C control.
+        /// btn_BAT_Cc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_BAT_C;
+        protected global::System.Web.UI.WebControls.Button btn_BAT_Cc;
 
         /// <summary>
-        /// btn_BAT_T control.
+        /// btn_BAT_Tt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_BAT_T;
+        protected global::System.Web.UI.WebControls.Button btn_BAT_Tt;
 
         /// <summary>
-        /// btn_ITB_C control.
+        /// btn_ITB_Cc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_ITB_C;
+        protected global::System.Web.UI.WebControls.Button btn_ITB_Cc;
 
         /// <summary>
-        /// btn_ITB_T control.
+        /// btn_ITB_Tt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_ITB_T;
+        protected global::System.Web.UI.WebControls.Button btn_ITB_Tt;
 
         /// <summary>
-        /// btn_JTI_C control.
+        /// btn_JTI_Cc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_JTI_C;
+        protected global::System.Web.UI.WebControls.Button btn_JTI_Cc;
 
         /// <summary>
-        /// btn_JTI_T control.
+        /// btn_JTI_Tt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_JTI_T;
+        protected global::System.Web.UI.WebControls.Button btn_JTI_Tt;
 
         /// <summary>
-        /// btn_PMI_C control.
+        /// btn_PMI_Cc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_PMI_C;
+        protected global::System.Web.UI.WebControls.Button btn_PMI_Cc;
 
         /// <summary>
         /// data_Ini control.

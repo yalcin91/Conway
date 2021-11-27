@@ -7,6 +7,7 @@ using System.Web;
 
 namespace Conway.ASP.Net.Form.Models.Model
 {
+    [Serializable]
     public class Product
     {
         #region CTR
