@@ -412,6 +412,13 @@ namespace Conway.ASP.Net.Form
                 lbl_Breedte_Midden_Midden.BackColor = System.Drawing.Color.Green;
                 lbl_Breedte_Midden_Beneden.BackColor = System.Drawing.Color.Green;
 
+                lbl_Breedte_Links.ForeColor = System.Drawing.Color.White;
+                lbl_Breedte_Rechts_Boven.ForeColor = System.Drawing.Color.White;
+                lbl_Breedte_Rechts_Beneden.ForeColor = System.Drawing.Color.White;
+                lbl_Breedte_Midden_Boven.ForeColor = System.Drawing.Color.White;
+                lbl_Breedte_Midden_Midden.ForeColor = System.Drawing.Color.White;
+                lbl_Breedte_Midden_Beneden.ForeColor = System.Drawing.Color.White;
+
                 foreach (var elementen in _lbl_Grids)
                 {
                     elementen.Text = "";
@@ -775,6 +782,7 @@ namespace Conway.ASP.Net.Form
         {
             ObservableCollection<Product> _Ini = new ObservableCollection<Product>();
             _Ini = (ObservableCollection<Product>)ViewState["_Ini"];
+            if (_Ini == null) { return; }
             for (int m = 0; m < _Ini.Count; m++)
             {
                 if (_Ini[m].Fabrikant == fabrikant)

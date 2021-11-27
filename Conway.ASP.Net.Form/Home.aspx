@@ -464,7 +464,8 @@
                             class="btnf"
                             ID="btn_import"
                             runat="server"
-                            Text="Import" />
+                            Text="Import" 
+                            accept=".ini"/>
 
                         <asp:Button
                             Text="Upload"
