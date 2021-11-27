@@ -1,0 +1,250 @@
+﻿.rows {
+    display: grid;
+    grid-template-rows: auto auto 24vh;
+}
+
+
+.row1 {
+    display: grid;
+    grid-template-columns: 45vh minmax(270px, 200vh) 45vh 33vh;
+    padding: 5px;
+    height: 59vh;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.textVerticalLinks {
+    font-weight: bold;
+    font-size: 2.3vh;
+    margin-bottom: 15vh;
+    width: 4.1vh;
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    height: 90% ;
+}
+.textVerticalLinkseuro {
+    margin-top: 3vh;
+    display: block;
+    font-size: 1.4vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.textVerticalRechts {
+    font-weight: bold;
+    font-size: 1.3vh;
+    margin-top: 2.2vh;
+    width: 4.1vh;
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    height: 74%;
+}
+.textVerticalRechtseuro {
+    margin-top: 3vh;
+    display: block;
+    font-size: 1.4vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.textVerticalMiddenBoven {
+    font-weight: bold;
+    font-size: 1.1vh;
+    width: 3vh;
+    margin-top: 0.1vh;
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    height: 72%;
+}
+.textVerticalMiddenBoveneuro {
+    margin-top: 2vh;
+    display: block;
+    font-size: 1.4vh;
+    text-align: center;
+}
+/*-------------------------------------------------------------------------------------------*/
+.meubel-links {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border: solid;
+    margin: 2px;
+    height: 67.3vh;
+}
+
+    .meubel-links > .boven {
+        border: solid 1px;
+        height: 63.4vh;
+    }
+
+    .meubel-links > .beneden {
+        border: solid 1px;
+        height: 3.2vh;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.meubel-midden {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    border: solid;
+    margin: 2px;
+    height: 67.3vh;
+}
+
+    .meubel-midden > .boven {
+        border: solid 1px;
+        height: 18.7vh;
+    }
+
+    .meubel-midden > .beneden {
+        border: solid 1px;
+        height: 3.6vh;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.meubel-rechts {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border: solid;
+    margin: 2px;
+    height: 67.3vh;
+}
+
+    .meubel-rechts > .boven {
+        border: solid 1px;
+        height: 29.9vh;
+    }
+
+    .meubel-rechts > .beneden {
+        border: solid 1px;
+        height: 3.6vh;
+    }
+
+/*-------------------------------------------------------------------------------------------*/
+.info-kolom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: solid;
+    margin: 1px;
+    width: 32vh;
+    height: 67.3vh;
+}
+.infoKolom1 {
+    margin: 5px;
+}
+
+.infoKolom2 {
+    margin: 5px;
+}
+
+.btn_Producten {
+    margin-bottom:1vh;
+}
+
+.btn_Assortiment {
+}
+
+.btn_NietActief{
+    background-color: red;
+    margin-bottom:5px;
+    margin-top:5px;
+}
+
+.btn_20 {
+    background-color: Aqua;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.btn_21-46 {
+    background-color: Orange;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.btn_47-60 {
+    background-color: SaddleBrown;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.textPass {
+        width: 16.3vh;
+        margin: 1px;
+}
+
+.infoFabrikantLabel{
+    margin-top:50px;
+    font-weight:bolder;
+    font-size:3.5vh;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+.roww2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 5px;
+    margin-top: 10vh;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.searchText{
+    justify-content:right;
+    border-block-color:red;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.btnf {
+    margin:1px;
+    height: 30px;
+    background-color: lightgrey;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.btn {
+    background-color: lightgrey;
+    margin: 1px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.import-export {
+    justify-content: left;
+    margin: 1px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+.fabrikanten {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+.row3 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-top:1vh;
+}
+
+.my-custom-scrollbar {
+    overflow: auto;
+    min-width: 500px;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+    margin: 5px;
+}
+
+.sortTable{
+    
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/

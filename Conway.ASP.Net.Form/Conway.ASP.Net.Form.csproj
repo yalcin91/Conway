@@ -137,7 +137,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\Home.css" />
+    <Content Include="CSS\Home2.css" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
