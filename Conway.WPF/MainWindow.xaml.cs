@@ -388,24 +388,40 @@ namespace Conway.WPF
                                     if (j <= 1056)
                                     {
                                         description = _VolledigString[j].Remove(0, (min + 1));
-                                        ean = long.Parse(_VolledigString[(j + 1)]);
+                                        if (j <= 991)
+                                        {
+                                            if (Char.IsNumber(_VolledigString[(j + 1)].First()))
+                                            {
+                                                ean = long.Parse(_VolledigString[(j + 1)]);
+                                            }
+                                        }
                                         //var money = "";
                                         if (j <= 1055)
                                         {
-                                            qt = _VolledigString[(j + 6)];
+                                            if (j <= 988)
+                                            {
+                                                qt = _VolledigString[(j + 6)];
+                                            }
                                         }
                                         if (j <= 1053)
                                         {
                                             //money = prix.ToString();
-                                            if (_VolledigString[j + 8].First() == '0') { prix = _VolledigString[(j + 8)].Remove(0, 1); }
-                                            else { prix = _VolledigString[(j + 8)]; }
+                                            if (j <= 986)
+                                            {
+                                                if (_VolledigString[j + 8].First() == '0') { prix = _VolledigString[(j + 8)].Remove(0, 1); }
+                                                else { prix = _VolledigString[(j + 8)]; }
+                                            }
                                         }
                                         for (int i = 0; i < _Producten.Count; i++)
                                         {
                                             if (_Producten[i].Eancode == ean) { fabrikant = _Producten[i].Fabrikant; activatie = _Producten[i].Activatie; hoogte = _Producten[i].Hoogte; breedte = _Producten[i].Breedte; inhoud = _Producten[i].Inhoud; }
                                         }
                                         string exampleTrimmed = String.Concat(fabrikant.Where(c => !Char.IsWhiteSpace(c)));
-                                        double prix2 = double.Parse(prix, System.Globalization.CultureInfo.InvariantCulture);
+                                        double prix2 = 0;
+                                        if (prix != "")
+                                        {
+                                            prix2 = double.Parse(prix, System.Globalization.CultureInfo.InvariantCulture);
+                                        }
                                         var data = new Product(id, description, activatie, fabrikant, hoogte, breedte, 0, inhoud, ean, prix2);
                                         CheckFabrikantAantal(fabrikant);
                                         CheckAantalNietActief(activatie);
